@@ -1,0 +1,183 @@
+# Copyright (C) 2023 Seller Verification
+# This file is distributed under the same license as the Seller Verification package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Seller Verification\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-07-05 09:58+0000\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../inc/init.php:78, ../inc/init.php:134
+msgid "Are You sure to delete?"
+msgstr ""
+
+#: ../inc/init.php:79, ../inc/init.php:135, ../inc/admin/RtclSellerAdminActionHooks.php:84, ../templates/myaccount/my-documents.php:68
+msgid "Remove"
+msgstr ""
+
+#: ../inc/init.php:80, ../inc/init.php:136, ../inc/admin/RtclSellerAdminActionHooks.php:78, ../templates/myaccount/my-documents.php:62
+msgid "Download"
+msgstr ""
+
+#: ../inc/init.php:81, ../inc/init.php:137
+msgid "Error while upload image"
+msgstr ""
+
+#: ../inc/init.php:82, ../inc/init.php:138
+msgid "Image size is more then %s."
+msgstr ""
+
+#: ../inc/init.php:83, ../inc/init.php:139
+msgid "File size is more then %s."
+msgstr ""
+
+#: ../inc/init.php:84, ../inc/init.php:140
+msgid "File extension not supported."
+msgstr ""
+
+#: ../inc/init.php:85, ../inc/init.php:141
+msgid "Server Error."
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:33, ../inc/emails/RtclSellerDocumentEmail.php:33
+msgid "Seller Documents"
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:37, ../inc/helpers/functions.php:115
+msgid "Photo Id"
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:43, ../templates/myaccount/my-documents.php:27
+msgid "Add Photo"
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:44, ../templates/myaccount/my-documents.php:28
+msgid "Delete Photo"
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:54, ../templates/myaccount/my-documents.php:39
+msgid "Maximum file size %s, Allowed image type (%s)"
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:63, ../templates/myaccount/my-documents.php:48
+msgid "Other Document"
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:70, ../templates/myaccount/my-documents.php:54
+msgid "Upload File"
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:93, ../templates/myaccount/my-documents.php:78
+msgid "Maximum file size %s, only pdf file allowed."
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:102, ../inc/helpers/functions.php:102
+msgid "Verified"
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:107
+msgid "Verify the seller"
+msgstr ""
+
+#: ../inc/admin/RtclSellerAdminActionHooks.php:132
+msgid "Document Status"
+msgstr ""
+
+#: ../inc/emails/RtclSellerDocumentEmail.php:24
+msgid "[{site_title}] Seller Documents"
+msgstr ""
+
+#: ../inc/helpers/functions.php:105
+msgid "Submitted"
+msgstr ""
+
+#: ../inc/helpers/functions.php:108
+msgid "---"
+msgstr ""
+
+#: ../inc/helpers/functions.php:118
+msgid "Business File"
+msgstr ""
+
+#: ../inc/helpers/functions.php:126
+msgid "An error to send mail!"
+msgstr ""
+
+#: ../inc/hooks/RtclSellerActionHooks.php:26, ../inc/hooks/RtclSellerActionHooks.php:48
+msgid "Verified Seller"
+msgstr ""
+
+#: ../inc/hooks/RtclSellerAjaxHooks.php:75
+msgid "Photo ID should be selected"
+msgstr ""
+
+#: ../inc/hooks/RtclSellerAjaxHooks.php:63, ../inc/hooks/RtclSellerAjaxHooks.php:161
+msgid "Successfully updated."
+msgstr ""
+
+#: ../inc/hooks/RtclSellerAjaxHooks.php:101
+msgid "No photo found to remove"
+msgstr ""
+
+#: ../inc/hooks/RtclSellerAjaxHooks.php:98, ../inc/hooks/RtclSellerAjaxHooks.php:196
+msgid "File could not be deleted."
+msgstr ""
+
+#: ../inc/hooks/RtclSellerAjaxHooks.php:96, ../inc/hooks/RtclSellerAjaxHooks.php:194
+msgid "Successfully deleted"
+msgstr ""
+
+#: ../inc/hooks/RtclSellerAjaxHooks.php:173
+msgid "Other document should be selected."
+msgstr ""
+
+#: ../inc/hooks/RtclSellerAjaxHooks.php:199
+msgid "No document found to remove"
+msgstr ""
+
+#: ../inc/hooks/RtclSellerFilterHooks.php:24, ../inc/hooks/RtclSellerFilterHooks.php:40
+msgid "My Documents"
+msgstr ""
+
+#: ../inc/hooks/RtclSellerFilterHooks.php:61
+msgid "Seller Verification Color"
+msgstr ""
+
+#: ../inc/hooks/RtclSellerFilterHooks.php:69
+msgid "Seller Verification - Photo ID Uploaded"
+msgstr ""
+
+#: ../inc/hooks/RtclSellerFilterHooks.php:70
+msgid "Seller Verification - Business Document Uploaded"
+msgstr ""
+
+#: ../inc/hooks/RtclSellerFilterHooks.php:86
+msgid "Seller Verification license key"
+msgstr ""
+
+#: ../inc/api/v1/RtclRestApiSellerVerificationV1.php:31
+msgid "parameter image file field is required."
+msgstr ""
+
+#: ../inc/api/v1/RtclRestApiSellerVerificationV1.php:53
+msgid "parameter other file field is required."
+msgstr ""
+
+#: ../templates/emails/seller-document-email.php:20
+msgid "Hi Administrator,"
+msgstr ""
+
+#: ../templates/emails/seller-document-email.php:21
+msgid "You have received document(%s) from <strong>%s</strong>."
+msgstr ""
+
+#: ../templates/myaccount/my-documents.php:22
+msgid "Photo ID"
+msgstr ""

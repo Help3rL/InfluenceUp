@@ -1,0 +1,175 @@
+# Copyright (C) 2023 BuddyPress Integration Addon
+# This file is distributed under the same license as the BuddyPress Integration Addon package.
+msgid ""
+msgstr ""
+"Project-Id-Version: BuddyPress Integration Addon\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-02-07 09:02+0000\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../app/Controllers/Ajax.php:42
+msgid "Share "
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:48, ../app/Controllers/Ajax.php:110
+msgid "Session Expired..."
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:58
+msgid "Default"
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:59
+msgid "Share with Custom Text"
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:61
+msgid "Custom text field"
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:63
+msgid "Share as"
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:64
+msgid "Site-Wide Activity"
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:68, ../app/Controllers/Hooks/FilterHooks.php:121
+msgid "Social Share"
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:87
+msgid "The activity has been Shared."
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:166
+msgid "%1$s shared %2$s's update in the group %3$s"
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:164
+msgid "%1$s shared an update in the group %2$s"
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:142
+msgid "%1$s shared an update"
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:213
+msgid "There is an error when sharing this update. Please refresh page and try again."
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:209
+msgid "An update shared successfully."
+msgstr ""
+
+#: ../app/Controllers/Ajax.php:219
+msgid "Done..."
+msgstr ""
+
+#: ../app/Controllers/Scripts.php:63
+msgid "Loading"
+msgstr ""
+
+#: ../app/Helpers/Fns.php:50
+msgid "Groups"
+msgstr ""
+
+#: ../app/Traits/SingletonTrait.php:38, ../app/Traits/SingletonTrait.php:45
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: ../app/Controllers/Admin/AdminNotices.php:110
+msgid "and"
+msgstr ""
+
+#: ../app/Controllers/Hooks/ActionsHooks.php:73, ../app/Controllers/Hooks/ActionsHooks.php:137
+msgid "Listings"
+msgstr ""
+
+#: ../app/Controllers/Hooks/ActionsHooks.php:85
+msgid "Membership Report"
+msgstr ""
+
+#: ../app/Controllers/Hooks/ActionsHooks.php:136
+msgid "New Listing published"
+msgstr ""
+
+#: ../app/Controllers/Hooks/ActionsHooks.php:138
+msgid "%1$s posted a new <a href=\"%2$s\">Listing</a>"
+msgstr ""
+
+#: ../app/Controllers/Hooks/ActionsHooks.php:139
+msgid "%1$s posted a new <a href=\"%2$s\">Listing</a>, on the site %3$s"
+msgstr ""
+
+#: ../app/Controllers/Hooks/ActionsHooks.php:241
+msgid "Share this Listing"
+msgstr ""
+
+#: ../app/Controllers/Hooks/ActionsHooks.php:241
+msgid "Share"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:67
+msgid "BuddyPress Integration  plugin license key"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:86
+msgid "Post listing in activity"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:89
+msgid "Immediately will post listing in activity"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:92
+msgid "Listing activity default content"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:94, ../app/Controllers/Hooks/FilterHooks.php:185
+msgid "New Listing Publish"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:106
+msgid "Activity listing view"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:110
+msgid "Grid"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:111
+msgid "List"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:115
+msgid "Activity Share"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:118
+msgid "Listing Share as activity"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:124
+msgid "Listing Social Share"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:135
+msgid "Redirect To BuddyPress Profile dashboard"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:138
+msgid "Clasified listing Myaccount Related URl will redirect To BuddyPress dashboard"
+msgstr ""
+
+#: ../app/Controllers/Hooks/FilterHooks.php:152
+msgid "BuddyPress"
+msgstr ""

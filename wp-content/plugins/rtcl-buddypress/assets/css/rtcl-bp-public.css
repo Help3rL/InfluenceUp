@@ -1,0 +1,242 @@
+.rtcl .badge {
+  width: initial;
+}
+
+.rtcl .page-link span {
+  padding: 0 !important;
+  background: transparent;
+}
+.rtcl .page-link span:hover {
+  background-color: transparent !important;
+}
+
+.profile-item-body select.form-control {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.profile-item-body .rtcl-listing-info-selecting {
+  margin-top: 35px;
+}
+
+#buddypress .hide {
+  display: none;
+}
+#buddypress .rtcl-listings .listing-title {
+  margin-top: 0;
+}
+
+#activity-stream.item-list .listing-title {
+  font-size: 25px;
+  margin: 0 0 10px 0;
+  width: 100%;
+}
+#activity-stream.item-list .listing-title a {
+  text-decoration: none;
+}
+#activity-stream.item-list .bd-press-listing-wraper a {
+  display: inline-block;
+}
+#activity-stream.item-list .listing-thumb {
+  margin-bottom: 10px;
+}
+#activity-stream.item-list .badge {
+  border-radius: 0.25rem;
+  display: inline-block;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.25em 0.4em;
+  text-align: center;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+#activity-stream.item-list .listing-meta {
+  margin: 0 0 5px;
+  padding: 0;
+  gap: 5px 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#activity-stream.item-list .listing-meta li {
+  border: none;
+  padding: 0;
+}
+#activity-stream .activity-meta a {
+  display: inline-flex;
+  align-items: center;
+}
+#activity-stream .rtcl-inline-element {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+#activity-stream .rtcl-inline-element a {
+  margin: 0;
+}
+#activity-stream .rtcl-inline-element.hide {
+  display: none;
+}
+#activity-stream .rtcl-inline-element span {
+  display: block;
+  cursor: pointer;
+}
+#activity-stream .rtcl-activity-share-custom {
+  margin-top: 8px;
+}
+#activity-stream .rtcl-inline-element {
+  margin-top: 0;
+}
+#activity-stream .activity-meta a,
+#activity-stream .rtcl-bp-custom-share-options,
+#activity-stream .rtcl-share-options {
+  height: 40px;
+  padding: 4px 8px;
+  box-sizing: border-box;
+}
+#activity-stream .rtcl-bp-custom-share-options,
+#activity-stream .rtcl-share-options {
+  flex: 1;
+}
+#activity-stream textarea.rtcl-bp-custom-text {
+  width: 100%;
+  min-height: 80px;
+}
+
+#activity-stream .rtcl-bp-shared-content {
+  margin-bottom: 10px;
+}
+
+#activity-stream .bd-press-listing-wraper.list-view {
+  display: flex;
+  gap: 15px;
+  border: 1px solid #bbb;
+  padding: 10px;
+  border-radius: 5px;
+}
+#activity-stream .bd-press-listing-wraper.list-view .listing-thumb {
+  flex: 0 0 180px;
+}
+#activity-stream .bd-press-listing-wraper.list-view .listing-title {
+  font-size: 18px;
+  margin: 0 0 5px 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.bp-modal .hide {
+  display: none;
+}
+.bp-modal .rtcl-modal-header .share-modal-title {
+  font-size: 18px;
+}
+.bp-modal .rtcl-share-options-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  flex-direction: column;
+}
+.bp-modal .rtcl-share-options-wrapper a {
+  margin: 0;
+  border: 1px solid #ddd;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bp-modal .rtcl-share-options-wrapper.hide {
+  display: none;
+}
+.bp-modal .rtcl-share-options-wrapper span {
+  gap: 5px;
+  display: inline-flex;
+  cursor: pointer;
+}
+.bp-modal .rtcl-share-options-wrapper span.rtcl-icon {
+  flex: unset;
+}
+.bp-modal .rtcl-share-options-wrapper span:hover {
+  opacity: 0.8;
+  transition: 0.3s all;
+}
+.bp-modal .rtcl-share-options-wrapper #share-type {
+  height: 45px;
+  padding: 0 10px;
+  width: 100%;
+}
+.bp-modal .rtcl-share-options-wrapper .rtcl-bp-custom-text {
+  width: 100%;
+  min-height: 100px;
+  padding: 5px 10px;
+}
+.bp-modal .rtcl-share-options-wrapper .rtcl-bp-custom-text.hide {
+  display: none;
+}
+.bp-modal .rtcl-share-options-wrapper .social-share-button {
+  flex: 0 0 100%;
+  gap: 5px;
+  display: flex;
+  cursor: default;
+}
+.bp-modal .rtcl-share-options-wrapper .social-share-heading.hide,
+.bp-modal .rtcl-share-options-wrapper .social-share-button.hide {
+  display: none;
+}
+.bp-modal .share-to {
+  display: flex;
+  justify-content: space-between;
+}
+.bp-modal .share-to .shared-text {
+  font-size: 12px;
+  border: 1px solid;
+  padding: 5px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+.bp-modal .notification {
+  color: green;
+}
+
+.rtcl-ui-modal .rtcl-modal-wrapper.bp-modal .rtcl-modal-content {
+  overflow: unset;
+}
+
+.rtcl-ui-modal .rtcl-modal-wrapper.bp-modal .rtcl-modal-content .rtcl-modal-close {
+  right: -10px;
+  top: -10px;
+  position: absolute;
+  z-index: 9999;
+}
+
+body.buddypress .buddypress-wrap .rtcl-my-booking-wrap {
+  margin-top: 25px;
+}
+body.buddypress .buddypress-wrap .rtcl-my-booking-wrap .booking-listing-title {
+  margin-bottom: 10px;
+}
+body.buddypress .buddypress-wrap .rtcl-my-booking-wrap .booking-listing-title h3 {
+  margin: 0;
+}
+body.buddypress .buddypress-wrap .rtcl-my-booking-wrap form .form-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.buddypress .buddypress-wrap .rtcl-my-booking-wrap form .form-group select.form-control {
+  background-image: none;
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
+}
+
+#buddypress .membership-statistic-report-wrap .reports .report-item {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 150px auto;
+}
+#buddypress .membership-statistic-report-wrap .reports .report-item.rtcl-membership-promotions {
+  display: block !important;
+}
