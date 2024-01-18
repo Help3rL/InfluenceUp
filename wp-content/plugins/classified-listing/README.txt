@@ -4,7 +4,7 @@ Donate link:
 Tags: business directory, classifieds, directory plugin, listings, classifieds ads
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 2.6.6
+Stable tag: 2.6.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,10 +14,10 @@ The Best WordPress Classified Ads and Business Directory Plugin to create Classi
 
 [Classified Listing](https://www.radiustheme.com/downloads/classified-listing-pro-wordpress/) is among the best classified ads WordPress plugins available. It comes with all the features necessary for building a classified listing website. This classified ads WordPress plugin boasts a plethora of backend admin settings and an excellent frontend posting management system. It lets you create as many ad listing categories as you want so that each ad listing page will be as clean as possible.
 
-👉 [Demo](https://radiustheme.net/publicdemo/classima/) | [Documentation](https://www.radiustheme.com/docs/classified-listing/) | [Extensions](https://www.radiustheme.com/classified-listing-addons/) | [RoadMaps](https://radiustheme.com/classified-listing-roadmaps/) |[Get Pro](https://www.radiustheme.com/downloads/classified-listing-pro-wordpress/?utm_source=WordPress&utm_medium=Listing&utm_campaign=pro_click') 👈
+👉 [Demo](https://radiustheme.net/publicdemo/classified-listing/) | [Documentation](https://www.radiustheme.com/docs/classified-listing/) | [Extensions](https://www.radiustheme.com/classified-listing-addons/) | [RoadMaps](https://radiustheme.com/classified-listing-roadmaps/) |[Get Pro](https://www.radiustheme.com/downloads/classified-listing-pro-wordpress/?utm_source=WordPress&utm_medium=Listing&utm_campaign=pro_click') 👈
 
 == 🏆 Demo access of Classified ads Plugin ==
-> URL: [Demo](https://radiustheme.net/publicdemo/classima/)
+> URL: [Demo](https://radiustheme.net/publicdemo/classified-listing/)
 > username: demo || password: demo
 
 == Classified ads Plugin for WordPress  ==
@@ -347,6 +347,17 @@ Classified Listing is fully translatable. However, it comes with a ready transla
 * Español by [4aiur](https://wordpress.org/support/users/4aiur/)
 
 == Changelog ==
+
+= 2.6.7 ( January 04, 2024 ) =
+* Fixed: My-listings pagination issue
+* Fixed: Gallery popup sequence issue
+* Fixed: Gallery image edit/delete issue on mobile
+* Fixed: Listings page password protected issue
+* Fixed: Price range search issue
+* Fixed: Dashboard listing count issue
+* Fixed: Payment history date issue
+* Updated: My-listings design
+* Added: Telegram contact number
 
 = 2.6.6 ( November 28, 2023 ) =
 * Fixed: Listing count issue

@@ -223,6 +223,13 @@
     $navWrapper.css('left', '-225px');
     $(this).remove();
     $collapseButton.removeClass('sidebar-open');
+  }).on('click', '.rtcl-my-listing-table .rtcl-actions-wrap .actions-dot', function (e) {
+    $('.rtcl-my-listing-table').find('.rtcl-actions').removeClass('opened').addClass('closed');
+    $(this).closest('.rtcl-actions-wrap').find('.rtcl-actions').removeClass('closed').addClass('opened');
+  }).on('click', function (e) {
+    if ($(e.target).closest('.rtcl-actions-wrap').find('.rtcl-actions').length === 0) {
+      $('.rtcl-my-listing-table').find('.rtcl-actions').removeClass('opened');
+    }
   }).on('click', '.rtcl-my-listings-table-toggle-info', function (e) {
     var $this = $(this),
       $tr = $this.closest('tr'),

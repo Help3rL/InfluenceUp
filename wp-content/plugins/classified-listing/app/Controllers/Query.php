@@ -661,22 +661,64 @@ class Query {
 
 				$price = array_filter( $filters['price'] );
 
+
 				if ( $n = count( $price ) ) {
 
 					if ( 2 == $n ) {
 						$meta_query[] = [
-							'key'     => 'price',
-							'value'   => array_map( 'intval', array_values( $price ) ),
-							'type'    => 'NUMERIC',
-							'compare' => 'BETWEEN'
-						];
-					} else {
-						if ( empty( $price['min'] ) ) {
-							$meta_query[] = [
+							'relation' => 'OR',
+							[
 								'key'     => 'price',
-								'value'   => (int) $price['max'],
+								'value'   => array_map( 'intval', array_values( $price ) ),
 								'type'    => 'NUMERIC',
-								'compare' => '<='
+								'compare' => 'BETWEEN'
+							],
+							[
+								'relation' => 'AND',
+								[
+									'key'     => '_rtcl_max_price',
+									'value'   => array_map( 'intval', array_values( $price ) ),
+									'type'    => 'NUMERIC',
+									'compare' => 'BETWEEN'
+								],
+								[
+									'key'     => '_rtcl_max_price',
+									'compare' => 'EXISTS',
+								]
+							]
+						];
+
+					} else {
+						
+						if ( ! empty( $price['max'] ) ) {
+							$meta_query[] = [
+								'relation' => 'OR',
+								[
+									'relation' => 'AND',
+									[
+										'key'     => 'price',
+										'value'   => [.01 , intval($price['max'])],
+										'type'    => 'NUMERIC',
+										'compare' => 'BETWEEN'
+									],
+									[
+										'key'     => '_rtcl_max_price',
+										'compare' => 'NOT EXISTS',
+									]
+								],
+								[
+									'relation' => 'AND',
+									[ 
+										'key'     => '_rtcl_max_price',
+										'value'   => (int) $price['max'],
+										'type'    => 'NUMERIC',
+										'compare' => '<='
+									],
+									[
+										'key'     => '_rtcl_max_price',
+										'compare' => 'EXISTS',
+									]
+								]
 							];
 						} else {
 							$meta_query[] = [
@@ -687,7 +729,6 @@ class Query {
 							];
 						}
 					}
-
 				}
 				unset( $filters['price'] );
 			}
@@ -794,32 +835,34 @@ class Query {
 										];
 									}
 
-								} else if ( $date_type == 'date_range' || $date_type == 'date_range_time' ) {
+								} else if ( $date_type == 'date_range' || $date_type == 'date_time_range' ) {
 									$start_meta_key = $field->getDateRangeMetaKey( 'start' );
 									$end_meta_key   = $field->getDateRangeMetaKey( 'end' );
 
 									if ( $search_type == 'single' ) {
-										$start_date = $end_date = $field->sanitize_date_field( $values, [ 'range' => false ] );
+										$start_date = $field->sanitize_date_field( $values, [ 'range' => false ] );
+										$end_date = $start_date ? date( "Y-m-d", strtotime( $start_date ) ) . ' 23:59:59' : '';
 									} else {
 										$dates      = $field->sanitize_date_field( $values, [ 'range' => true ] );
 										$start_date = $dates['start'];
 										$end_date   = $dates['end'];
 									}
-									if ( $start_date ) {
-										$cf_meta_query[] = [
-											'key'     => $start_meta_key,
-											'value'   => $start_date,
-											'compare' => '<=',
-											'type'    => $type
-										];
-									}
-									if ( $end_date ) {
-										$cf_meta_query[] = [
-											'key'     => $end_meta_key,
-											'value'   => $end_date,
-											'compare' => '>=',
-											'type'    => $type
-										];
+									if ( $start_date && $end_date ) {
+										$cf_meta_query[] = apply_filters('rtcl_cf_date_range_meta_queries', [
+											'relation'=> 'AND',
+											[
+												'key'     => $start_meta_key,
+												'value'   => $start_date,
+												'compare' => '>=',
+												'type'    => $type
+											],
+											[
+												'key'     => $end_meta_key,
+												'value'   => $end_date,
+												'compare' => '<=',
+												'type'    => $type
+											]
+										], $field, $values);
 									}
 								}
 

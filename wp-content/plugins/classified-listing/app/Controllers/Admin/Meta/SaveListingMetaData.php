@@ -196,6 +196,11 @@ class SaveListingMetaData {
 			update_post_meta( $post_id, '_rtcl_whatsapp_number', $whatsapp_number );
 		}
 
+		if ( isset( $_POST['_rtcl_telegram'] ) ) {
+			$telegram = sanitize_text_field( $_POST['_rtcl_telegram'] );
+			update_post_meta( $post_id, '_rtcl_telegram', $telegram );
+		}
+
 		if ( isset( $_POST['email'] ) ) {
 			$email = sanitize_email( $_POST['email'] );
 			update_post_meta( $post_id, 'email', $email );

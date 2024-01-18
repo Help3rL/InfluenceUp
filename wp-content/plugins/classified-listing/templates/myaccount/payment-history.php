@@ -59,7 +59,7 @@ global $post;
 								}
 								?>
 							</td>
-							<td data-heading="<?php esc_attr_e( 'Date:', 'classified-listing' ); ?>"><?php echo Functions::datetime( 'rtcl', $order->get_date_paid() ); ?></td>
+							<td data-heading="<?php esc_attr_e( 'Date:', 'classified-listing' ); ?>"><?php echo Functions::datetime( 'rtcl', $order->get_created_date() ); ?></td>
 							<td data-heading="<?php esc_attr_e( 'Status:', 'classified-listing' ); ?>"><?php echo Functions::get_status_i18n( $post->post_status ); ?></td>
 						</tr>
 					<?php endwhile;

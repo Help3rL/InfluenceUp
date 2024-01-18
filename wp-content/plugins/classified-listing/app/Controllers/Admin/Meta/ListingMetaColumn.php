@@ -25,7 +25,7 @@ class ListingMetaColumn
 		$new_columns = array(
 			'views'       => esc_html__('Views', 'classified-listing'),
 			'featured'    => $featured_label ?: esc_html__( "Featured", "classified-listing" ),
-			'_top'        => $top_label ?: esc_html__( "Top", "classified-listing-pro" ),
+			'_top'        => $top_label ?: esc_html__( "Top", "classified-listing" ),
 			'posted_date' => esc_html__('Posted Date', 'classified-listing'),
 			'expiry_date' => esc_html__('Expires on', 'classified-listing'),
 			'status'      => esc_html__('Status', 'classified-listing')

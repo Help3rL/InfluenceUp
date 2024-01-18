@@ -432,7 +432,7 @@ class ScriptLoader {
 			'finish_submission_btn_label'              => esc_html__( 'Finish submission', 'classified-listing' ),
 			'phone_number_placeholder'                 => apply_filters( 'rtcl_phone_number_placeholder', 'XXX' ),
 			'popup_search_widget_auto_form_submission' => apply_filters( 'rtcl_popup_search_widget_auto_form_submission', true ),
-			'loading'                                  => esc_html__( "Loading ...", "classified-listing-pro" )
+			'loading'                                  => esc_html__( "Loading ...", "classified-listing" )
 		];
 
 		if ( ! empty( $misc_settings['recaptcha_site_key'] ) && ! empty( $misc_settings['recaptcha_forms'] ) ) {

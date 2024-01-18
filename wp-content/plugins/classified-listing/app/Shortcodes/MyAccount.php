@@ -140,12 +140,6 @@ class MyAccount {
 
 	public static function my_listings_count_as_status() {
 
-		$post_count = wp_cache_get( 'rtcl_user_post_count' );
-
-		if ( false !== $post_count ) {
-			return apply_filters( 'rtcl_count_user_posts', $post_count );
-		}
-
 		$args = [
 			'post_type'      => rtcl()->post_type,
 			'post_status'    => array( 'publish', 'pending', 'rtcl-expired' ),
@@ -189,8 +183,6 @@ class MyAccount {
 		}
 
 		$post_count = (object) $post_count;
-
-		wp_cache_set( 'rtcl_user_post_count', $post_count );
 
 		return apply_filters( 'rtcl_count_user_posts', $post_count );
 

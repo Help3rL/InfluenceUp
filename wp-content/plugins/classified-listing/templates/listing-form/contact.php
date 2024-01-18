@@ -14,6 +14,7 @@
  * @var string $zipcode
  * @var string $phone
  * @var string $whatsapp_number
+ * @var string $telegram
  * @var boolean $enable_post_for_unregister
  * @var string $website
  * @var bool $latitude
@@ -111,6 +112,15 @@ use Rtcl\Helpers\Functions;
 							?>
                         </select>
                     </div>
+				<?php endif; ?>
+				<?php if ( ! in_array( 'telegram', $hidden_fields ) ): ?>
+					<div class="form-group">
+						<label
+							for="rtcl-whatsapp-number"><?php esc_html_e( "Telegram ID", "classified-listing" ) ?></label>
+						<input type="text" class="form-control" id="rtcl-telegram" name="_rtcl_telegram"
+							   value="<?php echo esc_attr( $telegram ); ?>"/>
+						<p class="description small"><?php esc_html_e( "Enter Telegram user id here.", 'classified-listing' ) ?></p>
+					</div>
 				<?php endif; ?>
 				<?php if ( ! in_array( 'zipcode', $hidden_fields ) ): ?>
                     <div class="form-group">

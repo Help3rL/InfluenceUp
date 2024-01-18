@@ -1910,6 +1910,7 @@ class Options {
 			'address'         => esc_html__( 'Address', 'classified-listing' ),
 			'phone'           => esc_html__( 'Phone', 'classified-listing' ),
 			'whatsapp_number' => esc_html__( 'Whatsapp Number', 'classified-listing' ),
+			'telegram'        => esc_html__( 'Telegram', 'classified-listing' ),
 			'email'           => esc_html__( 'Email', 'classified-listing' ),
 			'website'         => esc_html__( 'Website URL', 'classified-listing' ),
 		];
