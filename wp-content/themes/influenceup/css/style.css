@@ -48,6 +48,21 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+@font-face {
+  font-family: "Averta Demo Regular";
+  src: url("../fonts/AvertaDemo-Regular.woff2") format("woff2"), url("../fonts/AvertaDemo-Regular.woff") format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Averta-Bold";
+  src: url("../fonts/Averta-Bold.woff2") format("woff2"), url("../fonts/Averta-Bold.woff") format("woff");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Averta Demo ExtraBold Italic";
+  src: url("../fonts/AvertaDemo-ExtraBoldItalic.woff2") format("woff2"), url("../fonts/AvertaDemo-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+}
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -388,7 +403,7 @@ select,
 optgroup,
 textarea {
   color: #404040;
-  font-family: "Averta Demo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Averta Demo Regular", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -400,7 +415,7 @@ h4,
 h5,
 h6 {
   clear: both;
-  font-family: "Averta-Bold";
+  font-family: "Averta Demo Regular", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -914,6 +929,219 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5em;
+}
+
+/* header
+--------------------------------------------- */
+.site-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 15px;
+  font-family: "Averta Demo Regular", sans-serif;
+  font-size: 20px;
+}
+.site-header .header-container {
+  display: flex;
+  max-width: 1170px;
+  width: 100%;
+  align-items: center;
+}
+.site-header .header-container .header-logo {
+  flex: 1;
+}
+.site-header .header-container .main-navigation {
+  flex: 2;
+}
+.site-header .header-container .main-navigation .menu-menu-1-container ul.menu {
+  gap: 32px;
+}
+.site-header .header-container .main-navigation .menu-menu-1-container ul.menu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.site-header .header-container .main-navigation .menu-menu-1-container ul.menu li a {
+  color: #0C1030;
+}
+.site-header .header-container .main-navigation .menu-menu-1-container ul.menu li .nav-arrow {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg");
+  background-size: cover;
+  transition: transform 0.3s ease;
+}
+.site-header .header-container .main-navigation .menu-menu-1-container ul.menu li:hover .nav-arrow {
+  transform: rotate(180deg);
+  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/up.svg");
+}
+.site-header .header-container .main-navigation .menu-menu-1-container ul.menu li ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #FFFFFF;
+  padding: 12px;
+  border: 2px solid #C9C9C9;
+  border-radius: 12px;
+}
+.site-header .header-container .header-extra {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.site-header .header-container .header-extra .search-container {
+  position: relative;
+}
+.site-header .header-container .header-extra .search-container input[type=search]:focus-visible {
+  border: 3px solid #347ED6 !important;
+  outline: none !important;
+  box-shadow: none;
+}
+.site-header .header-container .header-extra .search-container #search-input {
+  color: #0C1030;
+  border: 2px solid #3C92F6;
+  border-radius: 15px;
+  webkit-appearance: none;
+  outline-offset: 0px;
+}
+.site-header .header-container .header-extra .search-container:focus-visible {
+  border: 3px solid #347ED6 !important;
+  outline: none !important;
+  box-shadow: none;
+}
+.site-header .header-container .header-extra .search-container #search-input:hover {
+  border: 2px solid #347ED6;
+}
+.site-header .header-container .header-extra .search-container #search-input:active {
+  border: 3px solid #347ED6;
+}
+.site-header .header-container .header-extra .search-container #search-input.loading {
+  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
+  background-position: center right;
+  background-repeat: no-repeat;
+  padding-right: 20px;
+}
+.site-header .header-container .header-extra .search-container #search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.site-header .header-container .header-extra .search-container #search-results {
+  position: absolute;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 2px solid #C9C9C9;
+  padding: 12px 0px 12px 0px;
+}
+.site-header .header-container .header-extra .search-container #search-results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-header .header-container .header-extra .search-container #search-results ul li {
+  padding: 8px;
+}
+.site-header .header-container .header-extra .search-container #search-results ul li a {
+  color: #0C1030;
+  text-decoration: none;
+}
+.site-header .header-container .header-extra .search-container #search-results ul li a:hover {
+  text-decoration: underline;
+}
+.site-header .header-container .header-extra .search-container #search-results ul li:last-child {
+  border-bottom: none;
+}
+.site-header .header-container .header-extra .login-button {
+  display: inline-block;
+  padding: 3px 15px;
+  background-color: #3C92F6;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+}
+.site-header .header-container .header-extra .login-button:hover {
+  background-color: #006799;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input:checked + .slider {
+  background-color: #FFFFFF;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input:checked + .slider:before {
+  transform: translateX(26px);
+  left: 0;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input:checked + .slider .sun-icon {
+  opacity: 0;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input:checked + .slider .moon-icon {
+  opacity: 1;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FFFFFF;
+  transition: 0.3s;
+  border-radius: 34px;
+  border: 2px solid #3C92F6;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 2px;
+  background-color: #3C92F6;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .icon {
+  position: absolute;
+  height: 19px;
+  width: 19px;
+  transition: opacity 0.4s;
+  top: 5px;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .icon.sun-icon {
+  left: 7px;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .icon.moon-icon {
+  right: 7px;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .sun-icon {
+  display: block;
+  left: 7px;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .moon-icon {
+  display: none;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider [data-theme=dark] .sun-icon {
+  display: none;
+}
+.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider [data-theme=dark] .moon-icon {
+  display: block;
+  right: 7px;
 }
 
 /*# sourceMappingURL=style.css.map */
