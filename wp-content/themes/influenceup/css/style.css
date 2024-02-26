@@ -1144,4 +1144,35 @@ textarea {
   right: 7px;
 }
 
+/* footer
+--------------------------------------------- */
+.site-footer {
+  background-color: #0C1030;
+  padding: 54px 15px;
+  font-family: "Averta Demo Regular", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.site-footer .footer-links {
+  display: flex;
+  gap: 32px;
+}
+.site-footer .footer-links a {
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.site-footer .footer-social-links {
+  display: flex;
+  gap: 16px;
+}
+.site-footer .footer-copy-right {
+  font-size: 18px;
+  color: #FFFFFF;
+  line-height: 21.6px;
+}
+
 /*# sourceMappingURL=style.css.map */
