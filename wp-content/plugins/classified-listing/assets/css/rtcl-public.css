@@ -3436,6 +3436,11 @@ html [data-rt-depends], .rtcl .row[data-rt-depends], [data-rt-depends] {
 #rtcl-gallery-upload-ui-wrapper .rtcl-gallery-uploads .rtcl-gallery-upload-item .rtcl-gallery-upload-actions .rtcl-icon-spinner {
   vertical-align: top;
 }
+@media screen and (max-width: 991px) {
+  #rtcl-gallery-upload-ui-wrapper .rtcl-gallery-uploads .rtcl-gallery-upload-item .rtcl-gallery-upload-actions {
+    display: block;
+  }
+}
 #rtcl-gallery-upload-ui-wrapper .rtcl-gallery-uploads .rtcl-gallery-upload-item .rtcl-gallery-upload-update {
   width: 100%;
   height: 105px;
@@ -4159,6 +4164,12 @@ html[dir=rtl] .rtcl-ui-modal .rtcl-modal-wrapper .rtcl-modal-content .rtcl-ui-se
 .post-type-archive-rtcl_listing .bb-grid.site-content-grid,
 .single-rtcl_listing .bb-grid.site-content-grid {
   display: block;
+}
+.post-type-archive-rtcl_listing .post-password-form,
+.single-rtcl_listing .post-password-form {
+  background-color: #ffffff;
+  padding: 30px 30px 20px;
+  width: 100%;
 }
 
 /* ============== Embed Video responsive START ============== */
@@ -7798,9 +7809,6 @@ body.rtcl-account > .rtcl {
   justify-content: center;
   align-items: center;
 }
-.rtcl-global-pagination-wrap .rtcl-pagination li .page-link span {
-  display: none;
-}
 .rtcl-global-pagination-wrap .rtcl-pagination li.active .page-link {
   background-color: var(--rtcl-primary-color);
   border-color: var(--rtcl-primary-color);
@@ -8117,7 +8125,6 @@ table.rtcl-table-striped-border tr:hover td {
   flex: 1;
   background-color: #EEEEEE;
   color: #646464;
-  overflow: hidden;
   transition: margin-left 0.5s;
 }
 @media screen and (max-width: 1024px) {
@@ -8383,6 +8390,9 @@ table.rtcl-table-striped-border tr:hover td {
   flex: 50%;
   max-width: 50%;
 }
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .membership-statistic-report-outer + .rtcl-subs-reports-outer .rtcl-subs .rtcl-sub-item + .rtcl-sub-item {
+  margin-top: 15px;
+}
 @media screen and (max-width: 1024px) {
   .rtcl-MyAccount-wrap .rtcl-MyAccount-content .membership-statistic-report-outer + .rtcl-subs-reports-outer {
     margin-top: 20px;
@@ -8509,7 +8519,7 @@ table.rtcl-table-striped-border tr:hover td {
     text-align: center;
   }
 }
-.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-manage-my-listings .rtcl-global-pagination-wrap {
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-manage-my-listings .rtcl-pagination {
   background-color: #ffffff;
   padding: 15px;
   border-radius: 6px;
@@ -8544,13 +8554,14 @@ table.rtcl-table-striped-border tr:hover td {
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td:first-child {
   vertical-align: top;
 }
-.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table th:last-child,
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table th:nth-child(5), .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table th:last-child,
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td:nth-child(5),
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td:last-child {
   text-align: center;
 }
-.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table th:nth-child(7),
-.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td:nth-child(7) {
-  min-width: 125px;
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table th:nth-child(6),
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td:nth-child(6) {
+  min-width: 80px;
 }
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table th {
   font-size: 16px;
@@ -8578,6 +8589,26 @@ table.rtcl-table-striped-border tr:hover td {
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td a:hover {
   color: var(--rtcl-primary-color);
   text-decoration: none;
+}
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td.status-cell {
+  text-align: center;
+}
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td.status-cell span {
+  display: inline-block;
+  color: #4AAB29;
+  background-color: #E4F8DD;
+  padding: 8px 12px;
+  border-radius: 50px;
+  font-size: 13px;
+  line-height: 1;
+}
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td.status-cell span.pending {
+  color: #b48726;
+  background-color: #f2e1bb;
+}
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td.status-cell span.rtcl-expired {
+  color: #FF3C48;
+  background-color: #FFE5E3;
 }
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table td .rtcl-ad-details .rtcl-meta {
   list-style-type: none;
@@ -8647,13 +8678,35 @@ table.rtcl-table-striped-border tr:hover td {
   font-size: 15px;
   font-weight: 500;
 }
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table .rtcl-actions-wrap {
+  position: relative;
+}
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table .rtcl-actions-wrap .actions-dot {
+  cursor: pointer;
+}
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table .rtcl-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
+  display: none;
+  background-color: #ffffff;
+  position: absolute;
+  top: 35px;
+  left: -3px;
+  width: 170px;
+  z-index: 20;
+  padding: 20px 20px 15px;
+  border: 1px solid #e2e2e2;
+}
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table .rtcl-actions.closed {
+  display: none !important;
+}
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table .rtcl-actions.opened {
+  display: block !important;
 }
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table .rtcl-actions a {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
 }
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table .rtcl-actions a svg {
   width: 18px;
@@ -8664,6 +8717,19 @@ table.rtcl-table-striped-border tr:hover td {
 }
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table .rtcl-actions a:hover svg path {
   fill: var(--rtcl-primary-color);
+}
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table .rtcl-actions:before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2e2;
+  position: absolute;
+  top: -8px;
+  left: 35px;
+  transform: rotate(45deg);
+  border-right-width: 0;
+  border-bottom-width: 0;
 }
 @media screen and (min-width: 1025px) {
   .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table tr:hover td {
@@ -8741,10 +8807,27 @@ table.rtcl-table-striped-border tr:hover td {
   .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table tr td:first-child:before {
     content: none;
   }
-  .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table tr td .rtcl-actions {
-    display: inline-flex;
-    gap: 15px;
+  .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table tr td .rtcl-actions-wrap {
+    display: inline-block;
+  }
+  .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table tr td .rtcl-actions-wrap .actions-dot {
+    display: none;
+  }
+  .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table tr td .rtcl-actions-wrap .rtcl-actions {
+    position: initial;
+    display: flex;
+    flex-wrap: wrap;
     padding: 5px;
+    gap: 15px;
+    background: transparent;
+    border: none;
+    width: auto;
+  }
+  .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table tr td .rtcl-actions-wrap .rtcl-actions a {
+    margin-bottom: 0;
+  }
+  .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table tr td .rtcl-actions-wrap .rtcl-actions:before {
+    content: none;
   }
   .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-my-listing-table tbody {
     vertical-align: top;
@@ -8756,6 +8839,15 @@ table.rtcl-table-striped-border tr:hover td {
 }
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-favourite-listings .rtcl-actions {
   justify-content: center;
+  display: inline-flex;
+  background-color: transparent;
+  position: static;
+  width: auto;
+  padding: 0;
+  border: none;
+}
+.rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-favourite-listings .rtcl-actions:before {
+  content: none;
 }
 .rtcl-MyAccount-wrap .rtcl-MyAccount-content .rtcl-no-data-found {
   background-color: #ffffff;

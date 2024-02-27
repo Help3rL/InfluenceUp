@@ -880,6 +880,9 @@ class PublicUser {
 						if ( isset( $_POST['_rtcl_whatsapp_number'] ) ) {
 							$meta['_rtcl_whatsapp_number'] = Functions::sanitize( $_POST['_rtcl_whatsapp_number'] );
 						}
+						if ( isset( $_POST['_rtcl_telegram'] ) ) {
+							$meta['_rtcl_telegram'] = Functions::sanitize( $_POST['_rtcl_telegram'] );
+						}
 						if ( isset( $_POST['email'] ) ) {
 							$meta['email'] = Functions::sanitize( $_POST['email'], 'email' );
 						}

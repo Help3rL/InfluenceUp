@@ -1,4 +1,4 @@
-# Copyright (C) 2023 Classified Listing
+# Copyright (C) 2024 Classified Listing
 # This file is distributed under the same license as the Classified Listing package.
 msgid ""
 msgstr ""
@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-11-28 09:23+0000\n"
+"POT-Creation-Date: 2024-01-04 06:20+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Order on"
 msgstr ""
 
-#: ../../app/Controllers/FormHandler.php:146, ../../app/Controllers/Hooks/AppliedBothEndHooks.php:110
+#: ../../app/Controllers/FormHandler.php:146, ../../app/Controllers/Hooks/AppliedBothEndHooks.php:111
 msgid "Payment successfully made."
 msgstr ""
 
@@ -215,43 +215,43 @@ msgstr ""
 msgid "Passwords do not match."
 msgstr ""
 
-#: ../../app/Controllers/Query.php:1034
+#: ../../app/Controllers/Query.php:1077
 msgid "Promote your ad"
 msgstr ""
 
-#: ../../app/Controllers/Query.php:1037
+#: ../../app/Controllers/Query.php:1080
 msgid "Order received"
 msgstr ""
 
-#: ../../app/Controllers/Query.php:1040
+#: ../../app/Controllers/Query.php:1083
 msgid "Order failed"
 msgstr ""
 
-#: ../../app/Controllers/Query.php:1043
+#: ../../app/Controllers/Query.php:1086
 msgid "Payments Orders"
 msgstr ""
 
-#: ../../app/Controllers/Query.php:1046, ../../app/Helpers/Functions.php:2829, ../../views/settings/advanced-settings.php:89
+#: ../../app/Controllers/Query.php:1089, ../../app/Helpers/Functions.php:2829, ../../views/settings/advanced-settings.php:89
 msgid "My Listings"
 msgstr ""
 
-#: ../../app/Controllers/Query.php:1049
+#: ../../app/Controllers/Query.php:1092
 msgid "My Favourites Listings"
 msgstr ""
 
-#: ../../app/Controllers/Query.php:1052, ../../templates/elementor/header-button/header-button.php:72
+#: ../../app/Controllers/Query.php:1095, ../../templates/elementor/header-button/header-button.php:72
 msgid "Chat"
 msgstr ""
 
-#: ../../app/Controllers/Query.php:1055
+#: ../../app/Controllers/Query.php:1098
 msgid "Account details"
 msgstr ""
 
-#: ../../app/Controllers/Query.php:1058
+#: ../../app/Controllers/Query.php:1101
 msgid "Verify your account"
 msgstr ""
 
-#: ../../app/Controllers/Query.php:1061
+#: ../../app/Controllers/Query.php:1104
 msgid "Lost password"
 msgstr ""
 
@@ -287,7 +287,7 @@ msgstr ""
 msgid "Listing is expired"
 msgstr ""
 
-#: ../../app/Emails/ListingExpiredEmailToAdmin.php:63, ../../app/Emails/ListingExpiredEmailToOwner.php:66, ../../app/Emails/ListingRenewalEmailToOwner.php:70, ../../app/Emails/ListingRenewalReminderEmailToOwner.php:66, ../../app/Controllers/Ajax/PublicUser.php:252, ../../app/Controllers/Admin/Meta/ListingMetaColumn.php:66, ../../app/Controllers/Admin/Meta/ListingSubmitBoxMice.php:46, ../../templates/myaccount/my-listings.php:124
+#: ../../app/Emails/ListingExpiredEmailToAdmin.php:63, ../../app/Emails/ListingExpiredEmailToOwner.php:66, ../../app/Emails/ListingRenewalEmailToOwner.php:70, ../../app/Emails/ListingRenewalReminderEmailToOwner.php:66, ../../app/Controllers/Ajax/PublicUser.php:252, ../../app/Controllers/Admin/Meta/ListingMetaColumn.php:66, ../../app/Controllers/Admin/Meta/ListingSubmitBoxMice.php:46, ../../templates/myaccount/my-listings.php:131
 msgid "Never Expires"
 msgstr ""
 
@@ -579,7 +579,7 @@ msgstr ""
 msgid "Expired on: <b>%1$s</b>"
 msgstr ""
 
-#: ../../app/Helpers/Functions.php:4534, ../../app/Controllers/Hooks/TemplateHooks.php:444, ../../views/settings/listing-type.php:38
+#: ../../app/Helpers/Functions.php:4534, ../../app/Controllers/Hooks/TemplateHooks.php:471, ../../views/settings/listing-type.php:38
 msgid "Edit"
 msgstr ""
 
@@ -640,7 +640,7 @@ msgstr ""
 msgid "Town"
 msgstr ""
 
-#: ../../app/Helpers/Installer.php:137, ../../app/Controllers/Hooks/TemplateHooks.php:731, ../../app/Controllers/Elementor/ELWidgetsTraits/ListingBadgeTrait.php:195, ../../views/settings/moderation-settings.php:34
+#: ../../app/Helpers/Installer.php:137, ../../app/Controllers/Hooks/TemplateHooks.php:758, ../../app/Controllers/Elementor/ELWidgetsTraits/ListingBadgeTrait.php:195, ../../views/settings/moderation-settings.php:34
 msgid "New"
 msgstr ""
 
@@ -648,7 +648,7 @@ msgstr ""
 msgid "Popular"
 msgstr ""
 
-#: ../../app/Helpers/Installer.php:140, ../../app/Resources/Gallery.php:194, ../../app/Resources/Gallery.php:271, ../../app/Resources/Options.php:322, ../../app/Controllers/Hooks/TemplateHooks.php:711, ../../app/Controllers/Admin/Meta/ListingMetaColumn.php:27, ../../app/Controllers/Elementor/ELWidgetsTraits/ListingBadgeTrait.php:167, ../../templates/myaccount/favourite-listings.php:27, ../../templates/myaccount/my-listings.php:57, ../../views/settings/moderation-settings.php:40
+#: ../../app/Helpers/Installer.php:140, ../../app/Resources/Gallery.php:194, ../../app/Resources/Gallery.php:271, ../../app/Resources/Options.php:322, ../../app/Controllers/Hooks/TemplateHooks.php:738, ../../app/Controllers/Admin/Meta/ListingMetaColumn.php:27, ../../app/Controllers/Elementor/ELWidgetsTraits/ListingBadgeTrait.php:167, ../../templates/myaccount/favourite-listings.php:27, ../../views/settings/moderation-settings.php:40
 msgid "Featured"
 msgstr ""
 
@@ -727,7 +727,7 @@ msgstr ""
 msgid "I have read and agree to the website %s."
 msgstr ""
 
-#: ../../app/Helpers/Text.php:94, ../../app/Widgets/Filter.php:370, ../../app/Controllers/Hooks/TemplateHooks.php:660, ../../templates/listing-form/contact.php:139, ../../templates/block/listing-search/search.php:54, ../../templates/widgets/search/inline.php:32, ../../templates/widgets/search/vertical.php:38, ../../templates/widgets/search/vertical.php:71, ../../templates/widgets/search/vertical.php:81, ../../templates/elementor/search/fields/location-field.php:36
+#: ../../app/Helpers/Text.php:94, ../../app/Widgets/Filter.php:370, ../../app/Controllers/Hooks/TemplateHooks.php:687, ../../templates/listing-form/contact.php:149, ../../templates/block/listing-search/search.php:54, ../../templates/widgets/search/inline.php:32, ../../templates/widgets/search/vertical.php:38, ../../templates/widgets/search/vertical.php:71, ../../templates/widgets/search/vertical.php:81, ../../templates/elementor/search/fields/location-field.php:36
 msgid "Select a location"
 msgstr ""
 
@@ -914,7 +914,7 @@ msgstr ""
 msgid "ZIP Code"
 msgstr ""
 
-#: ../../app/Models/Countries.php:1769, ../../app/Resources/Options.php:664, ../../app/Resources/Options.php:1911, ../../templates/listing/email-to-seller-form.php:22, ../../templates/listing-form/contact.php:150, ../../templates/myaccount/form-edit-account.php:88
+#: ../../app/Models/Countries.php:1769, ../../app/Resources/Options.php:664, ../../app/Resources/Options.php:1911, ../../templates/listing/email-to-seller-form.php:22, ../../templates/listing-form/contact.php:160, ../../templates/myaccount/form-edit-account.php:88
 msgid "Phone"
 msgstr ""
 
@@ -1533,7 +1533,7 @@ msgstr ""
 msgid "Image Position"
 msgstr ""
 
-#: ../../app/Resources/Options.php:131, ../../app/Controllers/Elementor/ELWidgetsTraits/ListingBadgeTrait.php:139, ../../templates/myaccount/favourite-listings.php:29, ../../templates/myaccount/my-listings.php:59
+#: ../../app/Resources/Options.php:131, ../../app/Controllers/Admin/Meta/ListingMetaColumn.php:28, ../../app/Controllers/Elementor/ELWidgetsTraits/ListingBadgeTrait.php:139, ../../templates/myaccount/favourite-listings.php:29
 msgid "Top"
 msgstr ""
 
@@ -1621,11 +1621,11 @@ msgstr ""
 msgid "Search by Types"
 msgstr ""
 
-#: ../../app/Resources/Options.php:273, ../../app/Resources/Options.php:1944
+#: ../../app/Resources/Options.php:273, ../../app/Resources/Options.php:1945
 msgid "Facebook"
 msgstr ""
 
-#: ../../app/Resources/Options.php:274, ../../app/Resources/Options.php:1945
+#: ../../app/Resources/Options.php:274, ../../app/Resources/Options.php:1946
 msgid "Twitter"
 msgstr ""
 
@@ -1641,7 +1641,7 @@ msgstr ""
 msgid "LinkedIn"
 msgstr ""
 
-#: ../../app/Resources/Options.php:278, ../../app/Resources/Options.php:1947
+#: ../../app/Resources/Options.php:278, ../../app/Resources/Options.php:1948
 msgid "Pinterest"
 msgstr ""
 
@@ -1933,23 +1933,23 @@ msgstr ""
 msgid "Conditional Logic"
 msgstr ""
 
-#: ../../app/Resources/Options.php:652, ../../app/Resources/Options.php:1875, ../../app/Resources/Options.php:1909, ../../app/Controllers/Hooks/TemplateHooks.php:634, ../../templates/listing-form/contact.php:117
+#: ../../app/Resources/Options.php:652, ../../app/Resources/Options.php:1875, ../../app/Resources/Options.php:1909, ../../app/Controllers/Hooks/TemplateHooks.php:661, ../../templates/listing-form/contact.php:127
 msgid "Zip Code"
 msgstr ""
 
-#: ../../app/Resources/Options.php:658, ../../app/Resources/Options.php:1874, ../../app/Resources/Options.php:1910, ../../app/Controllers/Hooks/TemplateHooks.php:639, ../../templates/listing-form/contact.php:124
+#: ../../app/Resources/Options.php:658, ../../app/Resources/Options.php:1874, ../../app/Resources/Options.php:1910, ../../app/Controllers/Hooks/TemplateHooks.php:666, ../../templates/listing-form/contact.php:134
 msgid "Address"
 msgstr ""
 
-#: ../../app/Resources/Options.php:670, ../../templates/listing-form/contact.php:164, ../../templates/myaccount/form-edit-account.php:77
+#: ../../app/Resources/Options.php:670, ../../templates/listing-form/contact.php:174, ../../templates/myaccount/form-edit-account.php:77
 msgid "Whatsapp number"
 msgstr ""
 
-#: ../../app/Resources/Options.php:676, ../../app/Resources/Options.php:1913, ../../app/Controllers/Settings/AdminSettings.php:369, ../../templates/listing-form/contact.php:173, ../../templates/myaccount/user-info.php:30
+#: ../../app/Resources/Options.php:676, ../../app/Resources/Options.php:1914, ../../app/Controllers/Settings/AdminSettings.php:369, ../../templates/listing-form/contact.php:183, ../../templates/myaccount/user-info.php:30
 msgid "Email"
 msgstr ""
 
-#: ../../app/Resources/Options.php:682, ../../templates/listing-form/contact.php:185, ../../templates/myaccount/form-edit-account.php:100
+#: ../../app/Resources/Options.php:682, ../../templates/listing-form/contact.php:195, ../../templates/myaccount/form-edit-account.php:100
 msgid "Website"
 msgstr ""
 
@@ -2861,7 +2861,7 @@ msgstr ""
 msgid "Video URL"
 msgstr ""
 
-#: ../../app/Resources/Options.php:1908, ../../app/Widgets/Filter.php:258, ../../app/Controllers/Admin/ScriptLoader.php:425, ../../app/Controllers/Hooks/TemplateHooks.php:367, ../../app/Controllers/Hooks/TemplateHooks.php:653, ../../app/Controllers/Elementor/Widgets/SingleLocation.php:64, ../../templates/listing-form/contact.php:134, ../../templates/block/listing-search/search.php:80, ../../templates/block/listing-search/search.php:51, ../../templates/elementor/search/fields/location-field.php:60, ../../templates/elementor/search/fields/location-field.php:33
+#: ../../app/Resources/Options.php:1908, ../../app/Widgets/Filter.php:258, ../../app/Controllers/Admin/ScriptLoader.php:425, ../../app/Controllers/Hooks/TemplateHooks.php:368, ../../app/Controllers/Hooks/TemplateHooks.php:680, ../../app/Controllers/Elementor/Widgets/SingleLocation.php:64, ../../templates/listing-form/contact.php:144, ../../templates/block/listing-search/search.php:80, ../../templates/block/listing-search/search.php:51, ../../templates/elementor/search/fields/location-field.php:60, ../../templates/elementor/search/fields/location-field.php:33
 msgid "Location"
 msgstr ""
 
@@ -2869,23 +2869,27 @@ msgstr ""
 msgid "Whatsapp Number"
 msgstr ""
 
-#: ../../app/Resources/Options.php:1914
+#: ../../app/Resources/Options.php:1913
+msgid "Telegram"
+msgstr ""
+
+#: ../../app/Resources/Options.php:1915
 msgid "Website URL"
 msgstr ""
 
-#: ../../app/Resources/Options.php:1922
+#: ../../app/Resources/Options.php:1923
 msgid "Short description"
 msgstr ""
 
-#: ../../app/Resources/Options.php:1946
+#: ../../app/Resources/Options.php:1947
 msgid "Linkedin"
 msgstr ""
 
-#: ../../app/Resources/Options.php:1948
+#: ../../app/Resources/Options.php:1949
 msgid "WhatsApp (Only at mobile)"
 msgstr ""
 
-#: ../../app/Resources/Options.php:1949
+#: ../../app/Resources/Options.php:1950
 msgid "Telegram (Only at mobile)"
 msgstr ""
 
@@ -2893,7 +2897,7 @@ msgstr ""
 msgid "Move to trash"
 msgstr ""
 
-#: ../../app/Resources/OrderOptions.php:23, ../../app/Resources/OrderOptions.php:24, ../../app/Controllers/Hooks/TemplateHooks.php:911, ../../app/Controllers/Admin/Meta/ListingSubmitBoxMice.php:114, ../../views/settings/listing-type.php:57
+#: ../../app/Resources/OrderOptions.php:23, ../../app/Resources/OrderOptions.php:24, ../../app/Controllers/Hooks/TemplateHooks.php:941, ../../app/Controllers/Admin/Meta/ListingSubmitBoxMice.php:114, ../../views/settings/listing-type.php:57
 msgid "Update"
 msgstr ""
 
@@ -2920,7 +2924,7 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: ../../app/Resources/OrderOptions.php:90, ../../templates/myaccount/payment-history.php:63
+#: ../../app/Resources/OrderOptions.php:90, ../../templates/myaccount/my-listings.php:138, ../../templates/myaccount/payment-history.php:63
 msgid "Status:"
 msgstr ""
 
@@ -3032,23 +3036,23 @@ msgstr ""
 msgid "Your password has been reset successfully."
 msgstr ""
 
-#: ../../app/Shortcodes/MyAccount.php:230
+#: ../../app/Shortcodes/MyAccount.php:222
 msgid "Password reset email has been sent."
 msgstr ""
 
-#: ../../app/Shortcodes/MyAccount.php:286
+#: ../../app/Shortcodes/MyAccount.php:278
 msgid "This key is invalid or has already been used. Please reset your password again if needed."
 msgstr ""
 
-#: ../../app/Shortcodes/MyAccount.php:325
+#: ../../app/Shortcodes/MyAccount.php:317
 msgid "Enter a username or email address."
 msgstr ""
 
-#: ../../app/Shortcodes/MyAccount.php:350, ../../app/Shortcodes/MyAccount.php:356
+#: ../../app/Shortcodes/MyAccount.php:342, ../../app/Shortcodes/MyAccount.php:348
 msgid "Invalid username or email."
 msgstr ""
 
-#: ../../app/Shortcodes/MyAccount.php:370
+#: ../../app/Shortcodes/MyAccount.php:362
 msgid "Password reset is not allowed for this user"
 msgstr ""
 
@@ -3871,7 +3875,7 @@ msgstr ""
 msgid "Delete Permanently"
 msgstr ""
 
-#: ../../app/Controllers/Admin/ScriptLoader.php:431, ../../app/Controllers/Hooks/TemplateHooks.php:1559
+#: ../../app/Controllers/Admin/ScriptLoader.php:431, ../../app/Controllers/Hooks/TemplateHooks.php:1594
 msgid "Proceed to payment"
 msgstr ""
 
@@ -3879,11 +3883,15 @@ msgstr ""
 msgid "Finish submission"
 msgstr ""
 
+#: ../../app/Controllers/Admin/ScriptLoader.php:435
+msgid "Loading ..."
+msgstr ""
+
 #: ../../app/Controllers/Admin/ScriptLoader.php:450
 msgid "You can't leave Captcha Code empty"
 msgstr ""
 
-#: ../../app/Controllers/Admin/ScriptLoader.php:458
+#: ../../app/Controllers/Admin/ScriptLoader.php:458, ../../app/Controllers/Hooks/TemplateHooks.php:386
 msgid "Need to discuss something related to '%s' from %s"
 msgstr ""
 
@@ -4056,7 +4064,7 @@ msgstr ""
 msgid "Please select all field"
 msgstr ""
 
-#: ../../app/Controllers/Ajax/ListingAdminAjax.php:54, ../../app/Controllers/Ajax/PublicUser.php:1003
+#: ../../app/Controllers/Ajax/ListingAdminAjax.php:54, ../../app/Controllers/Ajax/PublicUser.php:1006
 msgid "Error!!"
 msgstr ""
 
@@ -4156,7 +4164,7 @@ msgstr ""
 msgid "Successfully removed"
 msgstr ""
 
-#: ../../app/Controllers/Ajax/PublicUser.php:1010
+#: ../../app/Controllers/Ajax/PublicUser.php:1013
 msgid "Session Error !!"
 msgstr ""
 
@@ -4172,15 +4180,15 @@ msgstr ""
 msgid "Category not selected"
 msgstr ""
 
-#: ../../app/Controllers/Ajax/PublicUser.php:909
+#: ../../app/Controllers/Ajax/PublicUser.php:912
 msgid "A new account is registered, password is sent to your email(%s)."
 msgstr ""
 
-#: ../../app/Controllers/Ajax/PublicUser.php:995
+#: ../../app/Controllers/Ajax/PublicUser.php:998
 msgid "Successfully updated !!!"
 msgstr ""
 
-#: ../../app/Controllers/Ajax/PublicUser.php:993
+#: ../../app/Controllers/Ajax/PublicUser.php:996
 msgid "Thank you for submitting your ad!"
 msgstr ""
 
@@ -4192,15 +4200,15 @@ msgstr ""
 msgid "Please agree with the terms and conditions."
 msgstr ""
 
-#: ../../app/Controllers/Ajax/PublicUser.php:1052
+#: ../../app/Controllers/Ajax/PublicUser.php:1055
 msgid "Category not selected."
 msgstr ""
 
-#: ../../app/Controllers/Ajax/PublicUser.php:1088
+#: ../../app/Controllers/Ajax/PublicUser.php:1091
 msgid "Type is not selected."
 msgstr ""
 
-#: ../../app/Controllers/Ajax/PublicUser.php:1085
+#: ../../app/Controllers/Ajax/PublicUser.php:1088
 msgid "No category found."
 msgstr ""
 
@@ -4236,15 +4244,15 @@ msgstr ""
 msgid "Redirecting to paypal."
 msgstr ""
 
-#: ../../app/Controllers/Hooks/AppliedBothEndHooks.php:125
+#: ../../app/Controllers/Hooks/AppliedBothEndHooks.php:126
 msgid "No pricing selected to make payment."
 msgstr ""
 
-#: ../../app/Controllers/Hooks/AppliedBothEndHooks.php:128
+#: ../../app/Controllers/Hooks/AppliedBothEndHooks.php:129
 msgid "No payment Gateway selected."
 msgstr ""
 
-#: ../../app/Controllers/Hooks/AppliedBothEndHooks.php:132
+#: ../../app/Controllers/Hooks/AppliedBothEndHooks.php:133
 msgid "No ad selected to make payment."
 msgstr ""
 
@@ -4290,95 +4298,99 @@ msgstr ""
 msgid "Registration"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:245
+#: ../../app/Controllers/Hooks/TemplateHooks.php:246
 msgid "View all my listings"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:254
+#: ../../app/Controllers/Hooks/TemplateHooks.php:255
 msgid "View details"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:279
+#: ../../app/Controllers/Hooks/TemplateHooks.php:280
 msgid "Visit Website"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:336
+#: ../../app/Controllers/Hooks/TemplateHooks.php:337
 msgid "Contact Number"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:346
+#: ../../app/Controllers/Hooks/TemplateHooks.php:347
 msgid "Click to reveal phone number"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:393, ../../views/settings/advanced-settings.php:130
+#: ../../app/Controllers/Hooks/TemplateHooks.php:396
+msgid "Message to Telegram"
+msgstr ""
+
+#: ../../app/Controllers/Hooks/TemplateHooks.php:420, ../../views/settings/advanced-settings.php:130
 msgid "Promote"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:425
+#: ../../app/Controllers/Hooks/TemplateHooks.php:452
 msgid "Renew"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:457, ../../app/Controllers/Hooks/TemplateHooks.php:461, ../../templates/myaccount/favourite-listings.php:125, ../../views/settings/listing-type.php:39
+#: ../../app/Controllers/Hooks/TemplateHooks.php:484, ../../app/Controllers/Hooks/TemplateHooks.php:488, ../../templates/myaccount/favourite-listings.php:125, ../../views/settings/listing-type.php:39
 msgid "Delete"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:525
+#: ../../app/Controllers/Hooks/TemplateHooks.php:552
 msgid "Update Account"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:535
+#: ../../app/Controllers/Hooks/TemplateHooks.php:562
 msgid "Social Profile"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:570
+#: ../../app/Controllers/Hooks/TemplateHooks.php:597
 msgid "Select state"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:595, ../../app/Controllers/Hooks/TemplateHooks.php:620, ../../templates/listing-form/contact.php:45, ../../templates/listing-form/contact.php:73, ../../templates/listing-form/contact.php:100
+#: ../../app/Controllers/Hooks/TemplateHooks.php:622, ../../app/Controllers/Hooks/TemplateHooks.php:647, ../../templates/listing-form/contact.php:46, ../../templates/listing-form/contact.php:74, ../../templates/listing-form/contact.php:101
 msgid "Select location"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:676, ../../views/settings/misc-settings.php:150
+#: ../../app/Controllers/Hooks/TemplateHooks.php:703, ../../views/settings/misc-settings.php:150
 msgid "Map"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:894
+#: ../../app/Controllers/Hooks/TemplateHooks.php:924
 msgid "Apply filters"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:899
+#: ../../app/Controllers/Hooks/TemplateHooks.php:929
 msgid "Clear filters"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:913, ../../templates/listing/actions.php:75, ../../templates/listing/email-to-seller-form.php:34
+#: ../../app/Controllers/Hooks/TemplateHooks.php:943, ../../templates/listing/actions.php:75, ../../templates/listing/email-to-seller-form.php:34
 msgid "Submit"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:941, ../../templates/myaccount/form-edit-account.php:50
+#: ../../app/Controllers/Hooks/TemplateHooks.php:971, ../../templates/myaccount/form-edit-account.php:50
 msgid "First Name"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:952, ../../templates/myaccount/form-edit-account.php:58
+#: ../../app/Controllers/Hooks/TemplateHooks.php:982, ../../templates/myaccount/form-edit-account.php:58
 msgid "Last Name"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:971
+#: ../../app/Controllers/Hooks/TemplateHooks.php:1001
 msgid "Phone Number"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:1100
+#: ../../app/Controllers/Hooks/TemplateHooks.php:1130
 msgid "Relevance"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:1513
+#: ../../app/Controllers/Hooks/TemplateHooks.php:1548
 msgid "Please review your order, and click Purchase once you are ready to proceed."
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:1527
+#: ../../app/Controllers/Hooks/TemplateHooks.php:1562
 msgid "Given Listing Id is not a valid listing"
 msgstr ""
 
-#: ../../app/Controllers/Hooks/TemplateHooks.php:1557
+#: ../../app/Controllers/Hooks/TemplateHooks.php:1592
 msgid "Go to My Account"
 msgstr ""
 
@@ -4737,7 +4749,7 @@ msgstr ""
 msgid "Listing Details"
 msgstr ""
 
-#: ../../app/Controllers/Admin/Meta/AddMetaBox.php:56, ../../templates/listing-form/contact.php:33
+#: ../../app/Controllers/Admin/Meta/AddMetaBox.php:56, ../../templates/listing-form/contact.php:34
 msgid "Contact Details"
 msgstr ""
 
@@ -4793,11 +4805,11 @@ msgstr ""
 msgid "Posted Date"
 msgstr ""
 
-#: ../../app/Controllers/Admin/Meta/ListingMetaColumn.php:30, ../../templates/myaccount/my-listings.php:133
+#: ../../app/Controllers/Admin/Meta/ListingMetaColumn.php:30
 msgid "Expires on"
 msgstr ""
 
-#: ../../app/Controllers/Admin/Meta/ListingMetaColumn.php:31, ../../app/Controllers/Admin/Meta/ListingSubmitBoxMice.php:77, ../../app/Controllers/Admin/Meta/OrderMetaColumn.php:69, ../../templates/myaccount/my-listings.php:119, ../../templates/myaccount/payment-history.php:33
+#: ../../app/Controllers/Admin/Meta/ListingMetaColumn.php:31, ../../app/Controllers/Admin/Meta/ListingSubmitBoxMice.php:77, ../../app/Controllers/Admin/Meta/OrderMetaColumn.php:69, ../../templates/myaccount/my-listings.php:58, ../../templates/myaccount/payment-history.php:33
 msgid "Status"
 msgstr ""
 
@@ -15121,15 +15133,23 @@ msgstr ""
 msgid "Sub Category"
 msgstr ""
 
-#: ../../templates/listing-form/contact.php:167, ../../templates/myaccount/form-edit-account.php:83
+#: ../../templates/listing-form/contact.php:119
+msgid "Telegram ID"
+msgstr ""
+
+#: ../../templates/listing-form/contact.php:122
+msgid "Enter Telegram user id here."
+msgstr ""
+
+#: ../../templates/listing-form/contact.php:177, ../../templates/myaccount/form-edit-account.php:83
 msgid "WhatsApp number with your country code. e.g.+1xxxxxxxxxx"
 msgstr ""
 
-#: ../../templates/listing-form/contact.php:179
+#: ../../templates/listing-form/contact.php:189
 msgid "This will be your user name."
 msgstr ""
 
-#: ../../templates/listing-form/contact.php:188, ../../templates/myaccount/form-edit-account.php:104
+#: ../../templates/listing-form/contact.php:198, ../../templates/myaccount/form-edit-account.php:104
 msgid "e.g. https://example.com"
 msgstr ""
 
@@ -15161,7 +15181,7 @@ msgstr ""
 msgid "Only YouTube & Vimeo URL"
 msgstr ""
 
-#: ../../templates/myaccount/favourite-listings.php:139, ../../templates/myaccount/my-listings.php:184
+#: ../../templates/myaccount/favourite-listings.php:139, ../../templates/myaccount/my-listings.php:168
 msgid "No listing found."
 msgstr ""
 
@@ -15169,7 +15189,7 @@ msgstr ""
 msgid "Thumbnail"
 msgstr ""
 
-#: ../../templates/myaccount/favourite-listings.php:32, ../../templates/myaccount/my-listings.php:62
+#: ../../templates/myaccount/favourite-listings.php:32, ../../templates/myaccount/my-listings.php:59
 msgid "Action"
 msgstr ""
 
@@ -15177,23 +15197,23 @@ msgstr ""
 msgid "%1$s Views"
 msgstr ""
 
-#: ../../templates/myaccount/favourite-listings.php:93, ../../templates/myaccount/my-listings.php:145
+#: ../../templates/myaccount/favourite-listings.php:93, ../../templates/myaccount/my-listings.php:124
 msgid "Price:"
 msgstr ""
 
-#: ../../templates/myaccount/favourite-listings.php:96, ../../templates/myaccount/my-listings.php:148
+#: ../../templates/myaccount/favourite-listings.php:96
 msgid "Featured:"
 msgstr ""
 
-#: ../../templates/myaccount/favourite-listings.php:103, ../../templates/myaccount/my-listings.php:155
+#: ../../templates/myaccount/favourite-listings.php:103
 msgid "Top:"
 msgstr ""
 
-#: ../../templates/myaccount/favourite-listings.php:109, ../../templates/myaccount/my-listings.php:161
+#: ../../templates/myaccount/favourite-listings.php:109
 msgid "Bump Up:"
 msgstr ""
 
-#: ../../templates/myaccount/favourite-listings.php:116, ../../templates/myaccount/my-listings.php:168
+#: ../../templates/myaccount/favourite-listings.php:116, ../../templates/myaccount/my-listings.php:143
 msgid "Action:"
 msgstr ""
 
@@ -15293,8 +15313,12 @@ msgstr ""
 msgid "Add Listing"
 msgstr ""
 
-#: ../../templates/myaccount/my-listings.php:60
-msgid "BumpUp"
+#: ../../templates/myaccount/my-listings.php:57
+msgid "Expires On"
+msgstr ""
+
+#: ../../templates/myaccount/my-listings.php:127
+msgid "Expires On:"
 msgstr ""
 
 #: ../../templates/myaccount/payment-history.php:28

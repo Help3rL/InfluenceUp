@@ -13,6 +13,8 @@
 *.log
 # htaccess
 /.htaccess
+#wp config
+/wp-config.php
 
 # All plugins
 #

@@ -198,6 +198,7 @@ class TemplateHooks {
 		// Listing seller contact
 		add_action( 'rtcl_listing_seller_information', [ __CLASS__, 'seller_location' ], 10 );
 		add_action( 'rtcl_listing_seller_information', [ __CLASS__, 'seller_phone_whatsapp_number' ], 20 );
+		add_action( 'rtcl_listing_seller_information', [ __CLASS__, 'seller_telegram' ], 25 );
 		add_action( 'rtcl_listing_seller_information', [ __CLASS__, 'seller_email' ], 30 );
 		add_action( 'rtcl_listing_seller_information', [ __CLASS__, 'seller_website' ], 50 );
 
@@ -379,11 +380,37 @@ class TemplateHooks {
 	/**
 	 * @param Listing $listing
 	 */
+	public static function seller_telegram( $listing ) {
+		if ( is_a( $listing, Listing::class ) ) {
+			$telegram = get_post_meta( $listing->get_id(), '_rtcl_telegram', true );
+			$message  = sprintf( esc_html__( "Need to discuss something related to '%s' from %s", "classified-listing" ), $listing->get_the_title(),
+				get_permalink( $listing->get_id() ) );
+			if ( ! empty( $telegram ) ) {
+				?>
+				<div class='list-group-item'>
+					<div class='media'>
+						<span class='rtcl-icon rtcl-icon-telegram mr-2'></span>
+						<div class='media-body'>
+							<a class="rtcl-telegram-message" target="_blank"
+							   href="https://t.me/<?php echo esc_attr( $telegram ); ?>/?text=<?php echo esc_attr( $message ); ?>">
+								<span><?php esc_html_e( "Message to Telegram", "classified-listing" ) ?></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<?php
+			}
+		}
+	}
+
+	/**
+	 * @param Listing $listing
+	 */
 	public static function my_listing_promotion_button( $listing ) {
 		if ( is_a( $listing, Listing::class ) && ! Functions::is_payment_disabled() ) {
 			?>
 			<a href="<?php echo esc_url( Link::get_checkout_endpoint_url( "submission", $listing->get_id() ) ); ?>"
-			   class="rtcl-promote-btn rtcl-tooltip-wrapper">
+			   class="rtcl-promote-btn">
 				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M8.39414 0.505005C8.06856 0.179322 7.63555 5.70138e-07 7.17507 5.70138e-07C6.7146 5.70138e-07 6.28159 0.179322 5.95601 0.504883C5.63031 0.830567 5.45098 1.26343 5.45098 1.72388C5.45098 2.07434 5.55511 2.40857 5.74824 2.6919L2.39148 10.911C2.18273 10.8232 1.95652 10.7771 1.72323 10.7771C1.26287 10.7771 0.829866 10.9563 0.504164 11.2819C-0.167994 11.9541 -0.168116 13.0477 0.504164 13.72L2.27941 15.4951C2.60499 15.8207 3.038 16 3.49847 16C3.95907 16 4.39196 15.8207 4.71754 15.4951C5.04312 15.1696 5.22245 14.7366 5.22257 14.2761C5.22257 14.0428 5.1763 13.8167 5.08853 13.6079L6.79578 12.9108L7.46305 13.578C7.89081 14.0057 8.55662 14.2462 9.19545 14.2462C9.48453 14.2462 9.76812 14.197 10.0215 14.0935L11.6579 13.4252C12.1103 13.2404 12.4173 12.8988 12.5001 12.4879C12.5829 12.0771 12.4322 11.6432 12.0865 11.2976L11.6977 10.9088L13.3079 10.2512C13.5913 10.4443 13.9256 10.5485 14.2761 10.5485C14.7364 10.5485 15.1695 10.3691 15.4951 10.0436C16.1673 9.37134 16.1673 8.27759 15.4951 7.60547L8.39414 0.505005ZM10.6933 10.3063C10.6918 10.3069 10.6902 10.3076 10.6886 10.3082L6.73279 11.9238C6.7312 11.9244 6.72961 11.925 6.72815 11.9257L4.49719 12.8368L3.16264 11.5023L6.4547 3.44165L12.5581 9.5448L10.6933 10.3063ZM4.05454 14.8323C3.90609 14.9807 3.70857 15.0625 3.49847 15.0625C3.28838 15.0625 3.09086 14.9807 2.94229 14.8322L1.16704 13.0571C0.860385 12.7505 0.860385 12.2515 1.16704 11.9448C1.31561 11.7963 1.51313 11.7145 1.72323 11.7145C1.93332 11.7145 2.13084 11.7964 2.27941 11.9449L4.05454 13.72C4.2031 13.8685 4.28502 14.066 4.28502 14.276C4.2849 14.4862 4.2031 14.6836 4.05454 14.8323ZM11.4236 11.9606C11.5434 12.0803 11.6007 12.2051 11.581 12.3027C11.5613 12.4005 11.4601 12.4933 11.3034 12.5573L9.66704 13.2256C9.20156 13.4156 8.48154 13.2705 8.12605 12.9152L7.73712 12.5264L10.7562 11.2933L11.4236 11.9606ZM14.8321 9.38062C14.6836 9.52917 14.4862 9.61096 14.2762 9.61096C14.0661 9.61096 13.8683 9.52905 13.7198 9.38062L6.61889 2.28003C6.47032 2.13159 6.38853 1.93408 6.38853 1.724C6.38853 1.51392 6.47032 1.31641 6.61889 1.16785C6.76746 1.01929 6.96498 0.9375 7.17507 0.9375C7.38517 0.9375 7.58269 1.01929 7.73126 1.16785L14.8321 8.26831C15.1388 8.57507 15.1388 9.07397 14.8321 9.38062Z" fill="#646464"/>
 					<path d="M13.3884 3.08032C13.5082 3.08032 13.6282 3.03455 13.7198 2.94299L15.8626 0.800293C16.0457 0.617188 16.0457 0.320435 15.8626 0.13733C15.6795 -0.0457759 15.3827 -0.0457759 15.1997 0.13733L13.0568 2.28003C12.8738 2.46313 12.8738 2.75989 13.0568 2.94299C13.1484 3.03455 13.2684 3.08032 13.3884 3.08032Z" fill="#646464"/>
@@ -410,7 +437,7 @@ class TemplateHooks {
 		}
 
 		?>
-		<a href="#" data-id="<?php echo absint( $listing->get_id() ) ?>" class="rtcl-renew-btn rtcl-tooltip-wrapper">
+		<a href="#" data-id="<?php echo absint( $listing->get_id() ) ?>" class="rtcl-renew-btn">
 			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<g clip-path="url(#clip0_1407_118)">
 					<path d="M15.8 3.23726C15.6314 3.15463 15.4349 3.24061 15.361 3.4291L14.5716 5.44388C13.6134 2.36416 10.9872 0.224121 7.99972 0.224121C4.68492 0.224121 1.81439 2.85861 1.17432 6.48835C1.13874 6.69023 1.25628 6.88611 1.43692 6.92588C1.45869 6.9307 1.48036 6.93301 1.50172 6.93301C1.65772 6.93296 1.79709 6.80995 1.82841 6.63242C2.40706 3.35093 5.0025 0.969198 7.99972 0.969198C10.8039 0.969198 13.2563 3.05376 14.0345 6.00978L12.0237 5.31336C11.8477 5.25235 11.6611 5.36239 11.6066 5.55893C11.5521 5.75545 11.6505 5.96416 11.8263 6.02503L14.3969 6.91529L14.3979 6.91564L14.3994 6.91611C14.4005 6.91651 14.4015 6.91661 14.4026 6.91696C14.4143 6.92093 14.4262 6.92404 14.4381 6.92649C14.4416 6.92722 14.445 6.92771 14.4485 6.9283C14.4585 6.93002 14.4685 6.93119 14.4785 6.93183C14.4821 6.93204 14.4857 6.93232 14.4893 6.93244C14.4922 6.93251 14.4951 6.93291 14.4979 6.93291C14.5024 6.93291 14.5069 6.93204 14.5114 6.93183C14.5199 6.93145 14.5285 6.93089 14.537 6.92973C14.5435 6.92886 14.5499 6.92771 14.5564 6.92642C14.565 6.92472 14.5735 6.92263 14.582 6.92018C14.5881 6.91839 14.5942 6.91651 14.6001 6.9143C14.6087 6.91124 14.617 6.90764 14.6253 6.90383C14.6311 6.90117 14.6368 6.89861 14.6424 6.89557C14.6505 6.89126 14.6582 6.8863 14.666 6.88124C14.6714 6.87769 14.677 6.87428 14.6823 6.87037C14.6895 6.86501 14.6964 6.85889 14.7033 6.85286C14.7085 6.84828 14.714 6.84402 14.719 6.83905C14.7196 6.83842 14.7203 6.83795 14.7209 6.83731C14.7277 6.83049 14.7337 6.82293 14.7399 6.81559C14.7437 6.81117 14.7478 6.80715 14.7513 6.80251C14.7613 6.78957 14.7702 6.77585 14.7783 6.76171C14.7808 6.75736 14.7828 6.75258 14.7852 6.74813C14.7909 6.73733 14.7962 6.72644 14.8009 6.7151C14.8017 6.71324 14.8027 6.71162 14.8034 6.70973L15.9716 3.72785C16.0455 3.53948 15.9686 3.31981 15.8 3.23726Z" fill="#646464"/>
@@ -434,7 +461,7 @@ class TemplateHooks {
 	public static function my_listing_edit_button( $listing ) {
 		if ( is_a( $listing, Listing::class ) && Functions::current_user_can( 'edit_' . rtcl()->post_type, $listing->get_id() ) ) {
 			?>
-			<a href="<?php echo esc_url( Link::get_listing_edit_page_link( $listing->get_id() ) ); ?>" class="rtcl-tooltip-wrapper"
+			<a href="<?php echo esc_url( Link::get_listing_edit_page_link( $listing->get_id() ) ); ?>" class=""
 			   data-id="<?php echo esc_attr( $listing->get_id() ) ?>">
 				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M11.5 16H1.83337C0.822021 16 0 15.1779 0 14.1665V4.49906C0 3.48762 0.822021 2.66553 1.83337 2.66553H7.5C7.776 2.66553 8 2.88955 8 3.16557C8 3.4416 7.776 3.66561 7.5 3.66561H1.83337C1.37402 3.66561 1 4.03967 1 4.49906V14.1665C1 14.6259 1.37402 14.9999 1.83337 14.9999H11.5C11.9594 14.9999 12.3334 14.6259 12.3334 14.1665V8.49938C12.3334 8.22336 12.5574 7.99934 12.8334 7.99934C13.1094 7.99934 13.3334 8.22275 13.3334 8.49938V14.1665C13.3334 15.1779 12.5114 16 11.5 16Z" fill="#646464"/>
@@ -453,7 +480,7 @@ class TemplateHooks {
 	public static function my_listing_delete_button( $listing ) {
 		if ( is_a( $listing, Listing::class ) && Functions::current_user_can( 'delete_' . rtcl()->post_type, $listing->get_id() ) ) {
 			?>
-			<a href="#" class="rtcl-delete-listing rtcl-tooltip-wrapper"
+			<a href="#" class="rtcl-delete-listing"
 			   data-id="<?php echo esc_attr( $listing->get_id() ) ?>" title="<?php esc_attr_e( 'Delete', 'classified-listing' ) ?>">
 				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M6.4 2.73171H9.6C9.6 2.31771 9.43143 1.92067 9.13137 1.62793C8.83131 1.33519 8.42435 1.17073 8 1.17073C7.57565 1.17073 7.16869 1.33519 6.86863 1.62793C6.56857 1.92067 6.4 2.31771 6.4 2.73171ZM5.2 2.73171C5.2 2.37297 5.27242 2.01775 5.41314 1.68633C5.55385 1.3549 5.7601 1.05376 6.0201 0.800099C6.28011 0.546436 6.58878 0.34522 6.92849 0.207939C7.2682 0.0706577 7.6323 0 8 0C8.3677 0 8.7318 0.0706577 9.07151 0.207939C9.41123 0.34522 9.7199 0.546436 9.9799 0.800099C10.2399 1.05376 10.4461 1.3549 10.5869 1.68633C10.7276 2.01775 10.8 2.37297 10.8 2.73171H15.4C15.5591 2.73171 15.7117 2.79338 15.8243 2.90316C15.9368 3.01293 16 3.16182 16 3.31707C16 3.47232 15.9368 3.62121 15.8243 3.73099C15.7117 3.84077 15.5591 3.90244 15.4 3.90244H14.344L13.408 13.3549C13.3362 14.0792 12.9904 14.7514 12.4381 15.2404C11.8859 15.7295 11.1666 16.0003 10.4208 16H5.5792C4.83349 16.0001 4.11448 15.7292 3.56236 15.2402C3.01024 14.7512 2.66459 14.0791 2.5928 13.3549L1.656 3.90244H0.6C0.44087 3.90244 0.288258 3.84077 0.175736 3.73099C0.063214 3.62121 0 3.47232 0 3.31707C0 3.16182 0.063214 3.01293 0.175736 2.90316C0.288258 2.79338 0.44087 2.73171 0.6 2.73171H5.2ZM6.8 6.43902C6.8 6.28378 6.73679 6.13489 6.62426 6.02511C6.51174 5.91533 6.35913 5.85366 6.2 5.85366C6.04087 5.85366 5.88826 5.91533 5.77574 6.02511C5.66321 6.13489 5.6 6.28378 5.6 6.43902V12.2927C5.6 12.4479 5.66321 12.5968 5.77574 12.7066C5.88826 12.8164 6.04087 12.878 6.2 12.878C6.35913 12.878 6.51174 12.8164 6.62426 12.7066C6.73679 12.5968 6.8 12.4479 6.8 12.2927V6.43902ZM9.8 5.85366C9.95913 5.85366 10.1117 5.91533 10.2243 6.02511C10.3368 6.13489 10.4 6.28378 10.4 6.43902V12.2927C10.4 12.4479 10.3368 12.5968 10.2243 12.7066C10.1117 12.8164 9.95913 12.878 9.8 12.878C9.64087 12.878 9.48826 12.8164 9.37574 12.7066C9.26321 12.5968 9.2 12.4479 9.2 12.2927V6.43902C9.2 6.28378 9.26321 6.13489 9.37574 6.02511C9.48826 5.91533 9.64087 5.85366 9.8 5.85366ZM3.7872 13.2425C3.83035 13.677 4.0378 14.0802 4.36909 14.3735C4.70039 14.6669 5.1318 14.8294 5.5792 14.8293H10.4208C10.8682 14.8294 11.2996 14.6669 11.6309 14.3735C11.9622 14.0802 12.1697 13.677 12.2128 13.2425L13.1392 3.90244H2.8608L3.7872 13.2425Z" fill="#646464"/>
@@ -842,6 +869,7 @@ class TemplateHooks {
 		$email              = $user ? $user->user_email : '';
 		$phone              = get_user_meta( $user_id, '_rtcl_phone', true );
 		$whatsapp_number    = get_user_meta( $user_id, '_rtcl_whatsapp_number', true );
+		$telegram           = get_user_meta( $user_id, '_rtcl_telegram', true );
 		$website            = get_user_meta( $user_id, '_rtcl_website', true );
 		$selected_locations = (array) get_user_meta( $user_id, '_rtcl_location', true );
 		$zipcode            = get_user_meta( $user_id, '_rtcl_zipcode', true );
@@ -859,11 +887,12 @@ class TemplateHooks {
 			$geo_address        = get_post_meta( $post_id, '_rtcl_geo_address', true );
 			$phone              = get_post_meta( $post_id, 'phone', true );
 			$whatsapp_number    = get_post_meta( $post_id, '_rtcl_whatsapp_number', true );
+			$telegram           = get_post_meta( $post_id, '_rtcl_telegram', true );
 			$email              = get_post_meta( $post_id, 'email', true );
 			$website            = get_post_meta( $post_id, 'website', true );
 		}
 		$moderation_settings = Functions::get_option( 'rtcl_moderation_settings' );
-		$data                = [
+		$data = [
 			'post_id'                    => $post_id,
 			'state_text'                 => Text::location_level_first(),
 			'city_text'                  => Text::location_level_second(),
@@ -876,6 +905,7 @@ class TemplateHooks {
 			'geo_address'                => $geo_address,
 			'phone'                      => $phone,
 			'whatsapp_number'            => $whatsapp_number,
+			'telegram'                   => $telegram,
 			'email'                      => $email,
 			'website'                    => $website,
 			'location_id'                => $location_id,
@@ -1268,12 +1298,17 @@ class TemplateHooks {
 	 * Show an archive description on taxonomy archives.
 	 */
 	public static function taxonomy_archive_description() {
+		$term = false;
 		if ( Functions::is_listing_taxonomy() && 0 === absint( get_query_var( 'paged' ) ) ) {
 			$term = get_queried_object();
-
-			if ( $term && ! empty( $term->description ) ) {
-				echo '<div class="rtcl-term-description">' . Functions::format_content( $term->description ) . '</div>'; // WPCS: XSS ok.
+		} elseif ( Functions::is_listings() ) {
+			$category = get_query_var( '__cat' );
+			if ( ! empty( $category ) ) {
+				$term = get_term_by( 'slug', $category, rtcl()->category );
 			}
+		}
+		if ( $term && ! empty( $term->description ) ) {
+			echo '<div class="rtcl-term-description">' . Functions::format_content( $term->description ) . '</div>';
 		}
 	}
 

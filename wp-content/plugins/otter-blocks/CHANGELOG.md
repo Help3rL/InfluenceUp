@@ -1,3 +1,27 @@
+##### [Version 2.6.2](https://github.com/Codeinwp/otter-blocks/compare/v2.6.1...v2.6.2) (2023-12-26)
+
+### Bug Fixes
+- **Fixes form submit button issue**: Fixes an issue when the form submit button accepts line-breaks in the editor.
+- **Fixes animation trigger for large elements**: Fixes an issue where animation does not trigger for large elements on the screen.
+
+##### [Version 2.6.1](https://github.com/Codeinwp/otter-blocks/compare/v2.6.0...v2.6.1) (2023-12-19)
+
+### Bug Fixes
+- **Fixes infinite redirect loop**: Fixes an issue where activating Raft leads to an infinite loop.
+- **Fixes third-party style conflicts**: Fixes CSS messing up styles of some third-party plugins.
+- **Fixes Woo products conditions not working**: Fixes Woo conditions in the Block Conditions module not working correctly.
+
+#### [Version 2.6.0](https://github.com/Codeinwp/otter-blocks/compare/v2.5.2...v2.6.0) (2023-12-18)
+
+### New Features
+- **New Onboarding Wizard for Raft Theme**: Introduced a New Onboarding Wizard to enhance the setup experience for the Raft theme.
+
+### Bug Fixes
+- **Button Group Error on Nofollow Disable**: Resolved an issue where disabling Add Nofollow and refreshing the page caused errors in the Button group.
+- **Block Conditions PHP Array Issue**: Fixed a problem where block conditions were throwing a PHP array error.
+- **Styling Loss in Widgets Area with Elementor**: Addressed the issue where blocks added in the widgets area lost styling when Elementor was activated.
+- **Slider Images in Neves Header Not Rendering**: Fixed a bug where slider images were not being rendered if added in Neves header.
+
 ##### [Version 2.5.2](https://github.com/Codeinwp/otter-blocks/compare/v2.5.1...v2.5.2) (2023-11-22)
 
 ### Bug Fixes

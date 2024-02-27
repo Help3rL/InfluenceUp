@@ -203,7 +203,7 @@ class ListingDetails {
 	 */
 	static function contact_details( WP_Post $post ) {
 		$post_id = $post->ID;
-		$data    = [
+		$data = [
 			'post_id'                    => $post_id,
 			'state_text'                 => Text::location_level_first(),
 			'city_text'                  => Text::location_level_second(),
@@ -216,6 +216,7 @@ class ListingDetails {
 			'geo_address'                => get_post_meta( $post_id, '_rtcl_geo_address', true ),
 			'phone'                      => get_post_meta( $post_id, 'phone', true ),
 			'whatsapp_number'            => get_post_meta( $post_id, '_rtcl_whatsapp_number', true ),
+			'telegram'                   => get_post_meta( $post_id, '_rtcl_telegram', true ),
 			'email'                      => get_post_meta( $post_id, 'email', true ),
 			'website'                    => get_post_meta( $post_id, 'website', true ),
 			'location_id'                => 0,

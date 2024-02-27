@@ -150,10 +150,10 @@ abstract class ElementorWidgetBase extends Widget_Base {
 	 * @return void
 	 */
 	public function editor_style() {
-		$img = RTCL_URL . '/assets/images/icon-20x20.png';
+		$img = RTCL_URL . '/assets/images/icon-32x32.png';
 		$css = '
 			.elementor-control .elementor-control-title {text-transform: capitalize; }
-			.elementor-element .icon .rtcl-el-custom{content: url( ' . $img . ');width: 20px;}
+			.elementor-element .icon .rtcl-el-custom{content: url( ' . $img . ');width: 28px;}
 			.select2-container--default .select2-selection--single {min-width: 126px !important; min-height: 30px !important;}
 			.elementor-control .rtcl-elementor-group-heading {
 				font-weight: bold;

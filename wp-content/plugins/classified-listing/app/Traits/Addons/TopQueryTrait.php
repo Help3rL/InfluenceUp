@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Trait for listing widget
  *
@@ -11,24 +12,36 @@
 namespace Rtcl\Traits\Addons;
 
 use RtclPro\Helpers\Fns;
+
 /**
  * Top Query Related function.
  */
-trait TopQueryTrait {
+trait TopQueryTrait
+{
 	/**
 	 * Top Query Related function.
 	 *
 	 * @return array
 	 */
-	public function top_listing_query_prepared() {
+	public function top_listing_query_prepared()
+	{
+		if (!rtcl()->has_pro()) {
+			return array(
+				'top_query' => [],
+				'top_items' => [],
+			);
+		}
+
 		$top_query = Fns::top_listings_query();
 		$posts_id  = array_map(
-			function( $post ) {
+			function ($post) {
 				return $post->ID;
 			},
 			$top_query->posts
 		);
+
 		wp_reset_postdata();
+
 		return array(
 			'top_query' => $top_query,
 			'top_items' => $posts_id,

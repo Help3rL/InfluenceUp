@@ -1,8 +1,8 @@
 <?php return array(
     'root' => array(
         'name' => 'codeinwp/otter-blocks',
-        'pretty_version' => '2.5.2',
-        'version' => '2.5.2.0',
+        'pretty_version' => '2.6.2',
+        'version' => '2.6.2.0',
         'reference' => NULL,
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
@@ -11,8 +11,8 @@
     ),
     'versions' => array(
         'codeinwp/otter-blocks' => array(
-            'pretty_version' => '2.5.2',
-            'version' => '2.5.2.0',
+            'pretty_version' => '2.6.2',
+            'version' => '2.6.2.0',
             'reference' => NULL,
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
@@ -47,9 +47,9 @@
             'dev_requirement' => false,
         ),
         'stripe/stripe-php' => array(
-            'pretty_version' => 'v13.3.0',
-            'version' => '13.3.0.0',
-            'reference' => '58d0e126670d43808ef4a814b40a2864bca788e5',
+            'pretty_version' => 'v13.5.0',
+            'version' => '13.5.0.0',
+            'reference' => 'a688c0ee7c0a2d162dee5c80b85d017cdd8d5e37',
             'type' => 'library',
             'install_path' => __DIR__ . '/../stripe/stripe-php',
             'aliases' => array(),

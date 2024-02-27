@@ -100,14 +100,15 @@ class AppliedBothEndHooks
 	/**
 	 * @param Payment $payment
 	 */
-	static function add_checkout_process_notice($payment) {
-		if ($payment->gateway) {
-			if ('paypal' === $payment->gateway->id) {
-				Functions::add_notice(esc_html__("Redirecting to paypal.", "classified-listing"));
-			} else if ('offline' === $payment->gateway->id) {
-				Functions::add_notice(esc_html__("Payment made pending confirmation.", "classified-listing"));
+	static function add_checkout_process_notice( $payment ) {
+		if ( $payment->gateway ) {
+			if ( 'paypal' === $payment->gateway->id ) {
+				Functions::add_notice( esc_html__( "Redirecting to paypal.", "classified-listing" ) );
+			} else if ( 'offline' === $payment->gateway->id ) {
+				Functions::add_notice( esc_html__( "Payment made pending confirmation.", "classified-listing" ) );
 			} else {
-				Functions::add_notice(esc_html__("Payment successfully made.", "classified-listing"));
+				Functions::add_notice( apply_filters( 'rtcl_payment_method_redirect_notice',
+					esc_html__( "Payment successfully made.", "classified-listing" ), $payment ) );
 			}
 		}
 	}
