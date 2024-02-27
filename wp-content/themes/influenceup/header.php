@@ -66,5 +66,51 @@
 						</label>
 					</div>
 				</div>
+				<!-- Mobiliojo meniu aktyvavimo mygtukas -->
+				<div class="mobile-menu-toggle">
+					<span class="menu-toggle-icon">
+					<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/menu.svg">
+					</span>
+				</div>
+
 			</div>
+			<!-- Mobilusis meniu -->
+			<div id="mobile-menu" class="mobile-menu">
+					<div class="search-container">
+						<input type="search" id="search-input" placeholder="Search...">
+						<div id="search-results"></div>
+					</div>
+				<nav class="mobile-navigation">
+					<?php
+					wp_nav_menu(array(
+						'theme_location' => 'menu-1', // Įsitikinkite, kad naudojate teisingą meniu vietą
+						'menu_id'        => 'primary-menu',
+					));
+					?>
+				</nav>
+
+				<div class="theme-switch-wrapper">
+						<label class="theme-switch" for="checkbox">
+							<input type="checkbox" id="checkbox" />
+							<div class="slider round">
+								<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/sun.svg" class="icon sun-icon" alt="Light Theme" />
+								<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/moon.svg" class="icon moon-icon" alt="Dark Theme" />
+							</div>
+						</label>
+					</div>
+				<a href="<?php echo wp_login_url(); ?>" class="login-button">Prisijungti</a>
+			</div>
+
 		</header><!-- #masthead -->
+		
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const menuToggle = document.querySelector('.mobile-menu-toggle');
+				const mobileMenu = document.querySelector('#mobile-menu');
+
+				menuToggle.addEventListener('click', function() {
+					mobileMenu.classList.toggle('active');
+				});
+			});
+			</script>

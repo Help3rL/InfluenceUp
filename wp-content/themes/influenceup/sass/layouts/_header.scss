@@ -232,3 +232,138 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block; /* Rodyti tik mobiliuosiuose */
+    }
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 111px;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #F6F6F6;
+    z-index: 999;
+    transition: right 0.3s ease;
+    padding: 34px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+
+    .search-container {
+        position: relative;
+        width: 100%;
+
+        input[type="search"]:focus-visible {
+          border: 3px solid $light-blue1 !important;
+          outline: none !important;
+          box-shadow: none;
+          
+        }
+        #search-input {
+          color: $very-dark-blue;
+          border: 2px solid $primary;
+          border-radius: 20px;
+          webkit-appearance: none;
+          outline-offset: 0px;
+          background-color: #F6F6F6;
+          width: 100%;
+          height: 48px;
+        }
+        &:focus-visible {
+          border: 3px solid $light-blue1 !important;
+          outline: none !important;
+          box-shadow: none;
+        }
+        #search-input:hover {
+          border: 2px solid $light-blue1;
+        }
+        #search-input:active {
+          border: 3px solid $light-blue1;
+        }
+        #search-input.loading {
+          background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
+          background-position: center right;
+          background-repeat: no-repeat;
+          padding-right: 20px;
+        }
+        #search-input::-webkit-search-cancel-button {
+          -webkit-appearance: none;
+          appearance: none;
+        }
+        #search-results {
+          position: absolute;
+          background-color: $pure-white;
+          border-radius: 12px;
+          border: 2px solid $dark-white;
+          padding: 12px 0px 12px 0px;
+
+          ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+              padding: 8px;
+
+              a {
+                color: $very-dark-blue;
+                text-decoration: none;
+              }
+              a:hover {
+                text-decoration: underline;
+              }
+            }
+            li:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+
+
+      .menu-menu-1-container {
+        ul.menu {
+          gap: 32px;
+          li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            a {
+              color: $very-dark-blue;
+            }
+            .nav-arrow {
+              display: block;
+              width: 20px;
+              height: 20px;
+              background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg"); // Čia nurodykite pradinį kelio prie įkonos URL
+              background-size: cover;
+              transition: transform 0.3s ease;
+            }
+
+            &:hover .nav-arrow {
+              transform: rotate(180deg); // Sukame ikoną 180 laipsnių
+              background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/up.svg");
+            }
+
+            ul {
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+              background-color: $pure-white;
+              padding: 12px;
+              border: 2px solid $dark-white;
+              border-radius: 12px;
+            }
+          }
+        }
+      }
+    
+}
+.mobile-menu.active {
+    right: 0;
+}

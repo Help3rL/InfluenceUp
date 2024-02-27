@@ -1144,6 +1144,128 @@ textarea {
   right: 7px;
 }
 
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block; /* Rodyti tik mobiliuosiuose */
+  }
+}
+.mobile-menu {
+  position: fixed;
+  top: 111px;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #F6F6F6;
+  z-index: 999;
+  transition: right 0.3s ease;
+  padding: 34px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+.mobile-menu .search-container {
+  position: relative;
+  width: 100%;
+}
+.mobile-menu .search-container input[type=search]:focus-visible {
+  border: 3px solid #347ED6 !important;
+  outline: none !important;
+  box-shadow: none;
+}
+.mobile-menu .search-container #search-input {
+  color: #0C1030;
+  border: 2px solid #3C92F6;
+  border-radius: 20px;
+  webkit-appearance: none;
+  outline-offset: 0px;
+  background-color: #F6F6F6;
+  width: 100%;
+  height: 48px;
+}
+.mobile-menu .search-container:focus-visible {
+  border: 3px solid #347ED6 !important;
+  outline: none !important;
+  box-shadow: none;
+}
+.mobile-menu .search-container #search-input:hover {
+  border: 2px solid #347ED6;
+}
+.mobile-menu .search-container #search-input:active {
+  border: 3px solid #347ED6;
+}
+.mobile-menu .search-container #search-input.loading {
+  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
+  background-position: center right;
+  background-repeat: no-repeat;
+  padding-right: 20px;
+}
+.mobile-menu .search-container #search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.mobile-menu .search-container #search-results {
+  position: absolute;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 2px solid #C9C9C9;
+  padding: 12px 0px 12px 0px;
+}
+.mobile-menu .search-container #search-results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mobile-menu .search-container #search-results ul li {
+  padding: 8px;
+}
+.mobile-menu .search-container #search-results ul li a {
+  color: #0C1030;
+  text-decoration: none;
+}
+.mobile-menu .search-container #search-results ul li a:hover {
+  text-decoration: underline;
+}
+.mobile-menu .search-container #search-results ul li:last-child {
+  border-bottom: none;
+}
+.mobile-menu .menu-menu-1-container ul.menu {
+  gap: 32px;
+}
+.mobile-menu .menu-menu-1-container ul.menu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mobile-menu .menu-menu-1-container ul.menu li a {
+  color: #0C1030;
+}
+.mobile-menu .menu-menu-1-container ul.menu li .nav-arrow {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg");
+  background-size: cover;
+  transition: transform 0.3s ease;
+}
+.mobile-menu .menu-menu-1-container ul.menu li:hover .nav-arrow {
+  transform: rotate(180deg);
+  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/up.svg");
+}
+.mobile-menu .menu-menu-1-container ul.menu li ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #FFFFFF;
+  padding: 12px;
+  border: 2px solid #C9C9C9;
+  border-radius: 12px;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
 /* footer
 --------------------------------------------- */
 .site-footer {
