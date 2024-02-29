@@ -1269,6 +1269,12 @@ textarea {
     text-decoration: none;
     color: #0c1030;
   }
+  .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu li.menu-item span.nav-arrow {
+    display: none;
+  }
+  .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu li.menu-item .sub-menu {
+    display: none;
+  }
   .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu li.menu-item .sub-menu.active {
     list-style: none;
     padding: 0;

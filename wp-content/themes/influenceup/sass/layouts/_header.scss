@@ -371,7 +371,12 @@
             text-decoration: none;
             color: #0c1030;
           }
-
+          span.nav-arrow {
+            display: none;
+          }
+          .sub-menu{
+            display: none;
+          }
           .sub-menu.active {
             list-style: none;
             padding: 0;
