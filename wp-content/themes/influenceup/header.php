@@ -57,8 +57,8 @@
 					<a href="<?php echo wp_login_url(); ?>" class="login-button">Prisijungti</a>
 
 					<div class="theme-switch-wrapper">
-						<label class="theme-switch" for="checkbox">
-							<input type="checkbox" id="checkbox" />
+						<label class="theme-switch" for="desktop-checkbox">
+							<input type="checkbox" id="desktop-checkbox" />
 							<div class="slider round">
 								<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/sun.svg" class="icon sun-icon" alt="Light Theme" />
 								<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/moon.svg" class="icon moon-icon" alt="Dark Theme" />
@@ -90,27 +90,16 @@
 				</nav>
 
 				<div class="theme-switch-wrapper">
-						<label class="theme-switch" for="checkbox">
-							<input type="checkbox" id="checkbox" />
+						<label class="theme-switch" for="mobile-checkbox">
+							<input type="checkbox" id="mobile-checkbox" />
 							<div class="slider round">
 								<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/sun.svg" class="icon sun-icon" alt="Light Theme" />
 								<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/moon.svg" class="icon moon-icon" alt="Dark Theme" />
 							</div>
 						</label>
+						<a href="<?php echo wp_login_url(); ?>" class="login-button">Prisijungti</a>
 					</div>
-				<a href="<?php echo wp_login_url(); ?>" class="login-button">Prisijungti</a>
 			</div>
 
 		</header><!-- #masthead -->
 		
-
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				const menuToggle = document.querySelector('.mobile-menu-toggle');
-				const mobileMenu = document.querySelector('#mobile-menu');
-
-				menuToggle.addEventListener('click', function() {
-					mobileMenu.classList.toggle('active');
-				});
-			});
-			</script>

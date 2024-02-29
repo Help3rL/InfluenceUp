@@ -6,7 +6,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-    const checkbox = document.getElementById('checkbox');
+    const desktopCheckbox = document.getElementById('desktop-checkbox');
+    const mobileCheckbox = document.getElementById('mobile-checkbox');
+
     const sunIcon = document.querySelector('.sun-icon');
     const moonIcon = document.querySelector('.moon-icon');
 
@@ -23,7 +25,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     toggleIcons(currentTheme);
 
-    checkbox.addEventListener('change', function() {
+    desktopCheckbox.addEventListener('change', function() {
+        if(this.checked) {
+            // On dark theme
+            document.documentElement.setAttribute('data-theme', 'dark');
+            toggleIcons('dark');
+        } else {
+            // On light theme
+            document.documentElement.setAttribute('data-theme', 'light');
+            toggleIcons('light');
+        }
+    });
+
+    mobileCheckbox.addEventListener('change', function() {
         if(this.checked) {
             // On dark theme
             document.documentElement.setAttribute('data-theme', 'dark');
@@ -35,4 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+
 

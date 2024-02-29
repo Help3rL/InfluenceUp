@@ -144,6 +144,7 @@ function influenceup_scripts() {
 
 	wp_enqueue_script( 'influenceup-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'influenceup-header-js', get_template_directory_uri() . '/js/header/header.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'influenceup-header-mobile-js', get_template_directory_uri() . '/js/header/header-mobile.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'influenceup-switch-js', get_template_directory_uri() . '/js/header/switch.js', array(), _S_VERSION, true );
 	wp_localize_script('influenceup-header-js', 'influenceup', array(
         'templateUrl' => get_template_directory_uri() . '/inc/img/arrow'
@@ -257,6 +258,24 @@ function year_shortcode () {
 	return $year;
 }
 add_shortcode ('year', 'year_shortcode');
+
+
+function add_menu_parent_class($items) {
+    $parents = array();
+    foreach ($items as $item) {
+        if ($item->menu_item_parent && $item->menu_item_parent > 0) {
+            $parents[] = $item->menu_item_parent;
+        }
+    }
+    foreach ($items as $item) {
+        if (in_array($item->ID, $parents)) {
+            $item->classes[] = 'menu-parent-item'; // Čia yra mūsų pridėta klasė
+        }
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'add_menu_parent_class');
+
 
 
 
