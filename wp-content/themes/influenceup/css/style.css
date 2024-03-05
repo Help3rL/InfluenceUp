@@ -1418,6 +1418,10 @@ textarea {
     display: none;
   }
 }
+.site-main article .entry-header {
+  display: none;
+}
+
 /* footer
 --------------------------------------------- */
 .site-footer {

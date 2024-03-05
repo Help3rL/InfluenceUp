@@ -542,3 +542,11 @@
     }
 
 }
+
+.site-main {
+  article {
+    .entry-header {
+      display: none;
+    }
+  }
+}
