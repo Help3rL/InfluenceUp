@@ -997,9 +997,19 @@ textarea {
     display: flex;
     align-items: center;
     gap: 20px;
+    flex: 3;
   }
   .site-header .header-container .header-extra .search-container {
+    width: 100%;
+    transition: width 0.3s ease-in-out;
     position: relative;
+  }
+  .site-header .header-container .header-extra .search-container .search-icon-wrapper {
+    position: absolute;
+    margin-left: 10px;
+    height: 100%;
+    align-items: center;
+    display: flex;
   }
   .site-header .header-container .header-extra .search-container input[type=search]:focus-visible {
     border: 3px solid #347ED6 !important;
@@ -1007,11 +1017,16 @@ textarea {
     box-shadow: none;
   }
   .site-header .header-container .header-extra .search-container #search-input {
+    height: 48px;
     color: #0C1030;
     border: 2px solid #3C92F6;
     border-radius: 15px;
     webkit-appearance: none;
+    width: calc(100% - 20px);
+    max-width: 350px;
     outline-offset: 0px;
+    width: 100%;
+    padding-left: 40px;
   }
   .site-header .header-container .header-extra .search-container:focus-visible {
     border: 3px solid #347ED6 !important;
@@ -1039,7 +1054,9 @@ textarea {
     background-color: #FFFFFF;
     border-radius: 12px;
     border: 2px solid #C9C9C9;
-    padding: 12px 0px 12px 0px;
+    padding: 12px 8px 12px 8px;
+    z-index: 1;
+    width: 100%;
   }
   .site-header .header-container .header-extra .search-container #search-results ul {
     list-style: none;
@@ -1158,11 +1175,12 @@ textarea {
   }
 }
 
-@media (min-width: 851px) {
-  .mobile-menu-toggle {
-    display: none;
-  }
+.site-main article .entry-header {
+  display: none;
 }
+
+/* mobile-header
+--------------------------------------------- */
 @media (max-width: 850px) {
   .mobile-menu-toggle {
     display: block; /* Rodyti tik mobiliuosiuose */
@@ -1173,7 +1191,7 @@ textarea {
     right: -100%;
     width: 100%;
     height: 100%;
-    background-color: #f6f6f6;
+    background-color: #F6F6F6;
     z-index: 999;
     transition: right 0.3s ease;
     padding: 34px 15px;
@@ -1186,72 +1204,83 @@ textarea {
   .mobile-menu .search-container {
     position: relative;
     width: 100%;
+    max-width: 320px;
+  }
+  .mobile-menu .search-container .search-icon-wrapper {
+    position: absolute;
+    margin-left: 10px;
+    height: 100%;
+    align-items: center;
+    display: flex;
   }
   .mobile-menu .search-container input[type=search]:focus-visible {
     border: 3px solid #347ED6 !important;
     outline: none !important;
     box-shadow: none;
   }
-  .mobile-menu .search-container #search-input {
+  .mobile-menu .search-container #mobile-search-input {
     color: #0C1030;
     border: 2px solid #3C92F6;
     border-radius: 20px;
     webkit-appearance: none;
     outline-offset: 0px;
-    background-color: #f6f6f6;
+    background-color: #F6F6F6;
     width: 100%;
     height: 48px;
+    padding-left: 40px;
   }
   .mobile-menu .search-container:focus-visible {
     border: 3px solid #347ED6 !important;
     outline: none !important;
     box-shadow: none;
   }
-  .mobile-menu .search-container #search-input:hover {
+  .mobile-menu .search-container #mobile-search-input:hover {
     border: 2px solid #347ED6;
   }
-  .mobile-menu .search-container #search-input:active {
+  .mobile-menu .search-container #mobile-search-input:active {
     border: 3px solid #347ED6;
   }
-  .mobile-menu .search-container #search-input.loading {
+  .mobile-menu .search-container #mobile-search-input.loading {
     background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
     background-position: center right;
     background-repeat: no-repeat;
     padding-right: 20px;
   }
-  .mobile-menu .search-container #search-input::-webkit-search-cancel-button {
+  .mobile-menu .search-container #mobile-search-input::-webkit-search-cancel-button {
     -webkit-appearance: none;
     appearance: none;
   }
-  .mobile-menu .search-container #search-results {
+  .mobile-menu .search-container #mobile-search-results {
     position: absolute;
     background-color: #FFFFFF;
     border-radius: 12px;
     border: 2px solid #C9C9C9;
-    padding: 12px 0px 12px 0px;
+    padding: 12px 8px 12px 8px;
+    z-index: 1;
+    width: 100%;
   }
-  .mobile-menu .search-container #search-results ul {
+  .mobile-menu .search-container #mobile-search-results ul {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .mobile-menu .search-container #search-results ul li {
+  .mobile-menu .search-container #mobile-search-results ul li {
     padding: 8px;
   }
-  .mobile-menu .search-container #search-results ul li a {
+  .mobile-menu .search-container #mobile-search-results ul li a {
     color: #0C1030;
     text-decoration: none;
   }
-  .mobile-menu .search-container #search-results ul li a:hover {
+  .mobile-menu .search-container #mobile-search-results ul li a:hover {
     text-decoration: underline;
   }
-  .mobile-menu .search-container #search-results ul li:last-child {
+  .mobile-menu .search-container #mobile-search-results ul li:last-child {
     border-bottom: none;
   }
   .mobile-menu .mobile-navigation .menu-menu-1-container {
     font-family: "Averta Demo Regular", sans-serif;
     font-size: 20px;
-    color: #0c1030;
+    color: #0C1030;
   }
   .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu {
     list-style: none;
@@ -1267,7 +1296,7 @@ textarea {
   }
   .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu li.menu-item a {
     text-decoration: none;
-    color: #0c1030;
+    color: #0C1030;
   }
   .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu li.menu-item span.nav-arrow {
     display: none;
@@ -1280,7 +1309,7 @@ textarea {
     padding: 0;
     margin: 0;
     position: absolute;
-    background-color: #fff;
+    background-color: #FFFFFF;
     z-index: 1;
     top: 31px;
     left: 50%;
@@ -1288,7 +1317,7 @@ textarea {
     width: 320px;
     padding: 16px;
     border-radius: 12px;
-    border: 2px solid #c9c9c9;
+    border: 2px solid #C9C9C9;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -1299,7 +1328,7 @@ textarea {
     justify-content: space-between;
     gap: 32px;
     position: fixed;
-    bottom: 15px;
+    bottom: 5%;
   }
   .mobile-menu .theme-switch-wrapper .theme-switch {
     position: relative;
@@ -1414,14 +1443,15 @@ textarea {
   }
 }
 @media (min-width: 851px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+}
+@media (min-width: 851px) {
   .mobile-menu {
     display: none;
   }
 }
-.site-main article .entry-header {
-  display: none;
-}
-
 /* footer
 --------------------------------------------- */
 .site-footer {

@@ -193,7 +193,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 function add_menu_arrows( $item_output, $item, $depth, $args ) {
     if ($args->theme_location == 'menu-1') {
         if (in_array('menu-item-has-children', $item->classes)) {
-            $item_output .= '<span class="nav-arrow"></span>'; // Pridedame span elementą tiems meniu punktams, kurie turi vaikinius elementus
+            $item_output .= '<span class="nav-arrow"></span>'; 
         }
     }
     return $item_output;
@@ -232,25 +232,28 @@ add_action('wp_ajax_data_fetch' , 'data_fetch');
 add_action('wp_ajax_nopriv_data_fetch','data_fetch');
 
 function data_fetch(){
-	//security check
+    //saugumo tikrinimas
     check_ajax_referer('live_search_nonce', 'nonce');
 
-    $query = new WP_Query( array(
+    $query = new WP_Query(array(
         'posts_per_page' => -1,
-        's' => esc_attr( $_POST['keyword'] ),
+        's' => esc_attr($_POST['keyword']),
         'post_type' => array('rtcl_listing')
-    ) );
-    if( $query->have_posts() ) :
+    ));
+    if($query->have_posts()) :
         echo '<ul>';
-        while( $query->have_posts() ): $query->the_post();
-            echo '<li><a href="' . esc_url( get_permalink() ) . '">' . get_the_title() . '</a></li>';
+        while($query->have_posts()): $query->the_post();
+            echo '<li><a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a></li>';
         endwhile;
         echo '</ul>';
         wp_reset_postdata();
+    else:
+        echo '<p>Niekas nerasta.</p>'; // Pranešimas, kai rezultatų nėra
     endif;
 
     die();
 }
+
 
 //display current year
 function year_shortcode () {

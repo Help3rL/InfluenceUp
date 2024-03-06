@@ -51,6 +51,10 @@
 				<!-- Search ir login button -->
 				<div class="header-extra">
 					<div class="search-container">
+					<div class="search-icon-wrapper">
+						<!-- Čia bus įterpta SVG ikona -->
+						<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/search.svg" alt="Light Theme" />
+					</div>
 						<input type="search" id="search-input" placeholder="Search...">
 						<div id="search-results"></div>
 					</div>
@@ -69,7 +73,8 @@
 				<!-- Mobiliojo meniu aktyvavimo mygtukas -->
 				<div class="mobile-menu-toggle">
 					<span class="menu-toggle-icon">
-					<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/menu.svg">
+					<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/menu.svg" alt="Open Menu" id="menu-icon">
+        			<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/close-icon.svg" alt="Close Menu" id="close-icon" style="display: none;">
 					</span>
 				</div>
 
@@ -77,8 +82,12 @@
 			<!-- Mobilusis meniu -->
 			<div id="mobile-menu" class="mobile-menu">
 					<div class="search-container">
-						<input type="search" id="search-input" placeholder="Search...">
-						<div id="search-results"></div>
+					<div class="search-icon-wrapper">
+						<!-- Čia bus įterpta SVG ikona -->
+						<img src="<?php echo get_template_directory_uri(); ?>/inc/img/icons/search.svg" alt="Light Theme" />
+					</div>
+						<input type="search" id="mobile-search-input" placeholder="Search...">
+						<div id="mobile-search-results"></div>
 					</div>
 				<nav class="mobile-navigation">
 					<?php
