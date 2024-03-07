@@ -734,12 +734,12 @@ textarea {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0;
+  margin: 0em 0 0;
 }
 
 .page-links {
   clear: both;
-  margin: 0 0 1.5em;
+  margin: 0em 0 0;
 }
 
 /* Comments
@@ -936,6 +936,11 @@ textarea {
   padding: 15px 15px;
   font-family: "Averta Demo Regular", sans-serif;
   font-size: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #FFFFFF;
+  width: 100%;
 }
 .site-header .header-container {
   display: flex;
@@ -946,322 +951,510 @@ textarea {
 .site-header .header-container .header-logo {
   flex: 1;
 }
-.site-header .header-container .main-navigation {
-  flex: 2;
+@media (min-width: 851px) {
+  .site-header .header-container .main-navigation {
+    flex: 2;
+  }
+  .site-header .header-container .main-navigation .menu-menu-1-container ul.menu {
+    gap: 32px;
+  }
+  .site-header .header-container .main-navigation .menu-menu-1-container ul.menu li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .site-header .header-container .main-navigation .menu-menu-1-container ul.menu li a {
+    color: #0C1030;
+  }
+  .site-header .header-container .main-navigation .menu-menu-1-container ul.menu li .nav-arrow {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg");
+    background-size: cover;
+    transition: transform 0.3s ease;
+  }
+  .site-header .header-container .main-navigation .menu-menu-1-container ul.menu li:hover .nav-arrow {
+    transform: rotate(-180deg);
+    background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/up.svg");
+  }
+  .site-header .header-container .main-navigation .menu-menu-1-container ul.menu li ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #FFFFFF;
+    padding: 12px;
+    border: 2px solid #C9C9C9;
+    border-radius: 12px;
+  }
 }
-.site-header .header-container .main-navigation .menu-menu-1-container ul.menu {
-  gap: 32px;
+@media (max-width: 850px) {
+  .site-header .header-container .main-navigation {
+    display: none;
+  }
 }
-.site-header .header-container .main-navigation .menu-menu-1-container ul.menu li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+@media (min-width: 851px) {
+  .site-header .header-container .header-extra {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 3;
+  }
+  .site-header .header-container .header-extra .search-container {
+    width: 100%;
+    transition: width 0.3s ease-in-out;
+    position: relative;
+  }
+  .site-header .header-container .header-extra .search-container .search-icon-wrapper {
+    position: absolute;
+    margin-right: 10px;
+    height: 100%;
+    align-items: center;
+    display: flex;
+  }
+  .site-header .header-container .header-extra .search-container input[type=search]:focus-visible {
+    border: 3px solid #347ED6 !important;
+    outline: none !important;
+    box-shadow: none;
+  }
+  .site-header .header-container .header-extra .search-container #search-input {
+    height: 48px;
+    color: #0C1030;
+    border: 2px solid #3C92F6;
+    border-radius: 15px;
+    webkit-appearance: none;
+    width: calc(100% - 20px);
+    max-width: 350px;
+    outline-offset: 0px;
+    width: 100%;
+    padding-right: 40px;
+  }
+  .site-header .header-container .header-extra .search-container:focus-visible {
+    border: 3px solid #347ED6 !important;
+    outline: none !important;
+    box-shadow: none;
+  }
+  .site-header .header-container .header-extra .search-container #search-input:hover {
+    border: 2px solid #347ED6;
+  }
+  .site-header .header-container .header-extra .search-container #search-input:active {
+    border: 3px solid #347ED6;
+  }
+  .site-header .header-container .header-extra .search-container #search-input.loading {
+    background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
+    background-position: center left;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+  }
+  .site-header .header-container .header-extra .search-container #search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .site-header .header-container .header-extra .search-container #search-results {
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    border: 2px solid #C9C9C9;
+    padding: 12px 8px 12px 8px;
+    z-index: 1;
+    width: 100%;
+  }
+  .site-header .header-container .header-extra .search-container #search-results ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .site-header .header-container .header-extra .search-container #search-results ul li {
+    padding: 8px;
+  }
+  .site-header .header-container .header-extra .search-container #search-results ul li a {
+    color: #0C1030;
+    text-decoration: none;
+  }
+  .site-header .header-container .header-extra .search-container #search-results ul li a:hover {
+    text-decoration: underline;
+  }
+  .site-header .header-container .header-extra .search-container #search-results ul li:last-child {
+    border-bottom: none;
+  }
+  .site-header .header-container .header-extra .login-button {
+    display: inline-block;
+    padding: 3px 15px;
+    background-color: #3C92F6;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+  }
+  .site-header .header-container .header-extra .login-button:hover {
+    background-color: #006799;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input#desktop-checkbox:checked + .slider {
+    background-color: #FFFFFF;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input#desktop-checkbox:checked + .slider:before {
+    transform: translateX(-26px);
+    right: 0;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input#desktop-checkbox:checked + .slider .sun-icon {
+    opacity: 0;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input#desktop-checkbox:checked + .slider .moon-icon {
+    opacity: 1;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #FFFFFF;
+    transition: 0.3s;
+    border-radius: 34px;
+    border: 2px solid #3C92F6;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    right: 4px;
+    bottom: 2px;
+    background-color: #3C92F6;
+    transition: 0.3s;
+    border-radius: 50%;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .icon {
+    position: absolute;
+    height: 19px;
+    width: 19px;
+    transition: opacity 0.4s;
+    top: 5px;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .icon.sun-icon {
+    right: 7px;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .icon.moon-icon {
+    left: 7px;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .sun-icon {
+    display: block;
+    right: 7px;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .moon-icon {
+    display: none;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider [data-theme=dark] .sun-icon {
+    display: none;
+  }
+  .site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider [data-theme=dark] .moon-icon {
+    display: block;
+    left: 7px;
+  }
 }
-.site-header .header-container .main-navigation .menu-menu-1-container ul.menu li a {
-  color: #0C1030;
-}
-.site-header .header-container .main-navigation .menu-menu-1-container ul.menu li .nav-arrow {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg");
-  background-size: cover;
-  transition: transform 0.3s ease;
-}
-.site-header .header-container .main-navigation .menu-menu-1-container ul.menu li:hover .nav-arrow {
-  transform: rotate(-180deg);
-  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/up.svg");
-}
-.site-header .header-container .main-navigation .menu-menu-1-container ul.menu li ul {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background-color: #FFFFFF;
-  padding: 12px;
-  border: 2px solid #C9C9C9;
-  border-radius: 12px;
-}
-.site-header .header-container .header-extra {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.site-header .header-container .header-extra .search-container {
-  position: relative;
-}
-.site-header .header-container .header-extra .search-container input[type=search]:focus-visible {
-  border: 3px solid #347ED6 !important;
-  outline: none !important;
-  box-shadow: none;
-}
-.site-header .header-container .header-extra .search-container #search-input {
-  color: #0C1030;
-  border: 2px solid #3C92F6;
-  border-radius: 15px;
-  webkit-appearance: none;
-  outline-offset: 0px;
-}
-.site-header .header-container .header-extra .search-container:focus-visible {
-  border: 3px solid #347ED6 !important;
-  outline: none !important;
-  box-shadow: none;
-}
-.site-header .header-container .header-extra .search-container #search-input:hover {
-  border: 2px solid #347ED6;
-}
-.site-header .header-container .header-extra .search-container #search-input:active {
-  border: 3px solid #347ED6;
-}
-.site-header .header-container .header-extra .search-container #search-input.loading {
-  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
-  background-position: center left;
-  background-repeat: no-repeat;
-  padding-left: 20px;
-}
-.site-header .header-container .header-extra .search-container #search-input::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  appearance: none;
-}
-.site-header .header-container .header-extra .search-container #search-results {
-  position: absolute;
-  background-color: #FFFFFF;
-  border-radius: 12px;
-  border: 2px solid #C9C9C9;
-  padding: 12px 0px 12px 0px;
-}
-.site-header .header-container .header-extra .search-container #search-results ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.site-header .header-container .header-extra .search-container #search-results ul li {
-  padding: 8px;
-}
-.site-header .header-container .header-extra .search-container #search-results ul li a {
-  color: #0C1030;
-  text-decoration: none;
-}
-.site-header .header-container .header-extra .search-container #search-results ul li a:hover {
-  text-decoration: underline;
-}
-.site-header .header-container .header-extra .search-container #search-results ul li:last-child {
-  border-bottom: none;
-}
-.site-header .header-container .header-extra .login-button {
-  display: inline-block;
-  padding: 3px 15px;
-  background-color: #3C92F6;
-  color: #FFFFFF;
-  text-decoration: none;
-  border-radius: 15px;
-  transition: background-color 0.3s ease;
-  font-size: 20px;
-}
-.site-header .header-container .header-extra .login-button:hover {
-  background-color: #006799;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input:checked + .slider {
-  background-color: #FFFFFF;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input:checked + .slider:before {
-  transform: translateX(-26px);
-  right: 0;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input:checked + .slider .sun-icon {
-  opacity: 0;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch input:checked + .slider .moon-icon {
-  opacity: 1;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: #FFFFFF;
-  transition: 0.3s;
-  border-radius: 34px;
-  border: 2px solid #3C92F6;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  right: 4px;
-  bottom: 2px;
-  background-color: #3C92F6;
-  transition: 0.3s;
-  border-radius: 50%;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .icon {
-  position: absolute;
-  height: 19px;
-  width: 19px;
-  transition: opacity 0.4s;
-  top: 5px;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .icon.sun-icon {
-  right: 7px;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .icon.moon-icon {
-  left: 7px;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .sun-icon {
-  display: block;
-  right: 7px;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider .moon-icon {
-  display: none;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider [data-theme=dark] .sun-icon {
-  display: none;
-}
-.site-header .header-container .header-extra .theme-switch-wrapper .theme-switch .slider [data-theme=dark] .moon-icon {
-  display: block;
-  left: 7px;
+@media (max-width: 850px) {
+  .site-header .header-container .header-extra {
+    display: none;
+  }
 }
 
-@media (max-width: 768px) {
+.site-main article .entry-header {
+  display: none;
+}
+
+/* mobile-header
+--------------------------------------------- */
+@media (max-width: 850px) {
   .mobile-menu-toggle {
     display: block; /* Rodyti tik mobiliuosiuose */
   }
+  .mobile-menu {
+    position: fixed;
+    top: 86px;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #F6F6F6;
+    z-index: 999;
+    transition: left 0.3s ease;
+    padding: 34px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    /* Mobile menu*/
+  }
+  .mobile-menu .search-container {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+  }
+  .mobile-menu .search-container .search-icon-wrapper {
+    position: absolute;
+    margin-right: 10px;
+    height: 100%;
+    align-items: center;
+    display: flex;
+  }
+  .mobile-menu .search-container input[type=search]:focus-visible {
+    border: 3px solid #347ED6 !important;
+    outline: none !important;
+    box-shadow: none;
+  }
+  .mobile-menu .search-container #mobile-search-input {
+    color: #0C1030;
+    border: 2px solid #3C92F6;
+    border-radius: 20px;
+    webkit-appearance: none;
+    outline-offset: 0px;
+    background-color: #F6F6F6;
+    width: 100%;
+    height: 48px;
+    padding-right: 40px;
+  }
+  .mobile-menu .search-container:focus-visible {
+    border: 3px solid #347ED6 !important;
+    outline: none !important;
+    box-shadow: none;
+  }
+  .mobile-menu .search-container #mobile-search-input:hover {
+    border: 2px solid #347ED6;
+  }
+  .mobile-menu .search-container #mobile-search-input:active {
+    border: 3px solid #347ED6;
+  }
+  .mobile-menu .search-container #mobile-search-input.loading {
+    background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
+    background-position: center left;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+  }
+  .mobile-menu .search-container #mobile-search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .mobile-menu .search-container #mobile-search-results {
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    border: 2px solid #C9C9C9;
+    padding: 12px 8px 12px 8px;
+    z-index: 1;
+    width: 100%;
+  }
+  .mobile-menu .search-container #mobile-search-results ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .mobile-menu .search-container #mobile-search-results ul li {
+    padding: 8px;
+  }
+  .mobile-menu .search-container #mobile-search-results ul li a {
+    color: #0C1030;
+    text-decoration: none;
+  }
+  .mobile-menu .search-container #mobile-search-results ul li a:hover {
+    text-decoration: underline;
+  }
+  .mobile-menu .search-container #mobile-search-results ul li:last-child {
+    border-bottom: none;
+  }
+  .mobile-menu .mobile-navigation .menu-menu-1-container {
+    font-family: "Averta Demo Regular", sans-serif;
+    font-size: 20px;
+    color: #0C1030;
+  }
+  .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu li.menu-item {
+    position: relative;
+  }
+  .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu li.menu-item a {
+    text-decoration: none;
+    color: #0C1030;
+  }
+  .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu li.menu-item span.nav-arrow {
+    display: none;
+  }
+  .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu li.menu-item .sub-menu {
+    display: none;
+  }
+  .mobile-menu .mobile-navigation .menu-menu-1-container ul.menu li.menu-item .sub-menu.active {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: #FFFFFF;
+    z-index: 1;
+    top: 31px;
+    right: 50%;
+    transform: translate(50%, 0%);
+    width: 320px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid #C9C9C9;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 350px;
+    overflow-y: auto;
+  }
+  .mobile-menu .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    position: fixed;
+    bottom: 5%;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 84px;
+    height: 48px;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch input#mobile-checkbox:checked + .slider {
+    background-color: #FFFFFF;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch input#mobile-checkbox:checked + .slider:before {
+    transform: translateX(-26px);
+    right: 13px;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch input#mobile-checkbox:checked + .slider .sun-icon {
+    opacity: 0;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch input#mobile-checkbox:checked + .slider .moon-icon {
+    opacity: 1;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #FFFFFF;
+    transition: 0.3s;
+    border-radius: 34px;
+    border: 2px solid #3C92F6;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 36px;
+    width: 36px;
+    right: 4px;
+    bottom: 4px;
+    background-color: #3C92F6;
+    transition: 0.3s;
+    border-radius: 50%;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch .slider .icon {
+    position: absolute;
+    height: 19px;
+    width: 19px;
+    transition: opacity 0.4s;
+    top: 12px;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch .slider .icon.sun-icon {
+    right: 12px;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch .slider .icon.moon-icon {
+    left: 12px;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch .slider .sun-icon {
+    display: block;
+    right: 12px;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch .slider [data-theme=dark] .sun-icon {
+    display: none;
+  }
+  .mobile-menu .theme-switch-wrapper .theme-switch .slider [data-theme=dark] .moon-icon {
+    display: block;
+    left: 7px;
+  }
+  .mobile-menu .theme-switch-wrapper .login-button {
+    display: inline-block;
+    padding: 12px 32px 12px 32px;
+    background-color: #3C92F6;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+    text-align: center;
+    max-width: 216px;
+  }
+  .mobile-menu .theme-switch-wrapper .login-button:hover {
+    background-color: #006799;
+  }
+  .mobile-menu .menu-parent-item > a {
+    position: relative;
+    padding-left: 30px;
+  }
+  .mobile-menu .menu-parent-item > a::after {
+    content: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg");
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+  }
+  .mobile-menu .menu-parent-item.active > a::after {
+    transform: translateY(-50%) rotate(-180deg);
+  }
+  .mobile-menu .sub-menu {
+    display: none;
+  }
+  .mobile-menu .sub-menu.active {
+    display: block;
+  }
+  .mobile-menu.active {
+    left: 0;
+  }
 }
-.mobile-menu {
-  position: fixed;
-  top: 111px;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #F6F6F6;
-  z-index: 999;
-  transition: left 0.3s ease;
-  padding: 34px 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 60px;
+@media (min-width: 851px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
 }
-.mobile-menu .search-container {
-  position: relative;
-  width: 100%;
+@media (min-width: 851px) {
+  .mobile-menu {
+    display: none;
+  }
 }
-.mobile-menu .search-container input[type=search]:focus-visible {
-  border: 3px solid #347ED6 !important;
-  outline: none !important;
-  box-shadow: none;
-}
-.mobile-menu .search-container #search-input {
-  color: #0C1030;
-  border: 2px solid #3C92F6;
-  border-radius: 20px;
-  webkit-appearance: none;
-  outline-offset: 0px;
-  background-color: #F6F6F6;
-  width: 100%;
-  height: 48px;
-}
-.mobile-menu .search-container:focus-visible {
-  border: 3px solid #347ED6 !important;
-  outline: none !important;
-  box-shadow: none;
-}
-.mobile-menu .search-container #search-input:hover {
-  border: 2px solid #347ED6;
-}
-.mobile-menu .search-container #search-input:active {
-  border: 3px solid #347ED6;
-}
-.mobile-menu .search-container #search-input.loading {
-  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
-  background-position: center left;
-  background-repeat: no-repeat;
-  padding-left: 20px;
-}
-.mobile-menu .search-container #search-input::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  appearance: none;
-}
-.mobile-menu .search-container #search-results {
-  position: absolute;
-  background-color: #FFFFFF;
-  border-radius: 12px;
-  border: 2px solid #C9C9C9;
-  padding: 12px 0px 12px 0px;
-}
-.mobile-menu .search-container #search-results ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.mobile-menu .search-container #search-results ul li {
-  padding: 8px;
-}
-.mobile-menu .search-container #search-results ul li a {
-  color: #0C1030;
-  text-decoration: none;
-}
-.mobile-menu .search-container #search-results ul li a:hover {
-  text-decoration: underline;
-}
-.mobile-menu .search-container #search-results ul li:last-child {
-  border-bottom: none;
-}
-.mobile-menu .menu-menu-1-container ul.menu {
-  gap: 32px;
-}
-.mobile-menu .menu-menu-1-container ul.menu li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.mobile-menu .menu-menu-1-container ul.menu li a {
-  color: #0C1030;
-}
-.mobile-menu .menu-menu-1-container ul.menu li .nav-arrow {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg");
-  background-size: cover;
-  transition: transform 0.3s ease;
-}
-.mobile-menu .menu-menu-1-container ul.menu li:hover .nav-arrow {
-  transform: rotate(-180deg);
-  background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/up.svg");
-}
-.mobile-menu .menu-menu-1-container ul.menu li ul {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background-color: #FFFFFF;
-  padding: 12px;
-  border: 2px solid #C9C9C9;
-  border-radius: 12px;
-}
-
-.mobile-menu.active {
-  left: 0;
-}
-
 /* footer
 --------------------------------------------- */
 .site-footer {
