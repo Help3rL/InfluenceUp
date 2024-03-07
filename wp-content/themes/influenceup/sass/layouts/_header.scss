@@ -5,6 +5,11 @@
   padding: 15px 15px;
   font-family: $font-family-averta-demo;
   font-size: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: $pure-white;
+  width: 100%;
 
   .header-container {
     display: flex;
@@ -86,7 +91,6 @@
             border: 3px solid $light-blue1 !important;
             outline: none !important;
             box-shadow: none;
-           
           }
           #search-input {
             height: 48px;

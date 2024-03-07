@@ -248,7 +248,7 @@ function data_fetch(){
         echo '</ul>';
         wp_reset_postdata();
     else:
-        echo '<p>Niekas nerasta.</p>'; // Pranešimas, kai rezultatų nėra
+        echo '<p>Niekas nerasta.</p>';
     endif;
 
     die();
@@ -279,6 +279,13 @@ function add_menu_parent_class($items) {
 }
 add_filter('wp_nav_menu_objects', 'add_menu_parent_class');
 
+
+function disable_admin_bar_for_non_admins(){
+    if (!current_user_can('administrator')) {
+        add_filter('show_admin_bar', '__return_false');
+    }
+}
+add_action('after_setup_theme', 'disable_admin_bar_for_non_admins');
 
 
 
