@@ -1,0 +1,302 @@
+@media (max-width: 850px) {
+  .mobile-menu-toggle {
+    display: block; /* Rodyti tik mobiliuosiuose */
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 86px;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    z-index: 999;
+    transition: right 0.3s ease;
+    padding: 34px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+
+    .search-container {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      .search-icon-wrapper {
+        position: absolute;
+        margin-left: 10px;
+        height: 100%;
+        align-items: center;
+        display: flex;
+      }
+
+      input[type="search"]:focus-visible {
+        border: 3px solid $light-blue1 !important;
+        outline: none !important;
+        box-shadow: none;
+      }
+      #mobile-search-input {
+        color: $very-dark-blue;
+        border: 2px solid $primary;
+        border-radius: 20px;
+        webkit-appearance: none;
+        outline-offset: 0px;
+        background-color: $white;
+        width: 100%;
+        height: 48px;
+        padding-left: 40px;
+      }
+      &:focus-visible {
+        border: 3px solid $light-blue1 !important;
+        outline: none !important;
+        box-shadow: none;
+      }
+      #mobile-search-input:hover {
+        border: 2px solid $light-blue1;
+      }
+      #mobile-search-input:active {
+        border: 3px solid $light-blue1;
+      }
+      #mobile-search-input.loading {
+        background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
+        background-position: center right;
+        background-repeat: no-repeat;
+        padding-right: 20px;
+      }
+      #mobile-search-input::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      #mobile-search-results {
+        position: absolute;
+        background-color: $pure-white;
+        border-radius: 12px;
+        border: 2px solid $dark-white;
+        padding: 12px 8px 12px 8px;
+        z-index: 1;
+        width: 100%;
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          li {
+            padding: 8px;
+
+            a {
+              color: $very-dark-blue;
+              text-decoration: none;
+            }
+            a:hover {
+              text-decoration: underline;
+            }
+          }
+          li:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+    /* Mobile menu*/
+    .mobile-navigation {
+      .menu-menu-1-container {
+        font-family: $font-family-averta-demo;
+        font-size: 20px;
+        color: $very-dark-blue;
+
+        ul.menu {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          text-decoration: none;
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+
+          li.menu-item {
+            position: relative;
+
+            a {
+              text-decoration: none;
+              color: $very-dark-blue;
+            }
+            span.nav-arrow {
+              display: none;
+            }
+            .sub-menu {
+              display: none;
+            }
+            .sub-menu.active {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              position: absolute;
+              background-color: $pure-white;
+              z-index: 1;
+              top: 31px;
+              left: 50%;
+              transform: translate(-50%, 0%);
+              width: 320px;
+              padding: 16px;
+              border-radius: 12px;
+              border: 2px solid $dark-white;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+              height: 350px;
+              overflow-y: auto;
+            }
+          }
+        }
+      }
+    }
+    .theme-switch-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: fixed;
+      bottom: 5%;
+
+      .theme-switch {
+        position: relative;
+        display: inline-block;
+        width: 84px;
+        height: 48px;
+
+        input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        input#mobile-checkbox:checked + .slider {
+          background-color: $pure-white;
+
+          &:before {
+            transform: translateX(26px);
+            left: 13px;
+          }
+
+          .sun-icon {
+            opacity: 0;
+          }
+
+          .moon-icon {
+            opacity: 1;
+          }
+        }
+
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: $pure-white;
+          transition: 0.3s;
+          border-radius: 34px;
+          border: 2px solid $light-blue;
+
+          &:before {
+            position: absolute;
+            content: "";
+            height: 36px;
+            width: 36px;
+            left: 4px;
+            bottom: 4px;
+            background-color: $light-blue;
+            transition: 0.3s;
+            border-radius: 50%;
+          }
+
+          .icon {
+            position: absolute;
+            height: 19px;
+            width: 19px;
+            transition: opacity 0.4s;
+            top: 12px;
+          }
+          .icon.sun-icon {
+            left: 12px;
+          }
+          .icon.moon-icon {
+            right: 12px;
+          }
+          .sun-icon {
+            display: block;
+            left: 12px;
+          }
+
+          [data-theme="dark"] .sun-icon {
+            display: none;
+          }
+
+          [data-theme="dark"] .moon-icon {
+            display: block;
+            right: 7px;
+          }
+        }
+      }
+
+      .login-button {
+        display: inline-block;
+        padding: 12px 32px 12px 32px;
+        background-color: $light-blue;
+        color: $pure-white;
+        text-decoration: none;
+        border-radius: 15px;
+        transition: background-color 0.3s ease;
+        font-size: 20px;
+        text-align: center;
+        max-width: 216px;
+      }
+      .login-button:hover {
+        background-color: $light-blue2;
+      }
+    }
+
+    .menu-parent-item > a {
+      position: relative;
+      padding-right: 30px;
+    }
+
+    .menu-parent-item > a::after {
+      content: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg");
+      height: 20px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+    }
+
+    .menu-parent-item.active > a::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .sub-menu {
+      display: none;
+    }
+
+    .sub-menu.active {
+      display: block;
+    }
+  }
+  .mobile-menu.active {
+    right: 0;
+  }
+}
+
+@media (min-width: 851px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+}
+
+@media (min-width: 851px) {
+  .mobile-menu {
+    display: none;
+  }
+}

@@ -5,6 +5,11 @@
   padding: 15px 15px;
   font-family: $font-family-averta-demo;
   font-size: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: $pure-white;
+  width: 100%;
 
   .header-container {
     display: flex;
@@ -16,354 +21,259 @@
       flex: 1;
     }
 
-    .main-navigation {
-      flex: 2;
+    @media (min-width: 851px) {
+      .main-navigation {
+        flex: 2;
 
-      .menu-menu-1-container {
-        ul.menu {
-          gap: 32px;
-          li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            a {
-              color: $very-dark-blue;
-            }
-            .nav-arrow {
-              display: block;
-              width: 20px;
-              height: 20px;
-              background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg"); // Čia nurodykite pradinį kelio prie įkonos URL
-              background-size: cover;
-              transition: transform 0.3s ease;
-            }
-
-            &:hover .nav-arrow {
-              transform: rotate(180deg); // Sukame ikoną 180 laipsnių
-              background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/up.svg");
-            }
-
-            ul {
+        .menu-menu-1-container {
+          ul.menu {
+            gap: 32px;
+            li {
               display: flex;
-              flex-direction: column;
-              gap: 16px;
-              background-color: $pure-white;
-              padding: 12px;
-              border: 2px solid $dark-white;
-              border-radius: 12px;
+              align-items: center;
+              gap: 10px;
+              a {
+                color: $very-dark-blue;
+              }
+              .nav-arrow {
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg"); // Čia nurodykite pradinį kelio prie įkonos URL
+                background-size: cover;
+                transition: transform 0.3s ease;
+              }
+
+              &:hover .nav-arrow {
+                transform: rotate(180deg); // Sukame ikoną 180 laipsnių
+                background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/up.svg");
+              }
+
+              ul {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                background-color: $pure-white;
+                padding: 12px;
+                border: 2px solid $dark-white;
+                border-radius: 12px;
+              }
             }
           }
         }
       }
     }
-    .header-extra {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-
-      .search-container {
-        position: relative;
-        input[type="search"]:focus-visible {
-          border: 3px solid $light-blue1 !important;
-          outline: none !important;
-          box-shadow: none;
-        }
-        #search-input {
-          color: $very-dark-blue;
-          border: 2px solid $primary;
-          border-radius: 15px;
-          webkit-appearance: none;
-          outline-offset: 0px;
-        }
-        &:focus-visible {
-          border: 3px solid $light-blue1 !important;
-          outline: none !important;
-          box-shadow: none;
-        }
-        #search-input:hover {
-          border: 2px solid $light-blue1;
-        }
-        #search-input:active {
-          border: 3px solid $light-blue1;
-        }
-        #search-input.loading {
-          background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
-          background-position: center right;
-          background-repeat: no-repeat;
-          padding-right: 20px;
-        }
-        #search-input::-webkit-search-cancel-button {
-          -webkit-appearance: none;
-          appearance: none;
-        }
-        #search-results {
-          position: absolute;
-          background-color: $pure-white;
-          border-radius: 12px;
-          border: 2px solid $dark-white;
-          padding: 12px 0px 12px 0px;
-
-          ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-
-            li {
-              padding: 8px;
-
-              a {
-                color: $very-dark-blue;
-                text-decoration: none;
-              }
-              a:hover {
-                text-decoration: underline;
-              }
-            }
-            li:last-child {
-              border-bottom: none;
-            }
-          }
-        }
+    @media (max-width: 850px) {
+      .main-navigation {
+        display: none;
       }
+    }
 
-      .login-button {
-        display: inline-block;
-        padding: 3px 15px;
-        background-color: $light-blue;
-        color: $pure-white;
-        text-decoration: none;
-        border-radius: 15px;
-        transition: background-color 0.3s ease;
-        font-size: 20px;
-      }
-      .login-button:hover {
-        background-color: #006799;
-      }
-      .theme-switch-wrapper {
+    @media (min-width: 851px) {
+      .header-extra {
         display: flex;
         align-items: center;
-        justify-content: center;
+        gap: 20px;
+        flex: 3;
 
-        .theme-switch {
+        .search-container {
+          width: 100%;
+          transition: width 0.3s ease-in-out;
           position: relative;
-          display: inline-block;
-          width: 60px;
-          height: 34px;
-
-          input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-          }
-          input:checked + .slider {
-            background-color: $pure-white;
-
-            &:before {
-              transform: translateX(26px);
-              left: 0;
-            }
-
-            .sun-icon {
-              opacity: 0;
-            }
-
-            .moon-icon {
-              opacity: 1;
-            }
-          }
-
-          .slider {
+          .search-icon-wrapper {
             position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            margin-left: 10px;
+            height: 100%;
+            align-items: center;
+            display: flex;
+          }
+          input[type="search"]:focus-visible {
+            border: 3px solid $light-blue1 !important;
+            outline: none !important;
+            box-shadow: none;
+          }
+          #search-input {
+            height: 48px;
+            color: $very-dark-blue;
+            border: 2px solid $primary;
+            border-radius: 15px;
+            webkit-appearance: none;
+            width: calc(100% - 20px);
+            max-width: 350px;
+            outline-offset: 0px;
+            width: 100%;
+            padding-left: 40px;
+          }
+          &:focus-visible {
+            border: 3px solid $light-blue1 !important;
+            outline: none !important;
+            box-shadow: none;
+          }
+          #search-input:hover {
+            border: 2px solid $light-blue1;
+          }
+          #search-input:active {
+            border: 3px solid $light-blue1;
+          }
+          #search-input.loading {
+            background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
+            background-position: center right;
+            background-repeat: no-repeat;
+            padding-right: 20px;
+          }
+          #search-input::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            appearance: none;
+          }
+          #search-results {
+            position: absolute;
             background-color: $pure-white;
-            transition: 0.3s;
-            border-radius: 34px;
-            border: 2px solid $light-blue;
+            border-radius: 12px;
+            border: 2px solid $dark-white;
+            padding: 12px 8px 12px 8px;
+            z-index: 1;
+            width: 100%;
 
-            &:before {
-              position: absolute;
-              content: "";
-              height: 26px;
-              width: 26px;
-              left: 4px;
-              bottom: 2px;
-              background-color: $light-blue;
-              transition: 0.3s;
-              border-radius: 50%;
-            }
+            ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
 
-            .icon {
-              position: absolute;
-              height: 19px;
-              width: 19px;
-              transition: opacity 0.4s;
-              top: 5px;
-            }
-            .icon.sun-icon {
-              left: 7px;
-            }
-            .icon.moon-icon {
-              right: 7px;
-            }
-            .sun-icon {
-              display: block;
-              left: 7px;
-            }
+              li {
+                padding: 8px;
 
-            .moon-icon {
-              display: none;
-            }
-
-            [data-theme="dark"] .sun-icon {
-              display: none;
-            }
-
-            [data-theme="dark"] .moon-icon {
-              display: block;
-              right: 7px;
+                a {
+                  color: $very-dark-blue;
+                  text-decoration: none;
+                }
+                a:hover {
+                  text-decoration: underline;
+                }
+              }
+              li:last-child {
+                border-bottom: none;
+              }
             }
           }
         }
+
+        .login-button {
+          display: inline-block;
+          padding: 3px 15px;
+          background-color: $light-blue;
+          color: $pure-white;
+          text-decoration: none;
+          border-radius: 15px;
+          transition: background-color 0.3s ease;
+          font-size: 20px;
+        }
+        .login-button:hover {
+          background-color: $light-blue2;
+        }
+        .theme-switch-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+
+            input {
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
+            input#desktop-checkbox:checked + .slider {
+              background-color: $pure-white;
+
+              &:before {
+                transform: translateX(26px);
+                left: 0;
+              }
+
+              .sun-icon {
+                opacity: 0;
+              }
+
+              .moon-icon {
+                opacity: 1;
+              }
+            }
+
+            .slider {
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: $pure-white;
+              transition: 0.3s;
+              border-radius: 34px;
+              border: 2px solid $light-blue;
+
+              &:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 2px;
+                background-color: $light-blue;
+                transition: 0.3s;
+                border-radius: 50%;
+              }
+
+              .icon {
+                position: absolute;
+                height: 19px;
+                width: 19px;
+                transition: opacity 0.4s;
+                top: 5px;
+              }
+              .icon.sun-icon {
+                left: 7px;
+              }
+              .icon.moon-icon {
+                right: 7px;
+              }
+              .sun-icon {
+                display: block;
+                left: 7px;
+              }
+
+              .moon-icon {
+                display: none;
+              }
+
+              [data-theme="dark"] .sun-icon {
+                display: none;
+              }
+
+              [data-theme="dark"] .moon-icon {
+                display: block;
+                right: 7px;
+              }
+            }
+          }
+        }
+      }
+    }
+    @media (max-width: 850px) {
+      .header-extra {
+        display: none;
       }
     }
   }
 }
 
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block; /* Rodyti tik mobiliuosiuose */
+.site-main {
+  article {
+    .entry-header {
+      display: none;
     }
-}
-
-.mobile-menu {
-    position: fixed;
-    top: 111px;
-    right: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: #F6F6F6;
-    z-index: 999;
-    transition: right 0.3s ease;
-    padding: 34px 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 60px;
-
-    .search-container {
-        position: relative;
-        width: 100%;
-
-        input[type="search"]:focus-visible {
-          border: 3px solid $light-blue1 !important;
-          outline: none !important;
-          box-shadow: none;
-          
-        }
-        #search-input {
-          color: $very-dark-blue;
-          border: 2px solid $primary;
-          border-radius: 20px;
-          webkit-appearance: none;
-          outline-offset: 0px;
-          background-color: #F6F6F6;
-          width: 100%;
-          height: 48px;
-        }
-        &:focus-visible {
-          border: 3px solid $light-blue1 !important;
-          outline: none !important;
-          box-shadow: none;
-        }
-        #search-input:hover {
-          border: 2px solid $light-blue1;
-        }
-        #search-input:active {
-          border: 3px solid $light-blue1;
-        }
-        #search-input.loading {
-          background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/icons/spinner.svg");
-          background-position: center right;
-          background-repeat: no-repeat;
-          padding-right: 20px;
-        }
-        #search-input::-webkit-search-cancel-button {
-          -webkit-appearance: none;
-          appearance: none;
-        }
-        #search-results {
-          position: absolute;
-          background-color: $pure-white;
-          border-radius: 12px;
-          border: 2px solid $dark-white;
-          padding: 12px 0px 12px 0px;
-
-          ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-
-            li {
-              padding: 8px;
-
-              a {
-                color: $very-dark-blue;
-                text-decoration: none;
-              }
-              a:hover {
-                text-decoration: underline;
-              }
-            }
-            li:last-child {
-              border-bottom: none;
-            }
-          }
-        }
-      }
-
-
-      .menu-menu-1-container {
-        ul.menu {
-          gap: 32px;
-          li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            a {
-              color: $very-dark-blue;
-            }
-            .nav-arrow {
-              display: block;
-              width: 20px;
-              height: 20px;
-              background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/down.svg"); // Čia nurodykite pradinį kelio prie įkonos URL
-              background-size: cover;
-              transition: transform 0.3s ease;
-            }
-
-            &:hover .nav-arrow {
-              transform: rotate(180deg); // Sukame ikoną 180 laipsnių
-              background-image: url("http://localhost/influanceup/InfluenceUp/wp-content/themes/influenceup/inc/img/arrow/up.svg");
-            }
-
-            ul {
-              display: flex;
-              flex-direction: column;
-              gap: 16px;
-              background-color: $pure-white;
-              padding: 12px;
-              border: 2px solid $dark-white;
-              border-radius: 12px;
-            }
-          }
-        }
-      }
-    
-}
-.mobile-menu.active {
-    right: 0;
+  }
 }

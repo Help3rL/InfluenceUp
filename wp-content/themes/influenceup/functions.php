@@ -144,6 +144,7 @@ function influenceup_scripts() {
 
 	wp_enqueue_script( 'influenceup-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'influenceup-header-js', get_template_directory_uri() . '/js/header/header.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'influenceup-header-mobile-js', get_template_directory_uri() . '/js/header/header-mobile.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'influenceup-switch-js', get_template_directory_uri() . '/js/header/switch.js', array(), _S_VERSION, true );
 	wp_localize_script('influenceup-header-js', 'influenceup', array(
         'templateUrl' => get_template_directory_uri() . '/inc/img/arrow'
@@ -192,7 +193,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 function add_menu_arrows( $item_output, $item, $depth, $args ) {
     if ($args->theme_location == 'menu-1') {
         if (in_array('menu-item-has-children', $item->classes)) {
-            $item_output .= '<span class="nav-arrow"></span>'; // Pridedame span elementą tiems meniu punktams, kurie turi vaikinius elementus
+            $item_output .= '<span class="nav-arrow"></span>'; 
         }
     }
     return $item_output;
@@ -231,25 +232,28 @@ add_action('wp_ajax_data_fetch' , 'data_fetch');
 add_action('wp_ajax_nopriv_data_fetch','data_fetch');
 
 function data_fetch(){
-	//security check
+    //saugumo tikrinimas
     check_ajax_referer('live_search_nonce', 'nonce');
 
-    $query = new WP_Query( array(
+    $query = new WP_Query(array(
         'posts_per_page' => -1,
-        's' => esc_attr( $_POST['keyword'] ),
+        's' => esc_attr($_POST['keyword']),
         'post_type' => array('rtcl_listing')
-    ) );
-    if( $query->have_posts() ) :
+    ));
+    if($query->have_posts()) :
         echo '<ul>';
-        while( $query->have_posts() ): $query->the_post();
-            echo '<li><a href="' . esc_url( get_permalink() ) . '">' . get_the_title() . '</a></li>';
+        while($query->have_posts()): $query->the_post();
+            echo '<li><a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a></li>';
         endwhile;
         echo '</ul>';
         wp_reset_postdata();
+    else:
+        echo '<p>Niekas nerasta.</p>';
     endif;
 
     die();
 }
+
 
 //display current year
 function year_shortcode () {
@@ -257,6 +261,31 @@ function year_shortcode () {
 	return $year;
 }
 add_shortcode ('year', 'year_shortcode');
+
+
+function add_menu_parent_class($items) {
+    $parents = array();
+    foreach ($items as $item) {
+        if ($item->menu_item_parent && $item->menu_item_parent > 0) {
+            $parents[] = $item->menu_item_parent;
+        }
+    }
+    foreach ($items as $item) {
+        if (in_array($item->ID, $parents)) {
+            $item->classes[] = 'menu-parent-item'; // Čia yra mūsų pridėta klasė
+        }
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'add_menu_parent_class');
+
+
+function disable_admin_bar_for_non_admins(){
+    if (!current_user_can('administrator')) {
+        add_filter('show_admin_bar', '__return_false');
+    }
+}
+add_action('after_setup_theme', 'disable_admin_bar_for_non_admins');
 
 
 
