@@ -289,6 +289,16 @@ add_action('after_setup_theme', 'disable_admin_bar_for_non_admins');
 
 
 
+function custom_taxonomy_rest_support() {
+    global $wp_taxonomies;
+    
+    if (isset($wp_taxonomies['rtcl_category'])) {
+        $wp_taxonomies['rtcl_category']->show_in_rest = true;
+        $wp_taxonomies['rtcl_category']->rest_base = 'rtcl_category';
+    }
+}
+
+add_action('init', 'custom_taxonomy_rest_support', 25);
 
 
 
