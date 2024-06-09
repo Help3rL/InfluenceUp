@@ -149,6 +149,7 @@ function influenceup_scripts() {
 	wp_localize_script('influenceup-header-js', 'influenceup', array(
         'templateUrl' => get_template_directory_uri() . '/inc/img/arrow'
     ));
+    //Search
 	wp_enqueue_script('ajax-search', get_template_directory_uri() . '/js/header/ajax-search.js', array('jquery'), null, true);
     wp_localize_script('ajax-search', 'ajaxsearch', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
@@ -158,6 +159,17 @@ function influenceup_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+    //slick
+    wp_enqueue_style('slick-css', get_template_directory_uri() . '/assets/slick/slick.css', array(), false, 'all');
+    wp_enqueue_style('slick-theme-css', get_template_directory_uri() . '/assets/slick/slick-theme.css', array(), false, 'all');
+    wp_enqueue_script('slick-js', get_template_directory_uri() . '/assets/slick/slick.min.js', array(), false, true);
+    //Carousels
+    wp_enqueue_script('hero-section-slider.js', get_template_directory_uri() . '/js/hero-section-slider.js', array(), false, true);
+    wp_enqueue_script('rtcl-categories-carousel.js', get_template_directory_uri() . '/js/rtcl-categories-carousel.js', array(), false, true);
+    wp_enqueue_script('rtcl-listings-carousel.js', get_template_directory_uri() . '/js/rtcl-listings-carousel.js', array(), false, true);
+    
+    //Animated lines
+    wp_enqueue_script('animated-lines-js', get_template_directory_uri() . '/js/animated-lines.js', array(), true);
 }
 add_action( 'wp_enqueue_scripts', 'influenceup_scripts' );
 
@@ -288,17 +300,23 @@ function disable_admin_bar_for_non_admins(){
 add_action('after_setup_theme', 'disable_admin_bar_for_non_admins');
 
 
+function get_listing_image_url($post_id) {
+    $attachments = get_posts([
+        'post_type' => 'attachment',
+        'posts_per_page' => 1,
+        'post_parent' => $post_id,
+        'orderby' => 'menu_order',
+        'order' => 'ASC'
+    ]);
 
-function custom_taxonomy_rest_support() {
-    global $wp_taxonomies;
-    
-    if (isset($wp_taxonomies['rtcl_category'])) {
-        $wp_taxonomies['rtcl_category']->show_in_rest = true;
-        $wp_taxonomies['rtcl_category']->rest_base = 'rtcl_category';
+    if (!empty($attachments)) {
+        return wp_get_attachment_image_url($attachments[0]->ID, 'full'); // Return full img url
     }
+    return ''; // If not return empty
 }
 
-add_action('init', 'custom_taxonomy_rest_support', 25);
+
+
 
 
 
