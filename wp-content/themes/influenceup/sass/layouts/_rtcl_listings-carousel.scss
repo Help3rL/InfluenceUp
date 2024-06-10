@@ -7,10 +7,7 @@
   margin: 0 auto;
   margin-top: 100px;
   margin-bottom: 100px;
-  @media (max-width: 760px) {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+  padding: 0px 15px;
   .services-headings-container {
     display: flex;
     justify-content: space-between;
@@ -25,70 +22,74 @@
         line-height: 31.56px;
       }
     }
-    button {
-      background-color: unset;
-      padding: unset;
-      border: none;
-
-      svg {
-        fill: $light-blue;
-        stroke: $pure-white;
-        &:hover {
-          stroke: $very-dark-blue;
-          fill: $pure-white;
-        }
-      }
-    }
+    // button {
+    //   background-color: unset;
+    //   padding: unset;
+    //   border: none;
+    //   svg {
+    //     fill: $light-blue;
+    //     stroke: $pure-white;
+    //     &:hover {
+    //       stroke: $very-dark-blue;
+    //       fill: $pure-white;
+    //     }
+    //   }
+    // }
   }
-
-  .services-carousel-cards {
+  .services-carousel-cards.slick-slider {
     width: 100%;
-
-    .slick-track {
-      a.slick-slide {
-        text-decoration: none;
-        .service-card {
-          background-color: $white;
-          border-radius: 12px;
-          display: flex !important;
-          flex-direction: column;
-          align-items: center;
-          overflow: hidden;
-          border: 2px solid $light-blue;
-
-          .service-img {
-            width: 100%;
-            border-radius: 12px 12px 0px 0px;
-            height: 248px;
-          }
-          .service-content-container {
-            width: 100%;
-            padding: 10px;
-            gap: 10px;
-            display: flex;
+    overflow: hidden;
+    .slick-list {
+      margin: 0 -10px;
+      .slick-track {
+        a.slick-slide {
+          text-decoration: none;
+          margin: 0 10px;
+          .service-card {
+            background-color: $white;
+            border-radius: 12px;
+            display: flex !important;
             flex-direction: column;
-            h3,
-            p {
-              margin: unset !important;
+            align-items: center;
+            overflow: hidden;
+            border: 2px solid $light-blue;
+            .service-img {
+              width: 100%;
+              border-radius: 12px 12px 0px 0px;
+              height: 248px;
+              @media (max-width: 768px) {
+                height: 171px;
+              }
             }
-            .service-name,
-            .service-price {
-              font-size: 18px;
-              line-height: 21.6px;
-              color: $very-dark-blue;
-            }
-            .service-category {
-              color: $gray;
-            }
-            .first-block {
-              display: flex;
-              flex-direction: column;
-              gap: 5px;
-            }
-            .second-block {
-              display: flex;
-              flex-direction: column;
+            .service-content-container {
+              width: 100%;
+              padding: 10px;
               gap: 10px;
+              display: flex;
+              flex-direction: column;
+              h3,
+              p {
+                margin: unset !important;
+              }
+              .service-name,
+              .service-price {
+                font-size: 18px;
+                line-height: 21.6px;
+                color: $very-dark-blue;
+              }
+              .service-category {
+                color: $gray;
+              }
+              .first-block {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+              }
+              .second-block {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+              }
             }
           }
         }

@@ -19,7 +19,7 @@
       span {
         color: $yellow;
       }
-      @media (max-width:768px) {
+      @media (max-width: 768px) {
         font-size: 80px;
         line-height: 80.35px;
       }
@@ -27,21 +27,19 @@
         font-size: 53px;
         line-height: 50.35px;
       }
-      
+
       @media (max-width: 360px) {
         font-size: 36px;
         line-height: 47.34px;
       }
     }
   }
-
   .step-carousel-container {
     width: 100%;
     max-width: 1170px;
     .steps-carousel {
       .slick-list {
         .slick-track {
-
           .step-item.slick-slide {
             text-align: center;
             padding: 10px;
@@ -49,27 +47,35 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
             @media (max-width: 480px) {
               max-width: none;
               width: 100%;
             }
-
-            position: relative;
-
-
-            &:not(:last-child)::after { // Prideda liniją po kiekvienu elementu, išskyrus paskutinį
-                content: '';
-                content: "";
-                position: absolute;
-                top: 15%;
-                right: 0;
-                width: 30px;
-                border-top: 2px dashed #3C92F6;
-                transform: translateX(100%) translateY(-50%);
-                width: 50%;
+            &:not(:last-child)::before {
+              content: "";
+              position: absolute;
+              top: 16%;
+              left: -4px;
+              border-top: 2px dashed $light-blue;
+              transform: translateX(100%) translateY(-50%);
+              width: 50%;
+              @media (max-width: 478px) {
+                top: 18%;
+              }
             }
-            
-
+            &:not(:last-child)::after {
+              content: "";
+              position: absolute;
+              top: 16%;
+              right: 0;
+              border-top: 2px dashed $light-blue;
+              transform: translateX(100%) translateY(-50%);
+              width: 50%;
+              @media (max-width: 478px) {
+                top: 18%;
+              }
+            }
             .step-number {
               font-size: 24px;
               color: $very-dark-blue;
@@ -83,8 +89,7 @@
               justify-content: center;
               align-items: center;
               margin: 0 auto;
-
-             
+              z-index: 1;
             }
             h3 {
               margin: 24px 0 0 0;
@@ -163,20 +168,6 @@
           line-height: 31.56px;
         }
       }
-      a {
-        text-decoration: none;
-        font-size: 20px;
-        line-height: 24px;
-        color: $very-dark-blue;
-        font-family: $font-family-averta-demo;
-        padding: 12px 32px 12px 32px;
-        background-color: $yellow;
-        max-width: 230px;
-        border-radius: 1000px;
-        &:hover {
-          background-color: $hover-yellow;
-        }
-      }
     }
   }
 }
@@ -200,7 +191,6 @@
     }
     .about-us-text {
       max-width: 438px;
-
       h3 {
         font-size: 40px;
         line-height: 52.6px;
@@ -218,7 +208,6 @@
         color: $pure-white;
       }
     }
-
     .about-us-gallery {
       display: flex;
       gap: 20px;
@@ -250,24 +239,48 @@
     }
   }
 }
-
 //advantages
 .advantages-container {
   width: 100%;
-  display: none;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .advantages-heading-container {
+    max-width: 1170px;
+    margin: 0 auto;
+    width: 100%;
+    h3 {
+      margin: 0;
+      font-size: 40px;
+      line-height: 52.6px;
+      font-weight: bold;
+      @media (max-width: 768px) {
+        font-size: 24px;
+        line-height: 31.56px;
+      }
+    }
+  }
   .items-container {
     max-width: 1170px;
     margin: 0 auto;
     display: flex;
     gap: 30px;
-
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      margin: unset;
+    }
     .advantage-item {
       background-color: $white;
       border: 2px solid $light-blue;
       border-radius: 12px;
       padding: 32px 40px 32px 40px;
       max-width: 370px;
-
+      @media (max-width: 768px) {
+        max-width: unset;
+        width: 100%;
+      }
       h3 {
         font-size: 24px;
         line-height: 31.56px;

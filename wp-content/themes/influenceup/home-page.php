@@ -28,22 +28,20 @@ get_header();
                     <h1><?php echo esc_html($hero['hero_title1']); ?><br><span><?php echo esc_html($hero['hero_title2']); ?></span></h1>
                 </div>
                 <div class="step-carousel-container">
-                <div class="steps-carousel">
-                    <?php foreach ($hero['step_carousel'] as $step) : ?>
-                        <div class="step-item">
-                            <div class="step-number"><?php echo esc_html($step['number']); ?></div>
-                            <h3><?php echo esc_html($step['title']); ?></h3>
-                            <p><?php echo esc_html($step['description']); ?></p>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+                    <div class="steps-carousel">
+                        <?php foreach ($hero['step_carousel'] as $step) : ?>
+                            <div class="step-item">
+                                <div class="step-number"><?php echo esc_html($step['number']); ?></div>
+                                <h3><?php echo esc_html($step['title']); ?></h3>
+                                <p><?php echo esc_html($step['description']); ?></p>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
 
                 </div>
-                
+
             </div>
         <?php endif; ?>
-
-
 
         <div class="services-carousel-container">
             <div class="services-headings-container">
@@ -95,15 +93,6 @@ get_header();
             </div>
         </div>
 
-
-
-
-
-
-
-
-
-
         <?php
         $textWithButton = get_field('text_group_with_button1');
         if ($textWithButton) : ?>
@@ -113,7 +102,7 @@ get_header();
                         <h3><?php echo esc_html($textWithButton['title']) ?></h3>
                         <?php if (isset($textWithButton['button_field'])) : ?>
                             <?php $button = $textWithButton['button_field']; ?>
-                            <a href="<?php echo esc_url($button['url']); ?>">
+                            <a class="yellow-buttom" href="<?php echo esc_url($button['url']); ?>">
                                 <?php echo esc_html($button['button_text']); ?>
                             </a>
                         <?php endif; ?>
@@ -214,7 +203,7 @@ get_header();
                         <h3><?php echo esc_html($textWithButton1['title']) ?></h3>
                         <?php if (isset($textWithButton1['button_field'])) : ?>
                             <?php $button = $textWithButton1['button_field']; ?>
-                            <a href="<?php echo esc_url($button['url']); ?>">
+                            <a class="yellow-buttom" href="<?php echo esc_url($button['url']); ?>">
                                 <?php echo esc_html($button['button_text']); ?>
                             </a>
                         <?php endif; ?>
@@ -229,9 +218,34 @@ get_header();
 
 
         <?php
+        $brands = get_field('brands_section');
+        if ($brands) : ?>
+            <div class="">
+                <div class="">
+                    <div class="">
+                        <h3><?php echo esc_html($brands['title']) ?></h3>
+                    </div>
+                    <?php if (isset($brands['brands_images']) && is_array($brands['brands_images'])) : ?>
+                        <div class="about-us-gallery">
+                            <?php foreach ($brands['brands_images'] as $index => $image) : ?>
+                                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+            </div>
+        <?php endif; ?>
+
+
+
+        <?php
         $advantages = get_field('advantages_section');
         if ($advantages) : ?>
             <div class="advantages-container">
+                <div class="advantages-heading-container">
+                    <h3><?php echo esc_html(get_field('advantages_title')); ?></h3>
+                </div>
                 <div class="items-container">
                     <?php foreach ($advantages as $advantage) : ?>
                         <div class="advantage-item">

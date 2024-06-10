@@ -1,0 +1,30 @@
+button.service-carousel-prev, .service-carousel-next  {
+    background-color: unset;
+    padding: unset;
+    border: none;
+
+    svg {
+        fill: $light-blue;
+        stroke: $pure-white;
+
+        &:hover {
+            stroke: $very-dark-blue;
+            fill: $pure-white;
+        }
+    }
+}
+
+a.yellow-buttom {
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 24px;
+    color: $very-dark-blue;
+    font-family: $font-family-averta-demo;
+    padding: 12px 32px 12px 32px;
+    background-color: $yellow;
+    max-width: 230px;
+    border-radius: 1000px;
+    &:hover {
+      background-color: $hover-yellow;
+    }
+  }
