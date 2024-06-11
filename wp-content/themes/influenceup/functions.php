@@ -315,6 +315,17 @@ function get_listing_image_url($post_id) {
     return ''; // If not return empty
 }
 
+//ACF options page
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title' 	=> 'Footer Settings',
+        'menu_title'	=> 'Footer Settings',
+        'menu_slug' 	=> 'footer-settings',
+        'capability'	=> 'edit_posts',
+        'redirect'		=> false
+    ));
+}
+
 
 
 

@@ -2,26 +2,11 @@
 <?php
 get_header();
 ?>
-<svg id="animated-lines" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1;"></svg>
-<style>
-    svg#animated-lines path,
-    svg#animated-lines circle {
-        stroke: #FAAF3C;
-        fill: none;
-    }
-
-    svg#animated-lines circle {
-        fill: #FAAF3C;
-    }
-</style>
-
+<svg id="animated-lines"></svg>
 <main id="primary" class="site-main">
-
     <?php while (have_posts()) : the_post(); ?>
-
-        <?php
+        <?php //Hero section
         $hero = get_field('hero_section');
-
         if ($hero) : ?>
             <div id="hero">
                 <div class="hero-title-container">
@@ -37,12 +22,10 @@ get_header();
                             </div>
                         <?php endforeach; ?>
                     </div>
-
                 </div>
-
             </div>
         <?php endif; ?>
-
+        <!-- Rtcl listings -->
         <div class="services-carousel-container">
             <div class="services-headings-container">
                 <h3><?php echo esc_html(get_field('rtcl_listings_carousel_title')); ?></h3>
@@ -61,7 +44,6 @@ get_header();
                     'post_type' => 'rtcl_listing',
                     'posts_per_page' => -1,
                 ));
-
                 if ($listings->have_posts()) : ?>
                     <?php while ($listings->have_posts()) : $listings->the_post(); ?>
                         <a href="<?php the_permalink(); ?>">
@@ -71,7 +53,6 @@ get_header();
                                 if (!empty($image_url)) : ?>
                                     <img class="service-img" src="<?php echo esc_url($image_url); ?>" alt="<?php the_title_attribute(); ?>">
                                 <?php endif; ?>
-
                                 <div class="service-content-container">
                                     <div class="first-block">
                                         <h3 class="service-name"><?php the_title(); ?></h3>
@@ -85,7 +66,6 @@ get_header();
                             </div>
                         </a>
                     <?php endwhile; ?>
-
                 <?php else : ?>
                     <p>No listings found.</p>
                 <?php endif;
@@ -93,7 +73,7 @@ get_header();
             </div>
         </div>
 
-        <?php
+        <?php //First section text with button
         $textWithButton = get_field('text_group_with_button1');
         if ($textWithButton) : ?>
             <div class="text-with-button-parent">
@@ -112,10 +92,9 @@ get_header();
                     </div>
                 </div>
             </div>
-
         <?php endif; ?>
 
-
+        <!-- Rtcl categories -->
         <div class="rtcl-categories-container">
             <div class="carousel-headings-container">
                 <h3><?php echo esc_html(get_field('rtcl_categories_carousel_title')); ?></h3>
@@ -131,15 +110,14 @@ get_header();
             <div class="carousel-cards">
                 <?php
                 $categories = get_categories(array(
-                    'taxonomy' => 'rtcl_category', // Įsitikinkite, kad čia naudojate teisingą taksonomijos pavadinimą.
+                    'taxonomy' => 'rtcl_category',
                     'hide_empty' => false,
                 ));
-
                 if (!empty($categories)) : ?>
                     <?php foreach ($categories as $category) : ?>
                         <?php
                         if ($category->name == 'All categories' || $category->name == 'visos kategorijos') {
-                            continue; // Praleidžiame kategoriją, jei jos pavadinimas nurodytas ignoruoti.
+                            continue;
                         }
                         $category_link = get_term_link($category);
                         $category_image_id = get_term_meta($category->term_id, '_rtcl_image', true);
@@ -160,17 +138,15 @@ get_header();
             </div>
         </div>
 
-        <?php
+        <?php //About us section
         $aboutUs = get_field('about_us_section');
         if ($aboutUs) : ?>
             <div class="about-us-section">
                 <div class="about-us-container">
-
                     <div class="about-us-text">
                         <h3><?php echo esc_html($aboutUs['title']) ?></h3>
                         <?php echo wp_kses_post($aboutUs['description']); ?>
                     </div>
-
                     <?php if (isset($aboutUs['images']) && is_array($aboutUs['images'])) : ?>
                         <div class="about-us-gallery">
                             <?php foreach ($aboutUs['images'] as $index => $image) : ?>
@@ -178,9 +154,7 @@ get_header();
                                     <!-- Started new div for two images -->
                                     <div class="image-row">
                                     <?php endif; ?>
-
                                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-
                                     <?php if ($index % 2 == 1 || $index === count($aboutUs['images']) - 1) : ?>
                                         <!-- Close div if second image is last -->
                                     </div>
@@ -193,8 +167,27 @@ get_header();
             </div>
         <?php endif; ?>
 
+        <?php //Brands section
+        $brands = get_field('brands_section');
+        if ($brands) : ?>
+            <div class="brands-parent">
+                <div class="brands-container">
+                    <div class="brands-heading">
+                        <h3><?php echo esc_html($brands['title']) ?></h3>
+                    </div>
+                    <?php if (isset($brands['brands_images']) && is_array($brands['brands_images'])) : ?>
+                        <div class="brands">
+                            <?php foreach ($brands['brands_images'] as $index => $image) : ?>
+                                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
 
-        <?php
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php //Second text with button
         $textWithButton1 = get_field('text_group_with_button2');
         if ($textWithButton1) : ?>
             <div class="text-with-button-parent">
@@ -216,30 +209,7 @@ get_header();
 
         <?php endif; ?>
 
-
-        <?php
-        $brands = get_field('brands_section');
-        if ($brands) : ?>
-            <div class="">
-                <div class="">
-                    <div class="">
-                        <h3><?php echo esc_html($brands['title']) ?></h3>
-                    </div>
-                    <?php if (isset($brands['brands_images']) && is_array($brands['brands_images'])) : ?>
-                        <div class="about-us-gallery">
-                            <?php foreach ($brands['brands_images'] as $index => $image) : ?>
-                                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-
-                </div>
-            </div>
-        <?php endif; ?>
-
-
-
-        <?php
+        <?php //Advantages
         $advantages = get_field('advantages_section');
         if ($advantages) : ?>
             <div class="advantages-container">
@@ -256,13 +226,10 @@ get_header();
                 </div>
             </div>
         <?php endif; ?>
-
-
     <?php endwhile; // end of the loop. 
     ?>
 
 </main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
