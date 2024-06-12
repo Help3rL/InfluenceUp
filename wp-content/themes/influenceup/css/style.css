@@ -928,6 +928,25 @@ a.yellow-buttom:hover {
   flex-direction: column;
   gap: 10px;
 }
+.service-card .service-content-container .second-block .service-rating {
+  text-decoration: none;
+}
+.service-card .service-content-container .second-block .service-rating .fa-star {
+  color: lightgray;
+}
+.service-card .service-content-container .second-block .service-rating .fa-star.filled {
+  text-decoration: none;
+  color: gold;
+}
+.service-card .service-content-container .second-block .service-rating span {
+  text-decoration: none;
+  color: #6F6F6F;
+  font-size: 18px;
+  font-family: "Averta Demo Regular", sans-serif;
+}
+.service-card .service-content-container .second-block .service-rating span.rating-avarage {
+  color: #0C1030;
+}
 
 /*--------------------------------------------------------------
 # Plugins
@@ -1961,6 +1980,9 @@ a.yellow-buttom:hover {
 .services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide {
   text-decoration: none;
   margin: 0 10px;
+}
+.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide:visited {
+  color: #6F6F6F;
 }
 
 /* Step carousel

@@ -32,6 +32,9 @@
         a.slick-slide {
           text-decoration: none;
           margin: 0 10px;
+          &:visited {
+            color: $light-gray;
+          }
         }
       }
     }

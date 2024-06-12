@@ -53,14 +53,27 @@ get_header();
                                 if (!empty($image_url)) : ?>
                                     <img class="service-img" src="<?php echo esc_url($image_url); ?>" alt="<?php the_title_attribute(); ?>">
                                 <?php endif; ?>
+                                <?php
+                                $categories = get_the_terms(get_the_ID(), 'rtcl_category');
+                                $price = get_post_meta(get_the_ID(), 'price', true);
+                                $average_rating = get_post_meta(get_the_ID(), 'rtrs_avg_rating', true);
+                                $review_count = get_post_meta(get_the_ID(), '_rtcl_review_count', true);
+                                $listing = rtcl()->factory->get_listing(get_the_ID());
+                                ?>
                                 <div class="service-content-container">
                                     <div class="first-block">
                                         <h3 class="service-name"><?php the_title(); ?></h3>
-                                        <p class="service-category">Category</p> <!-- Čia galite pakeisti į dinamiškai gautą kategoriją -->
+                                        <p class="service-category"><?php echo $categories ? esc_html($categories[0]->name) : 'No Category'; ?></p> <!-- Čia galite pakeisti į dinamiškai gautą kategoriją -->
                                     </div>
                                     <div class="second-block">
-                                        <p class="service-rating">4.5</p> <!-- Šie duomenys turėtų būti dinamiškai generuojami -->
-                                        <p class="service-price">100 EUR</p> <!-- Šie duomenys turėtų būti dinamiškai generuojami -->
+                                        <div class="service-rating">
+                                            <i class="fa fa-star <?php echo ($average_rating > 0) ? 'filled' : ''; ?>"></i>
+                                            <span class="rating-avarage"><?php echo ($average_rating); ?></span>
+                                            <?php if ($review_count >= 0) : ?>
+                                                <span>(<?php echo $review_count; ?>)</span>
+                                            <?php endif; ?>
+                                        </div>
+                                        <p class="service-price">€<?php echo $price ? esc_html($price) : 'Not price'; ?></p> <!-- Šie duomenys turėtų būti dinamiškai generuojami -->
                                     </div>
                                 </div>
                             </div>
