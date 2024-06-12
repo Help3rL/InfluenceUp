@@ -877,6 +877,58 @@ a.yellow-buttom:hover {
   background-color: #EC9D23;
 }
 
+/* Listing cards
+--------------------------------------------- */
+.service-card {
+  background-color: #F6F6F6;
+  border-radius: 12px;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid #3C92F6;
+}
+.service-card .service-img {
+  width: 100%;
+  border-radius: 12px 12px 0px 0px;
+  height: 248px;
+}
+@media (max-width: 768px) {
+  .service-card .service-img {
+    height: 171px;
+  }
+}
+.service-card .service-content-container {
+  width: 100%;
+  padding: 10px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.service-card .service-content-container h3,
+.service-card .service-content-container p {
+  margin: unset !important;
+}
+.service-card .service-content-container .service-name,
+.service-card .service-content-container .service-price {
+  font-size: 18px;
+  line-height: 21.6px;
+  color: #0C1030;
+}
+.service-card .service-content-container .service-category {
+  color: #4D4D50;
+}
+.service-card .service-content-container .first-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.service-card .service-content-container .second-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
@@ -1909,55 +1961,6 @@ a.yellow-buttom:hover {
 .services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide {
   text-decoration: none;
   margin: 0 10px;
-}
-.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card {
-  background-color: #F6F6F6;
-  border-radius: 12px;
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  border: 2px solid #3C92F6;
-}
-.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-img {
-  width: 100%;
-  border-radius: 12px 12px 0px 0px;
-  height: 248px;
-}
-@media (max-width: 768px) {
-  .services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-img {
-    height: 171px;
-  }
-}
-.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-content-container {
-  width: 100%;
-  padding: 10px;
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-}
-.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-content-container h3,
-.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-content-container p {
-  margin: unset !important;
-}
-.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-content-container .service-name,
-.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-content-container .service-price {
-  font-size: 18px;
-  line-height: 21.6px;
-  color: #0C1030;
-}
-.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-content-container .service-category {
-  color: #4D4D50;
-}
-.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-content-container .first-block {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-content-container .second-block {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 /* Step carousel
