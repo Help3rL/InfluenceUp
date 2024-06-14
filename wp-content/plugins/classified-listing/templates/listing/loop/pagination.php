@@ -35,8 +35,8 @@ if ($total <= 1) {
         'prev_text' => '&larr;',
         'next_text' => '&rarr;',
         'type'      => 'list',
-        'end_size'  => 3,
-        'mid_size'  => 3,
+        'end_size'  => 1,
+        'mid_size'  => 2,
     )));
     ?>
 </nav>

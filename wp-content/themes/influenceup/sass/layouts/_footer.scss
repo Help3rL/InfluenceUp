@@ -1,0 +1,29 @@
+.site-footer {
+  background-color: $very-dark-blue;
+  padding: 54px 15px;
+  font-family: $font-family-averta-demo;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    a {
+      font-size: 20px;
+      line-height: 24px;
+      color: $pure-white;
+      text-decoration: none;
+    }
+  }
+  .footer-social-links {
+    display: flex;
+    gap: 16px;
+  }
+  .footer-copy-right {
+    font-size: 18px;
+    color: $pure-white;
+    line-height: 21.6px;
+  }
+}

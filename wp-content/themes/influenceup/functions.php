@@ -139,13 +139,37 @@ add_action( 'widgets_init', 'influenceup_widgets_init' );
  */
 function influenceup_scripts() {
 	wp_enqueue_style( 'influenceup-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'influenceup-styles', get_template_directory_uri() . '/css/style.css', array(), _S_VERSION );
 	wp_style_add_data( 'influenceup-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'influenceup-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'influenceup-header-js', get_template_directory_uri() . '/js/header/header.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'influenceup-header-mobile-js', get_template_directory_uri() . '/js/header/header-mobile.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'influenceup-switch-js', get_template_directory_uri() . '/js/header/switch.js', array(), _S_VERSION, true );
+	wp_localize_script('influenceup-header-js', 'influenceup', array(
+        'templateUrl' => get_template_directory_uri() . '/inc/img/arrow'
+    ));
+    //Search
+	wp_enqueue_script('ajax-search', get_template_directory_uri() . '/js/header/ajax-search.js', array('jquery'), null, true);
+    wp_localize_script('ajax-search', 'ajaxsearch', array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('live_search_nonce')
+    ));
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+    //slick
+    wp_enqueue_style('slick-css', get_template_directory_uri() . '/assets/slick/slick.css', array(), false, 'all');
+    wp_enqueue_style('slick-theme-css', get_template_directory_uri() . '/assets/slick/slick-theme.css', array(), false, 'all');
+    wp_enqueue_script('slick-js', get_template_directory_uri() . '/assets/slick/slick.min.js', array(), false, true);
+    //Carousels
+    wp_enqueue_script('hero-section-slider.js', get_template_directory_uri() . '/js/hero-section-slider.js', array(), false, true);
+    wp_enqueue_script('rtcl-categories-carousel.js', get_template_directory_uri() . '/js/rtcl-categories-carousel.js', array(), false, true);
+    wp_enqueue_script('rtcl-listings-carousel.js', get_template_directory_uri() . '/js/rtcl-listings-carousel.js', array(), false, true);
+    
+    //Animated lines
+    wp_enqueue_script('animated-lines-js', get_template_directory_uri() . '/js/animated-lines.js', array(), true);
 }
 add_action( 'wp_enqueue_scripts', 'influenceup_scripts' );
 
@@ -175,4 +199,135 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+/**
+ * Add arrows to header menu item if have submenu 
+ */
+function add_menu_arrows( $item_output, $item, $depth, $args ) {
+    if ($args->theme_location == 'menu-1') {
+        if (in_array('menu-item-has-children', $item->classes)) {
+            $item_output .= '<span class="nav-arrow"></span>'; 
+        }
+    }
+    return $item_output;
+}
+add_filter('walker_nav_menu_start_el', 'add_menu_arrows', 10, 4);
+
+//Add count to menu sub menu categories
+function add_category_count_to_menu($items, $args) {
+    foreach ($items as &$item) {
+		//Checking menu categories are from 'rtcl category'
+        if ($item->type === 'taxonomy' && $item->object === 'rtcl_category') {
+            $term_id = $item->object_id; // Getting term ID
+            $term = get_term($term_id, 'rtcl_category'); //Getting terms object
+            
+			//Checking if term not WP_Error and exist
+            if (!is_wp_error($term) && $term) {
+				//Check is menu item category name "All categories"
+                if ($item->title === "All categories") {
+					//Get all categories records sum
+                    $terms = get_terms(['taxonomy' => 'rtcl_category', 'hide_empty' => false]);
+                    $all_categories_count = array_sum(wp_list_pluck($terms, 'count'));
+                    $item->title .= ' (' . $all_categories_count . ')';
+                } else {
+                    $category_count = $term->count; //Get term record count
+                    $item->title .= ' (' . $category_count . ')'; //Add count to menu item
+                }
+            }
+        }
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'add_category_count_to_menu', 10, 2);
+
+// Ajax search actions
+add_action('wp_ajax_data_fetch' , 'data_fetch');
+add_action('wp_ajax_nopriv_data_fetch','data_fetch');
+
+function data_fetch(){
+    //saugumo tikrinimas
+    check_ajax_referer('live_search_nonce', 'nonce');
+
+    $query = new WP_Query(array(
+        'posts_per_page' => -1,
+        's' => esc_attr($_POST['keyword']),
+        'post_type' => array('rtcl_listing')
+    ));
+    if($query->have_posts()) :
+        echo '<ul>';
+        while($query->have_posts()): $query->the_post();
+            echo '<li><a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a></li>';
+        endwhile;
+        echo '</ul>';
+        wp_reset_postdata();
+    else:
+        echo '<p>Niekas nerasta.</p>';
+    endif;
+
+    die();
+}
+
+
+//display current year
+function year_shortcode () {
+	$year = date_i18n ('Y');
+	return $year;
+}
+add_shortcode ('year', 'year_shortcode');
+
+
+function add_menu_parent_class($items) {
+    $parents = array();
+    foreach ($items as $item) {
+        if ($item->menu_item_parent && $item->menu_item_parent > 0) {
+            $parents[] = $item->menu_item_parent;
+        }
+    }
+    foreach ($items as $item) {
+        if (in_array($item->ID, $parents)) {
+            $item->classes[] = 'menu-parent-item'; // Čia yra mūsų pridėta klasė
+        }
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'add_menu_parent_class');
+
+
+function disable_admin_bar_for_non_admins(){
+    if (!current_user_can('administrator')) {
+        add_filter('show_admin_bar', '__return_false');
+    }
+}
+add_action('after_setup_theme', 'disable_admin_bar_for_non_admins');
+
+
+function get_listing_image_url($post_id) {
+    $attachments = get_posts([
+        'post_type' => 'attachment',
+        'posts_per_page' => 1,
+        'post_parent' => $post_id,
+        'orderby' => 'menu_order',
+        'order' => 'ASC'
+    ]);
+
+    if (!empty($attachments)) {
+        return wp_get_attachment_image_url($attachments[0]->ID, 'full'); // Return full img url
+    }
+    return ''; // If not return empty
+}
+
+//ACF options page
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title' 	=> 'Footer Settings',
+        'menu_title'	=> 'Footer Settings',
+        'menu_slug' 	=> 'footer-settings',
+        'capability'	=> 'edit_posts',
+        'redirect'		=> false
+    ));
+}
+
+
+
+
+
 

@@ -206,7 +206,7 @@
         items = this.getGalleryItems(),
         eventTarget = $(e.target),
         clicked;
-      if (eventTarget.is(".rtcl-listing-gallery__trigger") || eventTarget.is(".rtcl-listing-gallery__trigger img")) {
+      if ($(e.currentTarget).hasClass('rtcl-listing-gallery__trigger') || $(e.currentTarget).closest(".rtcl-listing-gallery__trigger") || eventTarget.is(".rtcl-listing-gallery__trigger") || eventTarget.is(".rtcl-listing-gallery__trigger img")) {
         clicked = this.$slider.find(".swiper-slide.swiper-slide-active");
       } else {
         clicked = eventTarget.closest(".rtcl-slider-item");
