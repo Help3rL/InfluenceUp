@@ -9,6 +9,8 @@
   .hero-title-container {
     max-width: 942px;
     padding: 0px 30px;
+    position: static;
+    z-index: 2;
     h1 {
       color: $pure-white;
       font-size: 84px;
@@ -55,6 +57,8 @@
       display: flex;
       flex-direction: column;
       gap: 36px;
+      position: relative;
+      z-index: 2;
       @media (max-width: 768px) {
         align-items: center;
         text-align: center;
@@ -70,6 +74,12 @@
           font-size: 24px;
           line-height: 31.56px;
         }
+      }
+    }
+    div {
+      img {
+        position: relative;
+        z-index: 2;
       }
     }
   }
@@ -94,6 +104,8 @@
     }
     .about-us-text {
       max-width: 438px;
+      position: relative;
+      z-index: 2;
       h3 {
         font-size: 40px;
         line-height: 52.6px;
@@ -115,6 +127,8 @@
       display: flex;
       gap: 20px;
       flex-direction: column;
+      position: relative;
+      z-index: 2;
       .image-row {
         display: flex;
         gap: 20px;
@@ -145,6 +159,8 @@
 
 .brands-parent {
   padding: 0 15px;
+  position: relative;
+  z-index: 2;
   .brands-container {
     max-width: 1170px;
     margin: 0 auto;
@@ -188,6 +204,8 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  position: relative;
+  z-index: 2;
   margin: 100px auto;
   .advantages-heading-container {
     max-width: 1170px;
@@ -218,8 +236,12 @@
       background-color: $white;
       border: 2px solid $light-blue;
       border-radius: 12px;
-      padding: 32px 40px 32px 40px;
+      padding: 32px 40px;
       max-width: 370px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
       @media (max-width: 768px) {
         max-width: unset;
         width: 100%;
@@ -229,12 +251,14 @@
         line-height: 31.56px;
         font-family: $font-family-averta-bold;
         color: $very-dark-blue;
+        margin: 0;
       }
       p {
         font-size: 18px;
         line-height: 27px;
         font-family: $font-family-averta-demo;
         color: $gray;
+        margin: 0;
       }
     }
   }

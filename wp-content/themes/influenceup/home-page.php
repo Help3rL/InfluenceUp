@@ -129,7 +129,14 @@ get_header();
                 if (!empty($categories)) : ?>
                     <?php foreach ($categories as $category) : ?>
                         <?php
-                        if ($category->name == 'All categories' || $category->name == 'visos kategorijos') {
+                        //Check, has category children
+                        $child_categories = get_categories(array(
+                            'taxonomy' => 'rtcl_category',
+                            'hide_empty' => false,
+                            'parent' => $category->term_id,
+                        ));
+
+                        if (!empty($child_categories)) {
                             continue;
                         }
                         $category_link = get_term_link($category);

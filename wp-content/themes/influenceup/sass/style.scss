@@ -135,12 +135,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 svg#animated-lines path,
     svg#animated-lines circle {
-        stroke: #FAAF3C;
+        stroke: $yellow;
         fill: none;
     }
 
     svg#animated-lines circle {
-        fill: #FAAF3C;
+        fill: $yellow;
     }
 svg#animated-lines {
 	position: fixed; 
@@ -149,6 +149,5 @@ svg#animated-lines {
 	width: 100vw; 
 	height: 100vh; 
 	pointer-events: none; 
-	z-index: -1;
-	background-color: #F6F6F6;
+	z-index: 1;
 }	
