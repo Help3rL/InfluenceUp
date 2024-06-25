@@ -223,7 +223,7 @@ function add_category_count_to_menu($items, $args) {
 			//Checking if term not WP_Error and exist
             if (!is_wp_error($term) && $term) {
 				//Check is menu item category name "All categories"
-                if ($item->title === "All categories") {
+                if ($item->title === "Visos kategorijos" && $item->title == "All categories") {
 					//Get all categories records sum
                     $terms = get_terms(['taxonomy' => 'rtcl_category', 'hide_empty' => false]);
                     $all_categories_count = array_sum(wp_list_pluck($terms, 'count'));

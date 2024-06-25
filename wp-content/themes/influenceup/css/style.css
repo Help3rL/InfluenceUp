@@ -899,7 +899,7 @@ a.yellow-buttom:hover {
 }
 .service-card .service-content-container {
   width: 100%;
-  padding: 10px;
+  padding: 18px 14px 24px 14px;
   gap: 10px;
   display: flex;
   flex-direction: column;
@@ -2116,11 +2116,13 @@ a.yellow-buttom:hover {
 /* Team page
 --------------------------------------------- */
 #teamParent {
-  padding: 0 15px;
+  padding: 80px 15px;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 60px;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 #teamParent .team-heading {
   text-align: center;
@@ -2132,6 +2134,7 @@ a.yellow-buttom:hover {
   font-size: 40px;
   line-height: 52.6px;
   color: #0C1030;
+  margin: 0;
 }
 @media (max-width: 480px) {
   #teamParent .team-heading h1 {

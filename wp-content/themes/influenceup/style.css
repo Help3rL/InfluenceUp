@@ -1981,7 +1981,7 @@ a.yellow-buttom:hover {
 }
 .services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .service-card .service-content-container {
   width: 100%;
-  padding: 10px;
+  padding: 18px 14px 24px 14px;
   gap: 10px;
   display: flex;
   flex-direction: column;
