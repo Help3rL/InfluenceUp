@@ -1,0 +1,95 @@
+.step-carousel-container {
+    width: 100%;
+    max-width: 1170px;
+    .steps-carousel {
+      .slick-list {
+        .slick-track {
+          .step-item.slick-slide {
+            text-align: center;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            @media (max-width: 480px) {
+              max-width: none;
+              width: 100%;
+            }
+            &:not(:last-child)::before {
+              content: "";
+              position: absolute;
+              top: 16%;
+              left: -4px;
+              border-top: 2px dashed $light-blue;
+              transform: translateX(100%) translateY(-50%);
+              width: 50%;
+              @media (max-width: 478px) {
+                top: 18%;
+              }
+            }
+            &:not(:last-child)::after {
+              content: "";
+              position: absolute;
+              top: 16%;
+              right: 0;
+              border-top: 2px dashed $light-blue;
+              transform: translateX(100%) translateY(-50%);
+              width: 50%;
+              @media (max-width: 478px) {
+                top: 18%;
+              }
+            }
+            .step-number {
+              font-size: 24px;
+              color: $very-dark-blue;
+              font-family: $font-family-averta-bold;
+              background: $pure-white;
+              border: 2px solid $light-blue;
+              border-radius: 50%;
+              width: 50px;
+              height: 50px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 0 auto;
+              z-index: 1;
+            }
+            h3 {
+              margin: 24px 0 0 0;
+              color: $pure-white;
+              font-size: 32px;
+              line-height: 42.08px;
+            }
+            p {
+              font-size: 18px;
+              line-height: 27px;
+              color: $pure-white;
+              margin: 4px 0 0 0;
+              padding: 0px 10px;
+              margin-bottom: 0;
+              max-width: 320px;
+            }
+          }
+        }
+      }
+      ul.slick-dots {
+        bottom: -50px;
+        li {
+          border: 2px solid $light-blue;
+          border-radius: 1000px;
+          background-color: transparent;
+          button::before {
+            color: transparent;
+          }
+        }
+        li.slick-active {
+          border: 2px solid $light-blue;
+          border-radius: 1000px;
+          background-color: $light-blue;
+          button::before {
+            color: transparent;
+          }
+        }
+      }
+    }
+  }

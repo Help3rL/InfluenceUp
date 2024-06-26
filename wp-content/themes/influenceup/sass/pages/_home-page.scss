@@ -1,0 +1,265 @@
+#hero {
+  width: 100%;
+  background-color: $very-dark-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  gap: 60px;
+  .hero-title-container {
+    max-width: 942px;
+    padding: 0px 30px;
+    position: static;
+    z-index: 2;
+    h1 {
+      color: $pure-white;
+      font-size: 84px;
+      line-height: 110.46px;
+      text-align: center;
+      font-family: $font-family-averta-bold;
+      span {
+        color: $yellow;
+      }
+      @media (max-width: 768px) {
+        font-size: 80px;
+        line-height: 80.35px;
+      }
+      @media (max-width: 550px) {
+        font-size: 53px;
+        line-height: 50.35px;
+      }
+
+      @media (max-width: 360px) {
+        font-size: 36px;
+        line-height: 47.34px;
+      }
+    }
+  }
+}
+//text with button
+.text-with-button-parent {
+  padding: 0 15px;
+  .text-with-button-cointainer {
+    max-width: 1170px;
+    background-color: $blue;
+    margin: 100px auto;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    gap: 30px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    .text-with-button {
+      max-width: 506px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      position: relative;
+      z-index: 2;
+      @media (max-width: 768px) {
+        align-items: center;
+        text-align: center;
+      }
+
+      h3 {
+        color: $pure-white;
+        font-size: 40px;
+        line-height: 52.6px;
+        font-family: $font-family-averta-bold;
+        margin: 0;
+        @media (max-width: 480px) {
+          font-size: 24px;
+          line-height: 31.56px;
+        }
+      }
+    }
+    div {
+      img {
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+//about us
+.about-us-section {
+  width: 100%;
+  background-color: $very-dark-blue;
+  padding: 0 15px;
+  .about-us-container {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0;
+    gap: 30px;
+    align-items: flex-end;
+    @media (max-width: 950px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .about-us-text {
+      max-width: 438px;
+      position: relative;
+      z-index: 2;
+      h3 {
+        font-size: 40px;
+        line-height: 52.6px;
+        font-family: $font-family-averta-bold;
+        color: $pure-white;
+        @media (max-width: 768px) {
+          font-size: 24px;
+          line-height: 31.56px;
+        }
+      }
+      p {
+        font-family: $font-family-averta-demo;
+        font-size: 18px;
+        line-height: 27px;
+        color: $pure-white;
+      }
+    }
+    .about-us-gallery {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+      .image-row {
+        display: flex;
+        gap: 20px;
+        img {
+          max-width: 316px;
+          border-radius: 12px 12px 12px 12px;
+          display: block;
+          @media (min-width: 1036px) and (max-width: 1180px) {
+            max-width: 270px;
+          }
+          @media (min-width: 951px) and (max-width: 1035px) {
+            max-width: 250px;
+          }
+          @media (max-width: 768px) {
+            max-width: 230px;
+          }
+          @media (max-width: 520px) {
+            max-width: 150px;
+          }
+          @media (max-width: 359px) {
+            max-width: 130px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.brands-parent {
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+  .brands-container {
+    max-width: 1170px;
+    margin: 0 auto;
+    width: 100%;
+    .brands-heading {
+      h3 {
+        text-align: center;
+        font-size: $font-family-averta-demo;
+        font-weight: 800;
+        font-style: italic;
+        font-size: 40px;
+        line-height: 48.01px;
+        color: $light-blue;
+        @media (max-width: 480px) {
+          font-size: 24px;
+          line-height: 28.8px;
+        }
+      }
+    }
+    .brands {
+      display: grid;
+      grid-template-columns: auto auto auto auto auto auto;
+      align-items: center;
+      justify-content: space-between;
+
+      @media (max-width: 899px) {
+        grid-template-columns: auto auto auto;
+        gap: 30px;
+      }
+      @media (max-width: 500px) {
+        grid-template-columns: auto auto;
+        gap: 30px;
+      }
+    }
+  }
+}
+//advantages
+.advantages-container {
+  width: 100%;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+  margin: 100px auto;
+  .advantages-heading-container {
+    max-width: 1170px;
+    margin: 0 auto;
+    width: 100%;
+    h3 {
+      margin: 0;
+      font-size: 40px;
+      line-height: 52.6px;
+      font-weight: bold;
+      @media (max-width: 768px) {
+        font-size: 24px;
+        line-height: 31.56px;
+      }
+    }
+  }
+  .items-container {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      margin: unset;
+    }
+    .advantage-item {
+      background-color: $white;
+      border: 2px solid $light-blue;
+      border-radius: 12px;
+      padding: 32px 40px;
+      max-width: 370px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      @media (max-width: 768px) {
+        max-width: unset;
+        width: 100%;
+      }
+      h3 {
+        font-size: 24px;
+        line-height: 31.56px;
+        font-family: $font-family-averta-bold;
+        color: $very-dark-blue;
+        margin: 0;
+      }
+      p {
+        font-size: 18px;
+        line-height: 27px;
+        font-family: $font-family-averta-demo;
+        color: $gray;
+        margin: 0;
+      }
+    }
+  }
+}

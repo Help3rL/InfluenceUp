@@ -1,0 +1,44 @@
+.services-carousel-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1170px;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 0px 15px;
+  position: relative;
+  z-index: 2;
+  .services-headings-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      margin: 0;
+      font-size: 40px;
+      line-height: 52.6px;
+      font-weight: bold;
+      @media (max-width: 768px) {
+        font-size: 24px;
+        line-height: 31.56px;
+      }
+    }
+  }
+  .services-carousel-cards.slick-slider {
+    width: 100%;
+    overflow: hidden;
+    .slick-list {
+      margin: 0 -10px;
+      .slick-track {
+        a.slick-slide {
+          text-decoration: none;
+          margin: 0 10px;
+          &:visited {
+            color: $light-gray;
+          }
+        }
+      }
+    }
+  }
+}

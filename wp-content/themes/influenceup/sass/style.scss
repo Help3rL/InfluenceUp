@@ -112,3 +112,46 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /* footer
 --------------------------------------------- */
 @import "layouts/footer";
+
+/* Home page
+--------------------------------------------- */
+@import "pages/home-page";
+
+/* Rtcl categories carousel
+--------------------------------------------- */
+@import "layouts/rtcl-categories-carousel";
+
+/* Rtcl listings carousel
+--------------------------------------------- */
+@import "layouts/rtcl_listings-carousel";
+
+/* Step carousel
+--------------------------------------------- */
+@import "layouts/step-carousel";
+
+/* Team page
+--------------------------------------------- */
+@import "pages/team-page";
+
+/* Listings page
+--------------------------------------------- */
+@import "pages/listings-page";
+
+svg#animated-lines path,
+    svg#animated-lines circle {
+        stroke: $yellow;
+        fill: none;
+    }
+
+    svg#animated-lines circle {
+        fill: $yellow;
+    }
+svg#animated-lines {
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	width: 100vw; 
+	height: 100vh; 
+	pointer-events: none; 
+	z-index: 1;
+}	

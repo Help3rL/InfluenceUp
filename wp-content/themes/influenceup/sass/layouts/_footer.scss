@@ -10,6 +10,8 @@
   .footer-links {
     display: flex;
     gap: 32px;
+    position: relative;
+    z-index: 2;
     a {
       font-size: 20px;
       line-height: 24px;
@@ -18,10 +20,14 @@
     }
   }
   .footer-social-links {
+    position: relative;
+    z-index: 2;
     display: flex;
     gap: 16px;
   }
   .footer-copy-right {
+    position: relative;
+    z-index: 2;
     font-size: 18px;
     color: $pure-white;
     line-height: 21.6px;

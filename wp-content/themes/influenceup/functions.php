@@ -149,6 +149,7 @@ function influenceup_scripts() {
 	wp_localize_script('influenceup-header-js', 'influenceup', array(
         'templateUrl' => get_template_directory_uri() . '/inc/img/arrow'
     ));
+    //Search
 	wp_enqueue_script('ajax-search', get_template_directory_uri() . '/js/header/ajax-search.js', array('jquery'), null, true);
     wp_localize_script('ajax-search', 'ajaxsearch', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
@@ -158,6 +159,17 @@ function influenceup_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+    //slick
+    wp_enqueue_style('slick-css', get_template_directory_uri() . '/assets/slick/slick.css', array(), false, 'all');
+    wp_enqueue_style('slick-theme-css', get_template_directory_uri() . '/assets/slick/slick-theme.css', array(), false, 'all');
+    wp_enqueue_script('slick-js', get_template_directory_uri() . '/assets/slick/slick.min.js', array(), false, true);
+    //Carousels
+    wp_enqueue_script('hero-section-slider.js', get_template_directory_uri() . '/js/hero-section-slider.js', array(), false, true);
+    wp_enqueue_script('rtcl-categories-carousel.js', get_template_directory_uri() . '/js/rtcl-categories-carousel.js', array(), false, true);
+    wp_enqueue_script('rtcl-listings-carousel.js', get_template_directory_uri() . '/js/rtcl-listings-carousel.js', array(), false, true);
+    
+    //Animated lines
+    wp_enqueue_script('animated-lines-js', get_template_directory_uri() . '/js/animated-lines.js', array(), true);
 }
 add_action( 'wp_enqueue_scripts', 'influenceup_scripts' );
 
@@ -203,16 +215,16 @@ add_filter('walker_nav_menu_start_el', 'add_menu_arrows', 10, 4);
 //Add count to menu sub menu categories
 function add_category_count_to_menu($items, $args) {
     foreach ($items as &$item) {
-		//Checking menu categories are from 'rtcl category'
+        //Checking menu categories are from 'rtcl category'
         if ($item->type === 'taxonomy' && $item->object === 'rtcl_category') {
             $term_id = $item->object_id; // Getting term ID
             $term = get_term($term_id, 'rtcl_category'); //Getting terms object
             
-			//Checking if term not WP_Error and exist
+            //Checking if term not WP_Error and exist
             if (!is_wp_error($term) && $term) {
-				//Check is menu item category name "All categories"
-                if ($item->title === "All categories") {
-					//Get all categories records sum
+                //Check if menu item category name is "Visos kategorijos"
+                if ($item->title === "Visos kategorijos") {
+                    //Get all categories records sum
                     $terms = get_terms(['taxonomy' => 'rtcl_category', 'hide_empty' => false]);
                     $all_categories_count = array_sum(wp_list_pluck($terms, 'count'));
                     $item->title .= ' (' . $all_categories_count . ')';
@@ -226,6 +238,7 @@ function add_category_count_to_menu($items, $args) {
     return $items;
 }
 add_filter('wp_nav_menu_objects', 'add_category_count_to_menu', 10, 2);
+
 
 // Ajax search actions
 add_action('wp_ajax_data_fetch' , 'data_fetch');
@@ -286,6 +299,55 @@ function disable_admin_bar_for_non_admins(){
     }
 }
 add_action('after_setup_theme', 'disable_admin_bar_for_non_admins');
+
+
+function get_listing_image_url($post_id) {
+    $attachments = get_posts([
+        'post_type' => 'attachment',
+        'posts_per_page' => 1,
+        'post_parent' => $post_id,
+        'orderby' => 'menu_order',
+        'order' => 'ASC'
+    ]);
+
+    if (!empty($attachments)) {
+        return wp_get_attachment_image_url($attachments[0]->ID, 'full'); // Return full img url
+    }
+    return ''; // If not return empty
+}
+
+//ACF options page
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title' 	=> 'Footer Settings',
+        'menu_title'	=> 'Footer Settings',
+        'menu_slug' 	=> 'footer-settings',
+        'capability'	=> 'edit_posts',
+        'redirect'		=> false
+    ));
+}
+
+
+function custom_add_rating_to_listing() {
+    global $post;
+	$categories = get_the_terms($post->ID, 'rtcl_category');
+    $average_rating = get_post_meta($post->ID, 'rtrs_avg_rating', true);
+    $review_count = get_post_meta($post->ID, '_rtcl_review_count', true);
+    ?>
+	<p><?php echo $categories ? esc_html($categories[0]->name) : 'No Category'; ?></p>
+    <div class="service-rating">
+        <i class="fa fa-star <?php echo ($average_rating > 0) ? 'filled' : ''; ?>"></i>
+        <span class="rating-average"><?php echo esc_html($average_rating); ?></span>
+        <?php if ($review_count >= 0) : ?>
+            <span>(<?php echo esc_html($review_count); ?>)</span>
+        <?php endif; ?>
+    </div>
+    <?php
+}
+
+add_action('rtcl_listing_loop_item', 'custom_add_rating_to_listing', 79);
+
+
 
 
 
