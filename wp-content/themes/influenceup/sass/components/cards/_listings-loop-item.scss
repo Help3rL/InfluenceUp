@@ -1,0 +1,80 @@
+.rtcl-listings.rtcl-grid-view {
+  max-width: 932px;
+  .rtcl-listing-item {
+    background-color: $white !important;
+    border-radius: 12px;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    border: 2px solid $light-blue !important;
+    max-width: 218px;
+    .listing-thumb {
+      .listing-thumb-inner {
+        .rtcl-meta-buttons {
+            display: none;
+        }
+        .rtcl-media {
+          img.rtcl-thumbnail {
+            width: 100% !important;
+            height: 248px;
+          }
+        }
+      }
+    }
+    .item-content {
+      width: 100%;
+      padding: 18px 14px 24px 14px;
+      h3 {
+        font-family: $font-family-averta-demo;
+        font-size: 18px;
+        line-height: 21.6px;
+        color: $very-dark-blue;
+        font-weight: 400;
+        margin-bottom: 0;
+        a {
+            text-decoration: none;
+            color: $very-dark-blue;
+        }
+      }
+      p {
+        font-family: $font-family-averta-demo;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21.6px;
+        color: $gray;
+        margin: 2px 0px 0px 0px;
+      }
+      .service-rating {
+        margin-top: 0;
+        text-decoration: none;
+        .fa-star {
+          color: lightgray;
+        }
+        .fa-star.filled {
+          text-decoration: none;
+          color: $yellow;
+        }
+        span {
+          text-decoration: none;
+          color: $light-gray;
+          font-size: 18px;
+          font-family: $font-family-averta-demo;
+          &.rating-avarage {
+            color: $very-dark-blue;
+          }
+        }
+      }
+      .rtcl-price-wrap {
+        margin-top: 13px;
+        .rtcl-price {
+            font-family: $font-family-averta-demo; 
+            font-size: 18px;
+            line-height: 21.6px;
+            font-weight: 400;
+            color: $very-dark-blue;
+        }
+      }
+    }
+  }
+}

@@ -133,6 +133,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------- */
 @import "pages/team-page";
 
+/* Listings page
+--------------------------------------------- */
+@import "pages/listings-page";
+
 svg#animated-lines path,
     svg#animated-lines circle {
         stroke: $yellow;

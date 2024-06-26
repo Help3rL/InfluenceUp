@@ -25,8 +25,12 @@ get_header();
     fill: #FAAF3C;
   }
 </style>
+<?php
+// Patikrina, ar esame kategorijos puslapyje ar klasifikuotų skelbimų archyvo puslapyje
+$is_listings_page = is_category() || is_post_type_archive('rtcl_listing') || is_tax('rtcl_category');
+?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main<?php echo $is_listings_page ? ' listings-page' : ''; ?>">
 
 		<?php
 		while ( have_posts() ) :
@@ -41,9 +45,8 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-
+		<?php get_sidebar(); ?>
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

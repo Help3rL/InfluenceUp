@@ -215,16 +215,16 @@ add_filter('walker_nav_menu_start_el', 'add_menu_arrows', 10, 4);
 //Add count to menu sub menu categories
 function add_category_count_to_menu($items, $args) {
     foreach ($items as &$item) {
-		//Checking menu categories are from 'rtcl category'
+        //Checking menu categories are from 'rtcl category'
         if ($item->type === 'taxonomy' && $item->object === 'rtcl_category') {
             $term_id = $item->object_id; // Getting term ID
             $term = get_term($term_id, 'rtcl_category'); //Getting terms object
             
-			//Checking if term not WP_Error and exist
+            //Checking if term not WP_Error and exist
             if (!is_wp_error($term) && $term) {
-				//Check is menu item category name "All categories"
-                if ($item->title === "Visos kategorijos" && $item->title == "All categories") {
-					//Get all categories records sum
+                //Check if menu item category name is "Visos kategorijos"
+                if ($item->title === "Visos kategorijos") {
+                    //Get all categories records sum
                     $terms = get_terms(['taxonomy' => 'rtcl_category', 'hide_empty' => false]);
                     $all_categories_count = array_sum(wp_list_pluck($terms, 'count'));
                     $item->title .= ' (' . $all_categories_count . ')';
@@ -238,6 +238,7 @@ function add_category_count_to_menu($items, $args) {
     return $items;
 }
 add_filter('wp_nav_menu_objects', 'add_category_count_to_menu', 10, 2);
+
 
 // Ajax search actions
 add_action('wp_ajax_data_fetch' , 'data_fetch');
@@ -325,6 +326,28 @@ if( function_exists('acf_add_options_page') ) {
         'redirect'		=> false
     ));
 }
+
+
+function custom_add_rating_to_listing() {
+    global $post;
+	$categories = get_the_terms($post->ID, 'rtcl_category');
+    $average_rating = get_post_meta($post->ID, 'rtrs_avg_rating', true);
+    $review_count = get_post_meta($post->ID, '_rtcl_review_count', true);
+    ?>
+	<p><?php echo $categories ? esc_html($categories[0]->name) : 'No Category'; ?></p>
+    <div class="service-rating">
+        <i class="fa fa-star <?php echo ($average_rating > 0) ? 'filled' : ''; ?>"></i>
+        <span class="rating-average"><?php echo esc_html($average_rating); ?></span>
+        <?php if ($review_count >= 0) : ?>
+            <span>(<?php echo esc_html($review_count); ?>)</span>
+        <?php endif; ?>
+    </div>
+    <?php
+}
+
+add_action('rtcl_listing_loop_item', 'custom_add_rating_to_listing', 79);
+
+
 
 
 

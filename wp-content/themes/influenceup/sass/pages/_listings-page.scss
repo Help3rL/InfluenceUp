@@ -1,0 +1,23 @@
+.site-main.listings-page {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 auto;
+    max-width: 1200px;
+    gap: 30px;
+    .entry-content {
+       .rtcl-listings-sc-wrapper {
+        .rtcl-listings-wrapper {
+            .rtcl-grid-view {
+                grid-template-columns: repeat(4, 1fr);
+                margin-bottom: 100px;
+                @media (max-width: 980px) {
+                grid-template-columns: repeat(3, 1fr);
+                }
+                @media (max-width: 768px) {
+                    grid-template-columns: repeat(2, 1fr);
+                  }
+            }
+        }
+       } 
+    }
+}
