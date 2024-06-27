@@ -1024,6 +1024,41 @@ a.yellow-buttom:hover {
   color: #0C1030;
 }
 
+/* Listings loop item pagination
+--------------------------------------------- */
+nav.rtcl-pagination {
+  display: block;
+}
+nav.rtcl-pagination ul {
+  align-items: baseline;
+}
+nav.rtcl-pagination ul li {
+  border: none !important;
+  border-radius: unset !important;
+  margin: 0 24px 0 0 !important;
+  font-family: "Averta Demo Regular", sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #0C1030;
+}
+nav.rtcl-pagination ul li a.service-carousel-prev,
+nav.rtcl-pagination ul li .service-carousel-next {
+  background-color: unset;
+  padding: unset;
+  border: none;
+}
+nav.rtcl-pagination ul li a.service-carousel-prev svg,
+nav.rtcl-pagination ul li .service-carousel-next svg {
+  stroke: #0C1030;
+  fill: #FFFFFF;
+}
+nav.rtcl-pagination ul li a.service-carousel-prev svg:hover,
+nav.rtcl-pagination ul li .service-carousel-next svg:hover {
+  fill: #3C92F6;
+  stroke: #FFFFFF;
+}
+
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
@@ -1123,6 +1158,7 @@ a.yellow-buttom:hover {
   z-index: 1000;
   background-color: #FFFFFF;
   width: 100%;
+  box-shadow: 0px 8px 48px 0px rgba(12, 16, 48, 0.04);
 }
 .site-header .header-container {
   display: flex;
@@ -1643,7 +1679,7 @@ a.yellow-buttom:hover {
   background-color: #0C1030;
   padding: 54px 15px;
   font-family: "Averta Demo Regular", sans-serif;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   align-items: center;
   gap: 32px;
@@ -1987,6 +2023,15 @@ a.yellow-buttom:hover {
   position: relative;
   z-index: 2;
 }
+.rtcl-categories-container.listing-page-carousel {
+  margin-top: 80px;
+  margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .rtcl-categories-container.listing-page-carousel {
+    margin-top: 56px;
+  }
+}
 .rtcl-categories-container .carousel-headings-container {
   display: flex;
   justify-content: space-between;
@@ -1994,7 +2039,7 @@ a.yellow-buttom:hover {
 }
 .rtcl-categories-container .carousel-headings-container h3 {
   margin: 0;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 52.6px;
   font-weight: bold;
 }
@@ -2043,6 +2088,7 @@ a.yellow-buttom:hover {
   font-size: 24px;
   line-height: 28.8px;
   color: #FFFFFF;
+  margin: 12px 0;
 }
 
 /* Rtcl listings carousel
@@ -2297,24 +2343,63 @@ a.yellow-buttom:hover {
 --------------------------------------------- */
 .site-main.listings-page {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 1200px;
+  gap: 100px;
+}
+.site-main.listings-page .listings-content-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
   gap: 30px;
 }
-.site-main.listings-page .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-grid-view {
+.site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions {
+  justify-content: end;
+  margin: 0 0 22px;
+}
+.site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions form.rtcl-ordering {
+  margin-right: 0;
+  border: 2px solid #3C92F6;
+  border-radius: 1000px;
+  max-width: 250px;
+  width: 100%;
+}
+.site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions form.rtcl-ordering select {
+  font-size: 20px;
+  color: #0C1030;
+  font-family: "Averta Demo Regular", sans-serif;
+  max-width: 250px;
+  width: 100%;
+  border: none;
+}
+.site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions form.rtcl-ordering select option {
+  padding: 12px 0px;
+}
+.site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions .rtcl-result-count {
+  display: none;
+}
+.site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions .rtcl-view-switcher {
+  display: none;
+}
+.site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-active-filters-container {
+  display: none;
+}
+.site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-grid-view {
   grid-template-columns: repeat(4, 1fr);
   margin-bottom: 100px;
 }
 @media (max-width: 980px) {
-  .site-main.listings-page .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-grid-view {
+  .site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-grid-view {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 768px) {
-  .site-main.listings-page .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-grid-view {
+  .site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-grid-view {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+.site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-pagination:first-of-type {
+  display: none;
 }
 
 svg#animated-lines path,

@@ -1,5 +1,5 @@
 .site-header {
-  display: flex!important;
+  display: flex !important;
   justify-content: center;
   align-items: center;
   padding: 15px 15px;
@@ -10,6 +10,7 @@
   z-index: 1000;
   background-color: $pure-white;
   width: 100%;
+  box-shadow: 0px 8px 48px 0px rgba(12, 16, 48, 0.04);
 
   .header-container {
     display: flex;
