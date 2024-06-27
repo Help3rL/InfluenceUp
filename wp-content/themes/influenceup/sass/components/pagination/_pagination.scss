@@ -1,0 +1,32 @@
+nav.rtcl-pagination {
+    display: block;
+  ul {
+    align-items: baseline;
+    li {
+      border: none !important;
+      border-radius: unset !important;
+      margin: 0 24px 0 0 !important;
+      font-family: $font-family-averta-demo;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 400;
+      color: $very-dark-blue;
+
+      a.service-carousel-prev,
+      .service-carousel-next {
+        background-color: unset;
+        padding: unset;
+        border: none;
+        svg {
+          stroke: $very-dark-blue;
+          fill: $pure-white;
+
+          &:hover {
+            fill: $light-blue;
+            stroke: $pure-white;
+          }
+        }
+      }
+    }
+  }
+}

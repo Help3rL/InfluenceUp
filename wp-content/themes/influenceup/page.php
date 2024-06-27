@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all pages
  *
@@ -17,36 +18,53 @@ get_header();
 
 <svg id="animated-lines" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1;"></svg>
 <style>
-  svg#animated-lines path, svg#animated-lines circle {
-    stroke: #FAAF3C;
-    fill: none;
-  }
-  svg#animated-lines circle {
-    fill: #FAAF3C;
-  }
+	svg#animated-lines path,
+	svg#animated-lines circle {
+		stroke: #FAAF3C;
+		fill: none;
+	}
+
+	svg#animated-lines circle {
+		fill: #FAAF3C;
+	}
 </style>
 <?php
 // Patikrina, ar esame kategorijos puslapyje ar klasifikuotų skelbimų archyvo puslapyje
 $is_listings_page = is_category() || is_post_type_archive('rtcl_listing') || is_tax('rtcl_category');
 ?>
 
-	<main id="primary" class="site-main<?php echo $is_listings_page ? ' listings-page' : ''; ?>">
+<main id="primary" class="site-main<?php echo $is_listings_page ? ' listings-page' : ''; ?>">
+	<?php if ($is_listings_page) : ?>
 
+		<?php echo do_shortcode('[rtcl_categories_carousel]'); ?>
+
+		<div class="listings-content-wrapper">
+			<?php
+			while (have_posts()) :
+				the_post();
+				get_template_part('template-parts/content', 'page');
+				// If comments are open or we have at least one comment, load up the comment template.
+				if (comments_open() || get_comments_number()) :
+					comments_template();
+				endif;
+			endwhile; // End of the loop.
+			?>
+			<?php get_sidebar(); ?>
+		</div>
+	<?php else : ?>
 		<?php
-		while ( have_posts() ) :
+		while (have_posts()) :
 			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
+			get_template_part('template-parts/content', 'page');
 			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
+			if (comments_open() || get_comments_number()) :
 				comments_template();
 			endif;
-
 		endwhile; // End of the loop.
 		?>
 		<?php get_sidebar(); ?>
-	</main><!-- #main -->
+	<?php endif; ?>
+</main><!-- #main -->
 
 <?php
 get_footer();
