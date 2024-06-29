@@ -39,6 +39,7 @@ $is_listings_page = is_category() || is_post_type_archive('rtcl_listing') || is_
 		<?php echo do_shortcode('[rtcl_categories_carousel]'); ?>
 
 		<div class="listings-content-wrapper">
+			<?php get_sidebar(); ?>
 			<?php
 			while (have_posts()) :
 				the_post();
@@ -49,7 +50,7 @@ $is_listings_page = is_category() || is_post_type_archive('rtcl_listing') || is_
 				endif;
 			endwhile; // End of the loop.
 			?>
-			<?php get_sidebar(); ?>
+
 		</div>
 	<?php else : ?>
 		<?php

@@ -13,6 +13,11 @@
   &.listing-page-carousel {
     margin-top: 80px;
     margin-bottom: 0;
+    max-width: 1200px;
+    padding: 0px 0px;
+    @media (max-width: 1199px) {
+      padding: 0px 15px;
+    }
     @media (max-width: 768px) {
       margin-top: 56px;
     }
@@ -45,7 +50,8 @@
       }
     }
   }
-  .carousel-cards.slick-slider {
+  .carousel-cards.slick-slider,
+  .carousel-cards-listings.slick-slider {
     width: 100%;
     overflow: hidden;
     .slick-list {

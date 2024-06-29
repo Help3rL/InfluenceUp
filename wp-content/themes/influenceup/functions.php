@@ -167,14 +167,15 @@ function influenceup_scripts()
 	//slick
 	wp_enqueue_style('slick-css', get_template_directory_uri() . '/assets/slick/slick.css', array(), false, 'all');
 	wp_enqueue_style('slick-theme-css', get_template_directory_uri() . '/assets/slick/slick-theme.css', array(), false, 'all');
-	wp_enqueue_script('slick-js', get_template_directory_uri() . '/assets/slick/slick.min.js', array(), false, true);
+	wp_enqueue_script('slick-js', get_template_directory_uri() . '/assets/slick/slick.min.js', array('jquery'), false, true);
 	//Carousels
-	wp_enqueue_script('hero-section-slider.js', get_template_directory_uri() . '/js/hero-section-slider.js', array(), false, true);
-	wp_enqueue_script('rtcl-categories-carousel.js', get_template_directory_uri() . '/js/rtcl-categories-carousel.js', array(), false, true);
-	wp_enqueue_script('rtcl-listings-carousel.js', get_template_directory_uri() . '/js/rtcl-listings-carousel.js', array(), false, true);
+	wp_enqueue_script('hero-section-slider.js', get_template_directory_uri() . '/js/hero-section-slider.js', array('jquery', 'slick-js'), false, true);
+	wp_enqueue_script('rtcl-categories-carousel.js', get_template_directory_uri() . '/js/rtcl-categories-carousel.js', array('jquery', 'slick-js'), false, true);
+	wp_enqueue_script('rtcl-listings-carousel.js', get_template_directory_uri() . '/js/rtcl-categories-carousel-listings.js', array('jquery', 'slick-js'), false, true);
+	wp_enqueue_script('rtcl-categories-carousel-listings.js', get_template_directory_uri() . '/js/rtcl-categories-carousel.js', array('jquery', 'slick-js'), false, true);
 
 	//Animated lines
-	wp_enqueue_script('animated-lines-js', get_template_directory_uri() . '/js/animated-lines.js', array(), true);
+	wp_enqueue_script('animated-lines-js', get_template_directory_uri() . '/js/animated-lines.js', array('jquery'), true);
 }
 add_action('wp_enqueue_scripts', 'influenceup_scripts');
 
@@ -375,7 +376,7 @@ function rtcl_categories_carousel_shortcode()
 {
 	ob_start();
 ?>
-	<div>
+	<div class="categories-carousel-parent">
 		<div class="rtcl-categories-container listing-page-carousel">
 			<?php $llistings_categories_carousel_title = get_field('listings_categories_carousel_title', 'option'); ?>
 			<div class="carousel-headings-container">
@@ -389,7 +390,7 @@ function rtcl_categories_carousel_shortcode()
 					</button>
 				</div>
 			</div>
-			<div class="carousel-cards">
+			<div class="carousel-cards-listings">
 				<?php
 				$categories = get_categories(array(
 					'taxonomy' => 'rtcl_category',
@@ -426,6 +427,11 @@ function rtcl_categories_carousel_shortcode()
 				<?php endif; ?>
 			</div>
 		</div>
+		<?php if (is_category() || is_tax('rtcl_category')) : ?>
+			<h1 class="category-title">
+				<?php single_cat_title(); ?>
+			</h1>
+		<?php endif; ?>
 	</div>
 <?php
 	return ob_get_clean();

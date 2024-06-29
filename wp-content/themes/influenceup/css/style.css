@@ -2026,6 +2026,13 @@ nav.rtcl-pagination ul li .service-carousel-next svg:hover {
 .rtcl-categories-container.listing-page-carousel {
   margin-top: 80px;
   margin-bottom: 0;
+  max-width: 1200px;
+  padding: 0px 0px;
+}
+@media (max-width: 1199px) {
+  .rtcl-categories-container.listing-page-carousel {
+    padding: 0px 15px;
+  }
 }
 @media (max-width: 768px) {
   .rtcl-categories-container.listing-page-carousel {
@@ -2062,18 +2069,22 @@ nav.rtcl-pagination ul li .service-carousel-next svg:hover {
   stroke: #0C1030;
   fill: #FFFFFF;
 }
-.rtcl-categories-container .carousel-cards.slick-slider {
+.rtcl-categories-container .carousel-cards.slick-slider,
+.rtcl-categories-container .carousel-cards-listings.slick-slider {
   width: 100%;
   overflow: hidden;
 }
-.rtcl-categories-container .carousel-cards.slick-slider .slick-list {
+.rtcl-categories-container .carousel-cards.slick-slider .slick-list,
+.rtcl-categories-container .carousel-cards-listings.slick-slider .slick-list {
   margin: 0 -15px;
 }
-.rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide {
+.rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide,
+.rtcl-categories-container .carousel-cards-listings.slick-slider .slick-list .slick-track a.slick-slide {
   text-decoration: none;
   margin: 0 15px;
 }
-.rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .category-card {
+.rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .category-card,
+.rtcl-categories-container .carousel-cards-listings.slick-slider .slick-list .slick-track a.slick-slide .category-card {
   background-color: #143D59;
   border-radius: 12px;
   display: flex !important;
@@ -2081,10 +2092,12 @@ nav.rtcl-pagination ul li .service-carousel-next svg:hover {
   align-items: center;
   overflow: hidden;
 }
-.rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .category-card .category-img {
+.rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .category-card .category-img,
+.rtcl-categories-container .carousel-cards-listings.slick-slider .slick-list .slick-track a.slick-slide .category-card .category-img {
   width: 100%;
 }
-.rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .category-card .carousel-category-name {
+.rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .category-card .carousel-category-name,
+.rtcl-categories-container .carousel-cards-listings.slick-slider .slick-list .slick-track a.slick-slide .category-card .carousel-category-name {
   font-size: 24px;
   line-height: 28.8px;
   color: #FFFFFF;
@@ -2346,12 +2359,34 @@ nav.rtcl-pagination ul li .service-carousel-next svg:hover {
   flex-direction: column;
   margin: 0 auto;
   max-width: 1200px;
+  gap: 38px;
+}
+.site-main.listings-page .categories-carousel-parent {
+  display: flex;
+  flex-direction: column;
   gap: 100px;
+}
+.site-main.listings-page .categories-carousel-parent .category-title {
+  font-size: 40px;
+  line-height: 52.6px;
+  font-family: "Averta-Bold", sans-serif;
+}
+@media (max-width: 1199px) {
+  .site-main.listings-page .categories-carousel-parent .category-title {
+    padding: 0px 15px;
+  }
+}
+@media (max-width: 768px) {
+  .site-main.listings-page .categories-carousel-parent .category-title {
+    font-size: 24px;
+    line-height: 31.56px;
+  }
 }
 .site-main.listings-page .listings-content-wrapper {
   display: flex;
-  flex-direction: row-reverse;
   gap: 30px;
+  flex-direction: row;
+  justify-content: center;
 }
 .site-main.listings-page .listings-content-wrapper .entry-content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions {
   justify-content: end;
