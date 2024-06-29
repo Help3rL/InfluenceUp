@@ -57,7 +57,10 @@ get_header();
                                 $categories = get_the_terms(get_the_ID(), 'rtcl_category');
                                 $price = get_post_meta(get_the_ID(), 'price', true);
                                 $average_rating = get_post_meta(get_the_ID(), 'rtrs_avg_rating', true);
-                                $review_count = get_post_meta(get_the_ID(), '_rtcl_review_count', true);
+                                $review_count = get_comments_number(get_the_ID());
+                                $rating_count_data = get_post_meta(get_the_ID(), '_rtcl_rating_count', true);
+
+
                                 $listing = rtcl()->factory->get_listing(get_the_ID());
                                 ?>
                                 <div class="service-content-container">

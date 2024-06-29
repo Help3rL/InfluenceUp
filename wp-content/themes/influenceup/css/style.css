@@ -2070,21 +2070,21 @@ nav.rtcl-pagination ul li .service-carousel-next svg:hover {
   fill: #FFFFFF;
 }
 .rtcl-categories-container .carousel-cards.slick-slider,
-.rtcl-categories-container .carousel-cards-listings.slick-slider {
+.rtcl-categories-container .carousel-cards-listings-categories.slick-slider {
   width: 100%;
   overflow: hidden;
 }
 .rtcl-categories-container .carousel-cards.slick-slider .slick-list,
-.rtcl-categories-container .carousel-cards-listings.slick-slider .slick-list {
+.rtcl-categories-container .carousel-cards-listings-categories.slick-slider .slick-list {
   margin: 0 -15px;
 }
 .rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide,
-.rtcl-categories-container .carousel-cards-listings.slick-slider .slick-list .slick-track a.slick-slide {
+.rtcl-categories-container .carousel-cards-listings-categories.slick-slider .slick-list .slick-track a.slick-slide {
   text-decoration: none;
   margin: 0 15px;
 }
 .rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .category-card,
-.rtcl-categories-container .carousel-cards-listings.slick-slider .slick-list .slick-track a.slick-slide .category-card {
+.rtcl-categories-container .carousel-cards-listings-categories.slick-slider .slick-list .slick-track a.slick-slide .category-card {
   background-color: #143D59;
   border-radius: 12px;
   display: flex !important;
@@ -2093,11 +2093,11 @@ nav.rtcl-pagination ul li .service-carousel-next svg:hover {
   overflow: hidden;
 }
 .rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .category-card .category-img,
-.rtcl-categories-container .carousel-cards-listings.slick-slider .slick-list .slick-track a.slick-slide .category-card .category-img {
+.rtcl-categories-container .carousel-cards-listings-categories.slick-slider .slick-list .slick-track a.slick-slide .category-card .category-img {
   width: 100%;
 }
 .rtcl-categories-container .carousel-cards.slick-slider .slick-list .slick-track a.slick-slide .category-card .carousel-category-name,
-.rtcl-categories-container .carousel-cards-listings.slick-slider .slick-list .slick-track a.slick-slide .category-card .carousel-category-name {
+.rtcl-categories-container .carousel-cards-listings-categories.slick-slider .slick-list .slick-track a.slick-slide .category-card .carousel-category-name {
   font-size: 24px;
   line-height: 28.8px;
   color: #FFFFFF;
@@ -2149,6 +2149,13 @@ nav.rtcl-pagination ul li .service-carousel-next svg:hover {
 }
 .services-carousel-container .services-carousel-cards.slick-slider .slick-list .slick-track a.slick-slide:visited {
   color: #6F6F6F;
+}
+
+/* Rtcl listings filter
+--------------------------------------------- */
+.widget-area .widget_custom_filter_widget form#custom-filter-form div.filter-section {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Step carousel

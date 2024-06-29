@@ -1,0 +1,10 @@
+.widget-area {
+  .widget_custom_filter_widget {
+    form#custom-filter-form {
+      div.filter-section {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}

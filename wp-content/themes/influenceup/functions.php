@@ -171,11 +171,16 @@ function influenceup_scripts()
 	//Carousels
 	wp_enqueue_script('hero-section-slider.js', get_template_directory_uri() . '/js/hero-section-slider.js', array('jquery', 'slick-js'), false, true);
 	wp_enqueue_script('rtcl-categories-carousel.js', get_template_directory_uri() . '/js/rtcl-categories-carousel.js', array('jquery', 'slick-js'), false, true);
-	wp_enqueue_script('rtcl-listings-carousel.js', get_template_directory_uri() . '/js/rtcl-categories-carousel-listings.js', array('jquery', 'slick-js'), false, true);
-	wp_enqueue_script('rtcl-categories-carousel-listings.js', get_template_directory_uri() . '/js/rtcl-categories-carousel.js', array('jquery', 'slick-js'), false, true);
+	wp_enqueue_script('rtcl-listings-carousel.js', get_template_directory_uri() . '/js/rtcl-listings-carousel.js', array('jquery', 'slick-js'), false, true);
+	wp_enqueue_script('rtcl-categories-carousel-listings.js', get_template_directory_uri() . '/js/rtcl-categories-carousel-listings.js', array('jquery', 'slick-js'), false, true);
 
 	//Animated lines
 	wp_enqueue_script('animated-lines-js', get_template_directory_uri() . '/js/animated-lines.js', array('jquery'), true);
+	//Filter
+	wp_enqueue_script('custom-filter-js', get_template_directory_uri() . '/js/custom-filter.js', array('jquery'), null, true);
+	wp_localize_script('custom-filter-js', 'customFilter', array(
+		'ajax_url' => admin_url('admin-ajax.php'),
+	));
 }
 add_action('wp_enqueue_scripts', 'influenceup_scripts');
 
@@ -356,7 +361,7 @@ function custom_add_rating_to_listing()
 	global $post;
 	$categories = get_the_terms($post->ID, 'rtcl_category');
 	$average_rating = get_post_meta($post->ID, 'rtrs_avg_rating', true);
-	$review_count = get_post_meta($post->ID, '_rtcl_review_count', true);
+	$review_count = get_comments_number(get_the_ID());
 ?>
 	<p><?php echo $categories ? esc_html($categories[0]->name) : 'No Category'; ?></p>
 	<div class="service-rating">
@@ -370,6 +375,36 @@ function custom_add_rating_to_listing()
 }
 
 add_action('rtcl_listing_loop_item', 'custom_add_rating_to_listing', 79);
+//Get post comments count by ID
+function get_review_count($post_id)
+{
+	global $wpdb;
+	$query = $wpdb->prepare("
+        SELECT COUNT(*) AS comment_count 
+        FROM {$wpdb->comments} 
+        WHERE comment_post_ID = %d 
+        AND comment_approved = 1
+    ", $post_id);
+
+	return $wpdb->get_var($query);
+}
+
+function get_comment_post_ids_by_min_reviews($min_reviews)
+{
+	global $wpdb;
+
+	$results = $wpdb->get_results($wpdb->prepare(
+		"SELECT comment_post_ID FROM $wpdb->comments 
+        WHERE comment_approved = 1 
+        GROUP BY comment_post_ID 
+        HAVING COUNT(comment_ID) >= %d",
+		$min_reviews
+	));
+
+	return wp_list_pluck($results, 'comment_post_ID');
+}
+
+
 
 //Rtcl categories carousel shortcode
 function rtcl_categories_carousel_shortcode()
@@ -390,7 +425,7 @@ function rtcl_categories_carousel_shortcode()
 					</button>
 				</div>
 			</div>
-			<div class="carousel-cards-listings">
+			<div class="carousel-cards-listings-categories">
 				<?php
 				$categories = get_categories(array(
 					'taxonomy' => 'rtcl_category',
@@ -433,7 +468,7 @@ function rtcl_categories_carousel_shortcode()
 			</h1>
 		<?php endif; ?>
 	</div>
-<?php
+	<?php
 	return ob_get_clean();
 }
 add_shortcode('rtcl_categories_carousel', 'rtcl_categories_carousel_shortcode');
@@ -471,3 +506,131 @@ function custom_rtcl_pagination()
 	echo '</ul></nav>';
 }
 add_action('rtcl_after_listing_loop', 'custom_rtcl_pagination', 10);
+
+
+function custom_filter_ajax_handler()
+{
+	$category = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
+	$reviews = isset($_POST['reviews']) ? intval($_POST['reviews']) : '';
+	$price = isset($_POST['price']) ? explode(',', sanitize_text_field($_POST['price'])) : array();
+	$min_price = isset($_POST['min_price']) ? floatval($_POST['min_price']) : '';
+	$max_price = isset($_POST['max_price']) ? floatval($_POST['max_price']) : '';
+
+	$args = array(
+		'post_type' => 'rtcl_listing',
+		'post_status' => 'publish',
+		'meta_query' => array(),
+		'tax_query' => array(),
+	);
+
+	if ($category) {
+		$args['tax_query'][] = array(
+			'taxonomy' => 'rtcl_category',
+			'field' => 'slug',
+			'terms' => $category,
+		);
+	}
+
+	if ($reviews) {
+		$comment_post_ids = get_comment_post_ids_by_min_reviews($reviews);
+		if (!empty($comment_post_ids)) {
+			$args['post__in'] = $comment_post_ids;
+		} else {
+			$args['post__in'] = array(0); // No posts found
+		}
+	}
+
+	if (!empty($price)) {
+		if (count($price) == 2) {
+			$args['meta_query'][] = array(
+				'key' => 'price',
+				'value' => array_map('intval', $price),
+				'type' => 'NUMERIC',
+				'compare' => 'BETWEEN',
+			);
+		} else {
+			$args['meta_query'][] = array(
+				'key' => 'price',
+				'value' => (int)$price[0],
+				'type' => 'NUMERIC',
+				'compare' => '>=',
+			);
+		}
+	}
+
+	if ($min_price || $max_price) {
+		$args['meta_query'][] = array(
+			'key' => 'price',
+			'value' => array($min_price, $max_price),
+			'type' => 'NUMERIC',
+			'compare' => 'BETWEEN',
+		);
+	}
+
+	$query = new WP_Query($args);
+
+	if ($query->have_posts()) {
+		while ($query->have_posts()) {
+			$query->the_post();
+			get_template_part('template-parts/content', 'listing');
+		}
+	} else {
+		echo '<p>No listings found.</p>';
+	}
+
+	wp_reset_postdata();
+	die();
+}
+add_action('wp_ajax_custom_filter', 'custom_filter_ajax_handler');
+add_action('wp_ajax_nopriv_custom_filter', 'custom_filter_ajax_handler');
+
+
+//Filter widget
+class Custom_Filter_Widget extends WP_Widget
+{
+
+	function __construct()
+	{
+		parent::__construct(
+			'custom_filter_widget',
+			__('Custom Filter Widget', 'text_domain'),
+			array('description' => __('A Custom Filter Widget', 'text_domain'),)
+		);
+	}
+
+	public function widget($args, $instance)
+	{
+		echo $args['before_widget'];
+		if (!empty($instance['title'])) {
+			echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
+		}
+
+		get_template_part('template-parts/filter', 'form');
+
+		echo $args['after_widget'];
+	}
+
+	public function form($instance)
+	{
+		$title = !empty($instance['title']) ? $instance['title'] : __('Filter', 'text_domain');
+	?>
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>">
+		</p>
+<?php
+	}
+
+	public function update($new_instance, $old_instance)
+	{
+		$instance = array();
+		$instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+		return $instance;
+	}
+}
+
+function register_custom_filter_widget()
+{
+	register_widget('Custom_Filter_Widget');
+}
+add_action('widgets_init', 'register_custom_filter_widget');

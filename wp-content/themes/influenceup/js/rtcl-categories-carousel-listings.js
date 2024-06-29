@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-  $(".carousel-cards-listings").slick({
+  $(".carousel-cards-listings-categories").slick({
     autoplay: false,
     dots: false,
     slidesToShow: 4,
